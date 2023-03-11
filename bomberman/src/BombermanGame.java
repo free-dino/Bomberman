@@ -5,10 +5,10 @@ import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.stage.Stage;
-import entities.Bomber;
+import entities.character.bomber.HumanBomber;
 import entities.Entity;
-import entities.Grass;
-import entities.Wall;
+import entities.block.Grass;
+import entities.block.Wall;
 import graphics.Sprite;
 
 import java.util.ArrayList;
@@ -57,7 +57,7 @@ public class BombermanGame extends Application {
 
         createMap();
 
-        Entity bomberman = new Bomber(1, 1, Sprite.player_right.getFxImage());
+        Entity bomberman = new HumanBomber(1, 1, Sprite.player_right.getFxImage());
         entities.add(bomberman);
     }
 
