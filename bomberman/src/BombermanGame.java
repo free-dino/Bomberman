@@ -15,10 +15,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class BombermanGame extends Application {
-    
+
     public static final int WIDTH = 20;
     public static final int HEIGHT = 15;
-    
+
     private GraphicsContext gc;
     private Canvas canvas;
     private List<Entity> entities = new ArrayList<>();
@@ -67,8 +67,7 @@ public class BombermanGame extends Application {
                 Entity object;
                 if (j == 0 || j == HEIGHT - 1 || i == 0 || i == WIDTH - 1) {
                     object = new Wall(i, j, Sprite.wall.getFxImage());
-                }
-                else {
+                } else {
                     object = new Grass(i, j, Sprite.grass.getFxImage());
                 }
                 stillObjects.add(object);
