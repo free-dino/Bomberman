@@ -5,7 +5,7 @@ import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.stage.Stage;
-import entities.character.bomber.HumanBomber;
+import entities.character.bomber.Bomber;
 import entities.Entity;
 import entities.block.Grass;
 import entities.block.Wall;
@@ -57,7 +57,7 @@ public class BombermanGame extends Application {
 
         createMap();
 
-        Entity bomberman = new HumanBomber(1, 1, Sprite.player_right.getFxImage());
+        Entity bomberman = new Bomber(1, 1, Sprite.player_right.getFxImage());
         entities.add(bomberman);
     }
 
