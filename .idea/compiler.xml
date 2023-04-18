@@ -9,8 +9,5 @@
         <module name="bomberman" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="bomberman" target="19" />
-    </bytecodeTargetLevel>
   </component>
 </project>
