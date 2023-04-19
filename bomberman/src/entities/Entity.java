@@ -5,11 +5,8 @@ import javafx.scene.image.Image;
 import graphics.Sprite;
 
 public abstract class Entity {
-    //Tọa độ X tính từ góc trái trên trong Canvas
-    protected int x;
-
-    //Tọa độ Y tính từ góc trái trên trong Canvas
-    protected int y;
+    protected int x; // Trục Ox từ trái sang phải.
+    protected int y; // Trục Oy từ trên xuống dưới.
 
     protected Image img;
 
@@ -17,6 +14,30 @@ public abstract class Entity {
     public Entity( int xUnit, int yUnit, Image img) {
         this.x = xUnit * Sprite.SCALED_SIZE;
         this.y = yUnit * Sprite.SCALED_SIZE;
+        this.img = img;
+    }
+
+    public int getX() {
+        return x;
+    }
+
+    public int getY() {
+        return y;
+    }
+
+    public Image getImg() {
+        return img;
+    }
+
+    public void setX(int x) {
+        this.x = x;
+    }
+
+    public void setY(int y) {
+        this.y = y;
+    }
+
+    public void setImg(Image img) {
         this.img = img;
     }
 

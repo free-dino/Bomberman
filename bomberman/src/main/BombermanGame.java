@@ -1,3 +1,5 @@
+package main;
+
 import javafx.animation.AnimationTimer;
 import javafx.application.Application;
 import javafx.scene.Group;
@@ -10,19 +12,31 @@ import entities.Entity;
 import entities.block.Grass;
 import entities.block.Wall;
 import graphics.Sprite;
+import map.mapLevel1;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class BombermanGame extends Application {
-    
-    public static final int WIDTH = 20;
-    public static final int HEIGHT = 15;
-    
+    private static final int INIT_LEVEL = 1;
+    public static int WIDTH = 25;
+    public static int HEIGHT = 15;
+    public static int level;
+    public static int width;
+    public static int height;
+    public static int MAX_SCORE;
+
+    public static int[][] idObjects;    //Two-dimensional array is used to test paths
+    public static int[][] listKill;     //Array containing dead positions
+
     private GraphicsContext gc;
     private Canvas canvas;
-    private List<Entity> entities = new ArrayList<>();
-    private List<Entity> stillObjects = new ArrayList<>();
+    public static List<Entity> entities = new ArrayList<>();
+    public static List<Entity> stillObjects = new ArrayList<>();
+    public static List<Entity> enemies = new ArrayList<>();
+    public static Entity[][] table;     // Mảng 2 chiều các vật thể hiện ra.
+    public static Entity[][] hiddenTable; // Mảng 2 chiều các vật thể bị che đi.
+
 
 
     public static void main(String[] args) {
@@ -55,7 +69,7 @@ public class BombermanGame extends Application {
         };
         timer.start();
 
-        createMap();
+        new mapLevel1(); // Test tạo map level 1
 
         Entity bomberman = new Bomber(1, 1, Sprite.player_right.getFxImage());
         entities.add(bomberman);
