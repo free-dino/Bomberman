@@ -30,19 +30,22 @@ public class createMap {
             height = scanner.nextInt();
             width = scanner.nextInt();
 
+            HEIGHT = height;
+            WIDTH = width;
+
             table = new Entity[width][height];
             hiddenTable = new Entity[width][height];
 
             scanner.nextLine();
             for (int i = 0; i < height; i++) {
-                String cur = scanner.nextLine();
+                String line = scanner.nextLine();
                 for (int j = 0; j < width; j++) {
                     Entity stillObject = null;
                     Entity object = null;
                     Entity hiddenObject = null;
                     Entity enemy = null;
                     stillObjects.add(new Grass(j, i, Sprite.grass.getFxImage()));
-                    switch (cur.charAt(j)) {
+                    switch (line.charAt(j)) {
                         // Tiles:
                         case '#':
                             stillObject = new Wall(j, i, Sprite.wall.getFxImage());
@@ -50,7 +53,7 @@ public class createMap {
                         case '*':
                             object = new Brick(j, i, Sprite.brick.getFxImage());
                             break;
-                        // Character:
+//                         Character:
 //                        case 'p':
 //                            object = new Bomber(j, i, Sprite.player_right.getFxImage(), keyListener);
 //                            bomber = (Bomber) object;
