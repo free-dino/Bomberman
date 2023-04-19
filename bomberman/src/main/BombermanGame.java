@@ -1,5 +1,6 @@
 package main;
 
+import control.KeyListener;
 import javafx.animation.AnimationTimer;
 import javafx.application.Application;
 import javafx.scene.Group;
@@ -35,6 +36,9 @@ public class BombermanGame extends Application {
     public static Entity[][] table;     // Mảng 2 chiều các vật thể hiện ra.
     public static Entity[][] hiddenTable; // Mảng 2 chiều các vật thể bị che đi.
 
+    public static Bomber bomber;
+    public static KeyListener keyListener;
+
 
 
     public static void main(String[] args) {
@@ -54,6 +58,7 @@ public class BombermanGame extends Application {
 
         // Tao scene
         Scene scene = new Scene(root);
+        keyListener = new KeyListener(scene);
 
         // Them scene vao stage
         stage.setScene(scene);

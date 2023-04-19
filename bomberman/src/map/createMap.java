@@ -54,10 +54,10 @@ public class createMap {
                             object = new Brick(j, i, Sprite.brick.getFxImage());
                             break;
 //                         Character:
-//                        case 'p':
-//                            object = new Bomber(j, i, Sprite.player_right.getFxImage(), keyListener);
-//                            bomber = (Bomber) object;
-//                            break;
+                        case 'p':
+                            object = new Bomber(j, i, Sprite.player_right.getFxImage(), keyListener);
+                            bomber = (Bomber) object;
+                            break;
 //                        case '1':
 //                            enemy = new Balloom(j, i, Sprite.balloom_right1.getFxImage);
 ////                            cnt_enemy++;
