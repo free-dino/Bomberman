@@ -62,6 +62,7 @@ public class BombermanGame extends Application {
 
         // Them scene vao stage
         stage.setScene(scene);
+        stage.setResizable(false);
         stage.show();
 
         AnimationTimer timer = new AnimationTimer() {

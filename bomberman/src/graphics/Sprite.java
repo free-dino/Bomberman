@@ -8,7 +8,7 @@ import javafx.scene.image.*;
 public class Sprite {
 
     public static final int DEFAULT_SIZE = 16;
-    public static final int STEP = 2;
+    public static final int STEP = 3;
     public static final int SCALED_SIZE = DEFAULT_SIZE * STEP;
     private static final int TRANSPARENT_COLOR = 0xffff00ff;
     public final int SIZE;

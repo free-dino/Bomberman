@@ -82,18 +82,28 @@ public class Bomber extends Entity {
         table[px][py] = null;
         if (keyListener.isPressed(KeyCode.D)) {
             direction = Direction.R;
-            x += STEP;
+            this.x += STEP;
             this.moving = true;
+            System.out.println(x + " " + y );
+
         }
         if (keyListener.isPressed(KeyCode.A)) {
             direction = Direction.L;
-            x -= STEP;
+            this.x -= STEP;
             this.moving = true;
+            System.out.println(x + " " + y );
         }
         if (keyListener.isPressed(KeyCode.W)) {
             direction = Direction.U;
-            y -= STEP;
+            this.y -= STEP;
             this.moving = true;
+            System.out.println(x + " " + y );
+        }
+        if (keyListener.isPressed(KeyCode.S)){
+            direction = Direction.D;
+            this.y += STEP;
+            this.moving = true;
+            System.out.println(x + " " + y );
         }
         table[px][py] = currentEntity;
     }
