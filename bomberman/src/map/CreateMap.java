@@ -1,6 +1,5 @@
 package map;
 
-import audio.SoundManager;
 import entities.Entity;
 import entities.block.Brick;
 import entities.block.Grass;
@@ -18,11 +17,8 @@ import static main.BombermanGame.*;
  * Khởi tạo 1 map với đầu vào là 1 string: string Level.
  */
 public class CreateMap {
-    public static SoundManager background = SoundManager.main_bgm;
     public CreateMap(String stringLevel) {
         System.out.println(System.getProperty("user.dir"));
-        if ( background != null ) background.stop();
-        background.loop();
         final File fileName = new File(stringLevel);
         try (FileReader inputFile = new FileReader(fileName)) {
             Scanner scanner = new Scanner(inputFile);
@@ -65,6 +61,15 @@ public class CreateMap {
                         entities.add(object);
                         table[j][i] = object;
                     }
+//                    else if (hiddenObject != null) {
+//                        object = new Brick(j, i, Sprite.brick.getFxImage());
+//                        entities.add(object);
+//                        table[j][i] = object;
+//                        hiddenTable[j][i] = hiddenObject;
+//                    } else if (enemy != null) {
+//                        enemies.add(enemy);
+//                        table[j][i] = enemy;
+//                    }
                 }
             }
             MAX_SCORE = enemies.size();

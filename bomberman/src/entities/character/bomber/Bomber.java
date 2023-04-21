@@ -83,30 +83,38 @@ public class Bomber extends Animal {
         table[px][py] = null;
         if (keyListener.isPressed(KeyCode.D)) {
             direction = Direction.R;
-            if (isValidEnemyMove(direction)) {
-                x += this.SPEED;
+            int count = 0;
+            while (isValidEnemyMove(direction) && count < this.SPEED) {
+                x += 1;
                 moving = true;
+                count++;
             }
         }
         if (keyListener.isPressed(KeyCode.A)) {
             direction = Direction.L;
-            if (isValidEnemyMove(direction)) {
-                x -= this.SPEED;
+            int count = 0;
+            while (isValidEnemyMove(direction) && count < this.SPEED) {
+                x -= 1;
                 moving = true;
+                count++;
             }
         }
         if (keyListener.isPressed(KeyCode.W)) {
             direction = Direction.U;
-            if (isValidEnemyMove(direction)) {
-                y -= this.SPEED;
+            int count = 0;
+            while (isValidEnemyMove(direction) && count < this.SPEED) {
+                y -= 1;
                 moving = true;
+                count++;
             }
         }
         if (keyListener.isPressed(KeyCode.S)) {
             direction = Direction.D;
-            if (isValidEnemyMove(direction)) {
-                y += this.SPEED;
+            int count = 0;
+            while (isValidEnemyMove(direction) && count < this.SPEED) {
+                y += 1;
                 moving = true;
+                count++;
             }
         }
         table[px][py] = currentEntity;
