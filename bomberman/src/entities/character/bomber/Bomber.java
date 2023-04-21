@@ -83,29 +83,29 @@ public class Bomber extends Animal {
         table[px][py] = null;
         if (keyListener.isPressed(KeyCode.D)) {
             direction = Direction.R;
-            if (isValidPlayerMove(direction)) {
-                x += Sprite.STEP;
+            if (isValidEnemyMove(direction)) {
+                x += this.SPEED;
                 moving = true;
             }
         }
         if (keyListener.isPressed(KeyCode.A)) {
             direction = Direction.L;
-            if (isValidPlayerMove(direction)) {
-                x -= Sprite.STEP;
+            if (isValidEnemyMove(direction)) {
+                x -= this.SPEED;
                 moving = true;
             }
         }
         if (keyListener.isPressed(KeyCode.W)) {
             direction = Direction.U;
-            if (isValidPlayerMove(direction)) {
-                y -= Sprite.STEP;
+            if (isValidEnemyMove(direction)) {
+                y -= this.SPEED;
                 moving = true;
             }
         }
         if (keyListener.isPressed(KeyCode.S)) {
             direction = Direction.D;
-            if (isValidPlayerMove(direction)) {
-                y += Sprite.STEP;
+            if (isValidEnemyMove(direction)) {
+                y += this.SPEED;
                 moving = true;
             }
         }
