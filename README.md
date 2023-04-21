@@ -17,4 +17,5 @@ Playable game
   - Hiệu ứng
 - Tương tác Item
 - Tương tác cửa, qua màn
+- Hệ thông Menu
 - Âm Thanh
