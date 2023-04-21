@@ -10,10 +10,9 @@ import javafx.scene.canvas.GraphicsContext;
 import javafx.stage.Stage;
 import entities.character.bomber.Bomber;
 import entities.Entity;
-import entities.block.Grass;
-import entities.block.Wall;
 import graphics.Sprite;
-import map.mapLevel1;
+import map.MapLevel1;
+import map.MapLevel2;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,8 +22,6 @@ public class BombermanGame extends Application {
     public static int WIDTH = 25;
     public static int HEIGHT = 15;
     public static int level;
-    public static int width;
-    public static int height;
     public static int MAX_SCORE;
 
 
@@ -47,7 +44,7 @@ public class BombermanGame extends Application {
 
     @Override
     public void start(Stage stage) {
-        new mapLevel1(); // Test tạo map level 1
+        new MapLevel2(); // Test tạo map
         // Tao Canvas
         canvas = new Canvas(Sprite.SCALED_SIZE * WIDTH, Sprite.SCALED_SIZE * HEIGHT);
         gc = canvas.getGraphicsContext2D();

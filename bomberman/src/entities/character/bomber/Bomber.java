@@ -3,6 +3,7 @@ package entities.character.bomber;
 import entities.Entity;
 import control.KeyListener;
 
+import entities.character.Animal;
 import graphics.Sprite;
 
 import javafx.scene.image.Image;
@@ -10,12 +11,11 @@ import javafx.scene.input.KeyCode;
 
 import static main.BombermanGame.*;
 
-public class Bomber extends Entity {
+public class Bomber extends Animal {
     private int bomber_HP;
     private boolean moving = false;
     private int quantityOfBoms = 1;
     private boolean died = false;
-    public int STEP = Sprite.STEP;
 
     public Bomber(int x, int y, Image img, KeyListener keyListener) {
         super(x, y, img);
@@ -75,6 +75,7 @@ public class Bomber extends Entity {
         img = sprite.getFxImage();
     }
 
+
     public void bomberMoving() {
         int px = (x + (75 * Sprite.SCALED_SIZE) / (2 * 100)) / Sprite.SCALED_SIZE;
         int py = (y + Sprite.SCALED_SIZE / 2) / Sprite.SCALED_SIZE;
@@ -82,28 +83,31 @@ public class Bomber extends Entity {
         table[px][py] = null;
         if (keyListener.isPressed(KeyCode.D)) {
             direction = Direction.R;
-            this.x += STEP;
-            this.moving = true;
-            System.out.println(x + " " + y );
-
+            if (isValidPlayerMove(direction)) {
+                x += Sprite.STEP;
+                moving = true;
+            }
         }
         if (keyListener.isPressed(KeyCode.A)) {
             direction = Direction.L;
-            this.x -= STEP;
-            this.moving = true;
-            System.out.println(x + " " + y );
+            if (isValidPlayerMove(direction)) {
+                x -= Sprite.STEP;
+                moving = true;
+            }
         }
         if (keyListener.isPressed(KeyCode.W)) {
             direction = Direction.U;
-            this.y -= STEP;
-            this.moving = true;
-            System.out.println(x + " " + y );
+            if (isValidPlayerMove(direction)) {
+                y -= Sprite.STEP;
+                moving = true;
+            }
         }
-        if (keyListener.isPressed(KeyCode.S)){
+        if (keyListener.isPressed(KeyCode.S)) {
             direction = Direction.D;
-            this.y += STEP;
-            this.moving = true;
-            System.out.println(x + " " + y );
+            if (isValidPlayerMove(direction)) {
+                y += Sprite.STEP;
+                moving = true;
+            }
         }
         table[px][py] = currentEntity;
     }

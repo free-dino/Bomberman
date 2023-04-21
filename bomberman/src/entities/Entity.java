@@ -4,6 +4,8 @@ import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
 import graphics.Sprite;
 
+import static main.BombermanGame.table;
+
 public abstract class Entity {
     protected int x; // Trục Ox từ trái sang phải;
     protected int y; // Trục Oy từ trên xuống dưới;.
@@ -14,17 +16,6 @@ public abstract class Entity {
     protected boolean died = false;
     protected boolean beHurt = false;
 
-    /**
-     * L : Di chuyển Trái;
-     * R : Di chuyển Phải;
-     * U : Di chuyển Lên;
-     * D : Di chuyển Xuống;
-     * OH: Đứng yên theo phương ngang;
-     * OV: Đứng yên theo phương dọc;
-     */
-    public enum Direction {L, R, U, D, OH, OV}
-
-    protected Direction direction = Direction.R;
 
     //Khởi tạo đối tượng, chuyển từ tọa độ đơn vị sang tọa độ trong canvas
     public Entity(int xUnit, int yUnit, Image img) {
@@ -55,6 +46,9 @@ public abstract class Entity {
 
     public void setImg(Image img) {
         this.img = img;
+    }
+    public Entity getEntity(int xPosition, int yPosition) {
+        return table[xPosition][yPosition];
     }
 
     public void render(GraphicsContext gc) {
