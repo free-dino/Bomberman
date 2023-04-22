@@ -114,6 +114,7 @@ public class Bomber extends Animal {
                 count++;
             }
         }
+        chooseSprite();
         table[px][py] = currentEntity;
     }
 
@@ -123,7 +124,6 @@ public class Bomber extends Animal {
             animationTime++;
             this.moving = false;
             bomberMoving();
-            chooseSprite();
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }

@@ -11,7 +11,39 @@ public class Balloom extends Enemy {
         SPEED = 1;
     }
 
+    protected void chooseSprite() {
+        if (animationTime > 100000) animationTime = 0;
+        if (beHurt) {
+            img = Sprite.balloom_dead.getFxImage();
+            return;
+        }
+        switch (direction) {
+            case U:
+                if (moving) {
+                    sprite = Sprite.movingSprite(Sprite.balloom_right1, Sprite.balloom_right2, Sprite.balloom_right3, animationTime, 20);
+                }
+                break;
+            case D:
+                if (moving) {
+                    sprite = Sprite.movingSprite(Sprite.balloom_left1, Sprite.balloom_left2, Sprite.balloom_left3, animationTime, 20);
+                }
+                break;
+            case L:
+                if (moving) {
+                    sprite = Sprite.movingSprite(Sprite.balloom_left1, Sprite.balloom_left2, Sprite.balloom_left3, animationTime, 20);
+                }
+                break;
+            default:
+                if (moving) {
+                    sprite = Sprite.movingSprite(Sprite.balloom_right1, Sprite.balloom_right2, Sprite.balloom_right3, animationTime, 20);
+                }
+                break;
+        }
+        img = sprite.getFxImage();
+    }
+
     private void balloomMoving() {
+        chooseDirection();
         int px = (x + Sprite.SCALED_SIZE / 2) / Sprite.SCALED_SIZE;
         int py = (y + Sprite.SCALED_SIZE / 2) / Sprite.SCALED_SIZE;
         table[px][py] = null;
@@ -22,28 +54,17 @@ public class Balloom extends Enemy {
                     y += SPEED;
                     moving = true;
                 }
-                if (moving) {
-                    sprite = Sprite.movingSprite(Sprite.balloom_right1, Sprite.balloom_right2, Sprite.balloom_right3, animationTime, 20);
-                }
                 break;
             case U:
-                sprite = Sprite.balloom_left2;
                 if (isValidEnemyMove(direction)) {
                     y -= SPEED;
                     moving = true;
                 }
-                if (moving) {
-                    sprite = Sprite.movingSprite(Sprite.balloom_right1, Sprite.balloom_right2, Sprite.balloom_right3, animationTime, 20);
-                }
                 break;
             case L:
-                sprite = Sprite.balloom_left1;
                 if (isValidEnemyMove(direction)) {
                     x -= SPEED;
                     moving = true;
-                }
-                if (moving) {
-                    sprite = Sprite.movingSprite(Sprite.balloom_left1, Sprite.balloom_left2, Sprite.balloom_left3, animationTime, 20);
                 }
                 break;
             case R:
@@ -51,11 +72,9 @@ public class Balloom extends Enemy {
                     x += SPEED;
                     moving = true;
                 }
-                if (moving) {
-                    sprite = Sprite.movingSprite(Sprite.balloom_right1, Sprite.balloom_right2, Sprite.balloom_right3, animationTime, 20);
-                }
                 break;
         }
+        chooseSprite();
         px = (x + Sprite.SCALED_SIZE / 2) / Sprite.SCALED_SIZE;
         py = (y + Sprite.SCALED_SIZE / 2) / Sprite.SCALED_SIZE;
         table[px][py] = this;
@@ -63,9 +82,12 @@ public class Balloom extends Enemy {
 
     @Override
     public void update() {
-        animationTime++;
-        moving = false;
-        chooseDirection();
-        balloomMoving();
+        try {
+            animationTime++;
+            moving = false;
+            balloomMoving();
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
     }
 }
