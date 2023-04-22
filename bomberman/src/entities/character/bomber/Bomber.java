@@ -84,7 +84,7 @@ public class Bomber extends Animal {
         if (keyListener.isPressed(KeyCode.D)) {
             direction = Direction.R;
             int count = 0;
-            while (isValidEnemyMove(direction) && count < this.SPEED) {
+            while (isValidPlayerMove(direction) && count < this.SPEED) {
                 x += 1;
                 moving = true;
                 count++;
@@ -93,7 +93,7 @@ public class Bomber extends Animal {
         if (keyListener.isPressed(KeyCode.A)) {
             direction = Direction.L;
             int count = 0;
-            while (isValidEnemyMove(direction) && count < this.SPEED) {
+            while (isValidPlayerMove(direction) && count < this.SPEED) {
                 x -= 1;
                 moving = true;
                 count++;
@@ -102,7 +102,7 @@ public class Bomber extends Animal {
         if (keyListener.isPressed(KeyCode.W)) {
             direction = Direction.U;
             int count = 0;
-            while (isValidEnemyMove(direction) && count < this.SPEED) {
+            while (isValidPlayerMove(direction) && count < this.SPEED) {
                 y -= 1;
                 moving = true;
                 count++;
@@ -111,7 +111,7 @@ public class Bomber extends Animal {
         if (keyListener.isPressed(KeyCode.S)) {
             direction = Direction.D;
             int count = 0;
-            while (isValidEnemyMove(direction) && count < this.SPEED) {
+            while (isValidPlayerMove(direction) && count < this.SPEED) {
                 y += 1;
                 moving = true;
                 count++;

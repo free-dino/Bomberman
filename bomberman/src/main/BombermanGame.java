@@ -37,7 +37,6 @@ public class BombermanGame extends Application {
     public static KeyListener keyListener;
 
 
-
     public static void main(String[] args) {
         Application.launch(BombermanGame.class);
     }
@@ -76,11 +75,13 @@ public class BombermanGame extends Application {
     public void update() {
         entities.forEach(Entity::update);
         stillObjects.forEach(Entity::update);
+        enemies.forEach(Entity::update);
     }
 
     public void render() {
         gc.clearRect(0, 0, canvas.getWidth(), canvas.getHeight());
         stillObjects.forEach(g -> g.render(gc));
         entities.forEach(g -> g.render(gc));
+        enemies.forEach(g -> g.render(gc));
     }
 }

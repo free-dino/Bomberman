@@ -5,6 +5,8 @@ import entities.block.Brick;
 import entities.block.Grass;
 import entities.block.Wall;
 import entities.character.bomber.Bomber;
+import entities.character.enemy.Balloom;
+import entities.character.enemy.Oneal;
 import graphics.Sprite;
 
 import java.io.File;
@@ -53,6 +55,12 @@ public class CreateMap {
                             object = new Bomber(j, i, Sprite.player_right.getFxImage(), keyListener);
                             bomber = (Bomber) object;
                             break;
+                        case '1':
+                            enemy = new Balloom(j, i, Sprite.balloom_right1.getFxImage());
+                            break;
+                        case '2':
+                            enemy = new Oneal(j, i, Sprite.oneal_right1.getFxImage());
+                            break;
                     }
                     if (stillObject != null) {
                         stillObjects.add(stillObject);
@@ -66,10 +74,11 @@ public class CreateMap {
 //                        entities.add(object);
 //                        table[j][i] = object;
 //                        hiddenTable[j][i] = hiddenObject;
-//                    } else if (enemy != null) {
-//                        enemies.add(enemy);
-//                        table[j][i] = enemy;
 //                    }
+                    else if (enemy != null) {
+                        enemies.add(enemy);
+                        table[j][i] = enemy;
+                    }
                 }
             }
             MAX_SCORE = enemies.size();
