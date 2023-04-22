@@ -17,9 +17,9 @@ public class Bomber extends Animal {
     private int quantityOfBoms = 1;
     private boolean died = false;
 
-    public Bomber(int x, int y, Image img, KeyListener keyListener) {
+    public Bomber(int x, int y, Image img, KeyListener _keyListener) {
         super(x, y, img);
-        keyListener = keyListener;
+        keyListener = _keyListener;
         quantityOfBoms = 1;
         bomber_HP = 5;
     }

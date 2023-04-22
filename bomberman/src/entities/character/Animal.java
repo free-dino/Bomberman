@@ -21,8 +21,10 @@ public abstract class Animal extends Entity {
      */
     public enum Direction {L, R, U, D}
 
+    ;
+
     protected Direction direction = Direction.R;
-    protected int SPEED = 4;
+    protected int SPEED = 2;
 
     public Animal(int xUnit, int yUnit, Image img) {
         super(xUnit, yUnit, img);
@@ -34,7 +36,7 @@ public abstract class Animal extends Entity {
         int py = y / Sprite.SCALED_SIZE;
 
         Entity currentEntity = getEntity(px, py);
-        return !(currentEntity instanceof Wall);
+        return (currentEntity instanceof Wall);
     }
 
     protected boolean checkBrick(int x, int y) {
@@ -43,7 +45,7 @@ public abstract class Animal extends Entity {
         int py = y / Sprite.SCALED_SIZE;
 
         Entity currentEntity = getEntity(px, py);
-        return !(currentEntity instanceof Brick);
+        return (currentEntity instanceof Brick);
     }
 
     protected boolean checkBomb(int x, int y) {
@@ -52,7 +54,7 @@ public abstract class Animal extends Entity {
         int py = y / Sprite.SCALED_SIZE;
 
         Entity currentEntity = getEntity(px, py);
-        return !(currentEntity instanceof Bomb);
+        return (currentEntity instanceof Bomb);
     }
 
     /**
@@ -65,26 +67,26 @@ public abstract class Animal extends Entity {
     public boolean isValidPlayerMove(Direction direction) {
         switch (direction) {
             case R:
-                return (checkWall(x + Sprite.SCALED_SIZE - 10, y + 3)
-                        && (checkWall(x + Sprite.SCALED_SIZE - 10, y + Sprite.SCALED_SIZE - 3)))
-                        && (checkBrick(x + Sprite.SCALED_SIZE - 10, y + 3)
-                        && (checkBrick(x + Sprite.SCALED_SIZE - 10, y + Sprite.SCALED_SIZE - 3)));
+                return !checkWall(x + Sprite.SCALED_SIZE - 10, y + 3)
+                        && !checkWall(x + Sprite.SCALED_SIZE - 10, y + Sprite.SCALED_SIZE - 3)
+                        && !checkBrick(x + Sprite.SCALED_SIZE - 10, y + 3)
+                        && !checkBrick(x + Sprite.SCALED_SIZE - 10, y + Sprite.SCALED_SIZE - 3);
             case L:
-                return (checkWall(x - 2, y + 3)
-                        && (checkWall(x - 2, y + Sprite.SCALED_SIZE - 3)))
-                        && (checkBrick(x - 2, y + 3)
-                        && (checkBrick(x - 2, y + Sprite.SCALED_SIZE - 3)));
+                return !checkWall(x - 2, y + 3)
+                        && !checkWall(x - 2, y + Sprite.SCALED_SIZE - 3)
+                        && !checkBrick(x - 2, y + 3)
+                        && !checkBrick(x - 2, y + Sprite.SCALED_SIZE - 3);
             case U:
-                return (checkWall(x, y - 2)
-                        && (checkWall(x + Sprite.SCALED_SIZE - 12, y - 2)))
-                        && (checkBrick(x, y - 2)
-                        && (checkBrick(x + Sprite.SCALED_SIZE - 12, y - 2)));
+                return !checkWall(x, y - 2)
+                        && !checkWall(x + Sprite.SCALED_SIZE - 12, y - 2)
+                        && !checkBrick(x, y - 2)
+                        && !checkBrick(x + Sprite.SCALED_SIZE - 12, y - 2);
             default:
                 // DOWN
-                return (checkWall(x, y + Sprite.SCALED_SIZE + 1)
-                        && (checkWall(x + Sprite.SCALED_SIZE - 12, y + Sprite.SCALED_SIZE + 1)))
-                        && (checkBrick(x, y + Sprite.SCALED_SIZE + 1)
-                        && (checkBrick(x + Sprite.SCALED_SIZE - 12, y + Sprite.SCALED_SIZE + 1)));
+                return !checkWall(x, y + Sprite.SCALED_SIZE + 1)
+                        && !checkWall(x + Sprite.SCALED_SIZE - 12, y + Sprite.SCALED_SIZE + 1)
+                        && !checkBrick(x, y + Sprite.SCALED_SIZE + 1)
+                        && !checkBrick(x + Sprite.SCALED_SIZE - 12, y + Sprite.SCALED_SIZE + 1);
         }
     }
 
@@ -98,33 +100,34 @@ public abstract class Animal extends Entity {
     public boolean isValidEnemyMove(Direction direction) {
         switch (direction) {
             case R:
-                return (checkWall(x + Sprite.SCALED_SIZE +1, y)
-                        && (checkWall(x + Sprite.SCALED_SIZE + 1, y + Sprite.SCALED_SIZE - 1)))
-                        && (checkBrick(x + Sprite.SCALED_SIZE + 1, y)
-                        && (checkBrick(x + Sprite.SCALED_SIZE + 1, y + Sprite.SCALED_SIZE - 1)))
-                        && (checkBomb(x + Sprite.SCALED_SIZE + 1, y)
-                        && (checkBomb(x + Sprite.SCALED_SIZE + 1, y + Sprite.SCALED_SIZE - 1)));
+                return !checkWall(x + Sprite.SCALED_SIZE - 10, y + 3)
+                        && !checkWall(x + Sprite.SCALED_SIZE - 10, y + Sprite.SCALED_SIZE - 3)
+                        && !checkBrick(x + Sprite.SCALED_SIZE - 10, y + 3)
+                        && !checkBrick(x + Sprite.SCALED_SIZE - 10, y + Sprite.SCALED_SIZE - 3)
+                        && !checkBomb(x + Sprite.SCALED_SIZE - 10, y + 3)
+                        && !checkBomb(x + Sprite.SCALED_SIZE - 10, y + Sprite.SCALED_SIZE - 3);
             case L:
-                return (checkWall(x - 2, y)
-                        && (checkWall(x - 2, y + Sprite.SCALED_SIZE - 1)))
-                        && (checkBrick(x - 2, y)
-                        && (checkBrick(x - 2, y + Sprite.SCALED_SIZE - 1)))
-                        && (checkBomb(x - 2, y)
-                        && (checkBomb(x - 2, y + Sprite.SCALED_SIZE - 1)));
+                return !checkWall(x - 2, y + 3)
+                        && !checkWall(x - 2, y + Sprite.SCALED_SIZE - 3)
+                        && !checkBrick(x - 2, y + 3)
+                        && !checkBrick(x - 2, y + Sprite.SCALED_SIZE - 3)
+                        && !checkWall(x - 2, y + 3)
+                        && !checkWall(x - 2, y + Sprite.SCALED_SIZE - 3);
             case U:
-                return (checkWall(x, y - 2)
-                        && (checkWall(x + Sprite.SCALED_SIZE - 1, y - 2)))
-                        && (checkBrick(x, y - 2)
-                        && (checkBrick(x + Sprite.SCALED_SIZE - 1, y - 2)))
-                        && (checkBomb(x, y - 2)
-                        && (checkBomb(x + Sprite.SCALED_SIZE - 1, y - 2)));
+                return !checkWall(x, y - 2)
+                        && !checkWall(x + Sprite.SCALED_SIZE - 12, y - 2)
+                        && !checkBrick(x, y - 2)
+                        && !checkBrick(x + Sprite.SCALED_SIZE - 12, y - 2)
+                        && !checkWall(x, y - 2)
+                        && !checkWall(x + Sprite.SCALED_SIZE - 12, y - 2);
             default:
-                return (checkWall(x, y + Sprite.SCALED_SIZE + 1)
-                        && (checkWall(x + Sprite.SCALED_SIZE - 1, y + Sprite.SCALED_SIZE + 1)))
-                        && (checkBrick(x, y + Sprite.SCALED_SIZE + 1)
-                        && (checkBrick(x + Sprite.SCALED_SIZE - 1, y + Sprite.SCALED_SIZE + 1)))
-                        && (checkBomb(x, y + Sprite.SCALED_SIZE + 1)
-                        && (checkBomb(x + Sprite.SCALED_SIZE - 1, y + Sprite.SCALED_SIZE + 1)));
+                // DOWN
+                return !checkWall(x, y + Sprite.SCALED_SIZE + 1)
+                        && !checkWall(x + Sprite.SCALED_SIZE - 12, y + Sprite.SCALED_SIZE + 1)
+                        && !checkBrick(x, y + Sprite.SCALED_SIZE + 1)
+                        && !checkBrick(x + Sprite.SCALED_SIZE - 12, y + Sprite.SCALED_SIZE + 1)
+                        && !checkWall(x, y + Sprite.SCALED_SIZE + 1)
+                        && !checkWall(x + Sprite.SCALED_SIZE - 12, y + Sprite.SCALED_SIZE + 1);
         }
     }
 

@@ -44,7 +44,7 @@ public class BombermanGame extends Application {
 
     @Override
     public void start(Stage stage) {
-        new MapLevel1(); // Test tạo map
+        new MapLevel2(); // Test tạo map
         // Tao Canvas
         canvas = new Canvas(Sprite.SCALED_SIZE * WIDTH, Sprite.SCALED_SIZE * HEIGHT);
         gc = canvas.getGraphicsContext2D();
