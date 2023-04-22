@@ -129,33 +129,25 @@ public abstract class Animal extends Entity {
                         && !checkBrick(x + Sprite.SCALED_SIZE + SPEED - 1, y)
                         && !checkBrick(x + Sprite.SCALED_SIZE + SPEED - 1, y + Sprite.SCALED_SIZE - 1)
                         && !checkEnemy(x + Sprite.SCALED_SIZE + SPEED - 1, y)
-                        && !checkEnemy(x + Sprite.SCALED_SIZE + SPEED - 1, y + Sprite.SCALED_SIZE - 1);
-//                        && !checkBomb(x + Sprite.SCALED_SIZE - 10, y + 3)
-//                        && !checkBomb(x + Sprite.SCALED_SIZE - 10, y + Sprite.SCALED_SIZE - 3)
-//                        && !checkEnemy(x + Sprite.SCALED_SIZE - 10, y + 3)
-//                        && !checkEnemy(x + Sprite.SCALED_SIZE - 10, y + Sprite.SCALED_SIZE - 3);
+                        && !checkEnemy(x + Sprite.SCALED_SIZE + SPEED - 1, y + Sprite.SCALED_SIZE - 1)
+                        && !checkBomb(x + Sprite.SCALED_SIZE + SPEED - 1, y)
+                        && !checkBomb(x + Sprite.SCALED_SIZE + SPEED - 1, y + Sprite.SCALED_SIZE - 1);
             case L:
                 return !checkWall(x - SPEED, y)
                         && !checkWall(x - SPEED, y + Sprite.SCALED_SIZE - 1)
                         && !checkBrick(x - SPEED, y)
                         && !checkBrick(x - SPEED, y + Sprite.SCALED_SIZE - 1)
-                        && !checkEnemy(x - SPEED, y)
-                        && !checkEnemy(x - SPEED, y + Sprite.SCALED_SIZE - 1);
-//                        && !checkBomb(x - 2, y + 3)
-//                        && !checkBomb(x - 2, y + Sprite.SCALED_SIZE - 3)
-//                        && !checkEnemy(x - 2, y + 3)
-//                        && !checkEnemy(x - 2, y + Sprite.SCALED_SIZE - 3);
+                        && !checkBomb(x - SPEED, y)
+                        && !checkBomb(x - SPEED, y + Sprite.SCALED_SIZE - 1);
             case U:
                 return !checkWall(x, y - SPEED)
                         && !checkWall(x + Sprite.SCALED_SIZE - 1, y - SPEED)
                         && !checkBrick(x, y - SPEED)
                         && !checkBrick(x + Sprite.SCALED_SIZE - 1, y - SPEED)
                         && !checkEnemy(x, y - SPEED)
-                        && !checkEnemy(x + Sprite.SCALED_SIZE - 1, y - SPEED);
-//                        && !checkBomb(x, y - 2)
-//                        && !checkBomb(x + Sprite.SCALED_SIZE - 12, y - 2)
-//                        && !checkEnemy(x, y - 2)
-//                        && !checkEnemy(x + Sprite.SCALED_SIZE - 12, y - 2);
+                        && !checkEnemy(x + Sprite.SCALED_SIZE - 1, y - SPEED)
+                        && !checkBomb(x, y - SPEED)
+                        && !checkBomb(x + Sprite.SCALED_SIZE - 1, y - SPEED);
             default:
                 // DOWN
                 return !checkWall(x, y + Sprite.SCALED_SIZE + SPEED - 1)
@@ -163,11 +155,9 @@ public abstract class Animal extends Entity {
                         && !checkBrick(x, y + Sprite.SCALED_SIZE + SPEED - 1)
                         && !checkBrick(x + Sprite.SCALED_SIZE - 1, y + Sprite.SCALED_SIZE + SPEED - 1)
                         && !checkEnemy(x, y + Sprite.SCALED_SIZE + SPEED - 1)
-                        && !checkEnemy(x + Sprite.SCALED_SIZE - 1, y + Sprite.SCALED_SIZE + SPEED - 1);
-//                        && !checkBomb(x, y + Sprite.SCALED_SIZE + 1)
-//                        && !checkBomb(x + Sprite.SCALED_SIZE - 12, y + Sprite.SCALED_SIZE + 1)
-//                        && !checkEnemy(x, y + Sprite.SCALED_SIZE + 1)
-//                        && !checkEnemy(x + Sprite.SCALED_SIZE - 12, y + Sprite.SCALED_SIZE + 1);
+                        && !checkEnemy(x + Sprite.SCALED_SIZE - 1, y + Sprite.SCALED_SIZE + SPEED - 1)
+                        && !checkBomb(x, y + Sprite.SCALED_SIZE + SPEED - 1)
+                        && !checkBomb(x + Sprite.SCALED_SIZE - 1, y + Sprite.SCALED_SIZE + SPEED - 1);
         }
     }
 

@@ -18,7 +18,7 @@ public class Balloom extends Enemy {
         sprite = Sprite.balloom_right1;
         switch (direction) {
             case D:
-                if (!(checkWall(x, y + SPEED + Sprite.SCALED_SIZE - 1) && checkWall(x + Sprite.SCALED_SIZE - 1, y + SPEED + Sprite.SCALED_SIZE - 1))) {
+                if (isValidEnemyMove(direction)) {
                     y += SPEED;
                     moving = true;
                 }
@@ -28,7 +28,7 @@ public class Balloom extends Enemy {
                 break;
             case U:
                 sprite = Sprite.balloom_left2;
-                if (!(checkWall(x, y - SPEED) && checkWall(x + Sprite.SCALED_SIZE - 1, y - SPEED))) {
+                if (isValidEnemyMove(direction)) {
                     y -= SPEED;
                     moving = true;
                 }
@@ -38,7 +38,7 @@ public class Balloom extends Enemy {
                 break;
             case L:
                 sprite = Sprite.balloom_left1;
-                if (!(checkWall(x - SPEED, y) && checkWall(x - SPEED, y + Sprite.SCALED_SIZE - 1))) {
+                if (isValidEnemyMove(direction)) {
                     x -= SPEED;
                     moving = true;
                 }
@@ -47,7 +47,7 @@ public class Balloom extends Enemy {
                 }
                 break;
             case R:
-                if (!(checkWall(x + SPEED + Sprite.SCALED_SIZE - 1, y) && checkWall(x + SPEED + Sprite.SCALED_SIZE - 1, y + Sprite.SCALED_SIZE - 1))) {
+                if (isValidEnemyMove(direction)) {
                     x += SPEED;
                     moving = true;
                 }

@@ -13,11 +13,8 @@ public abstract class Enemy extends Animal {
 
     protected void chooseDirection() {
         if (animationTime > 100000) animationTime = 0;
-        if (animationTime % 30 == 0 && x % Sprite.SCALED_SIZE == 0 && y % Sprite.SCALED_SIZE == 0) {
+        if (animationTime % 50 == 0 && x % Sprite.SCALED_SIZE == 0 && y % Sprite.SCALED_SIZE == 0) {
             direction = Direction.values()[new Random().nextInt(Direction.values().length)];
-            while (isValidEnemyMove(direction)) {
-                direction = Direction.values()[new Random().nextInt(Direction.values().length)];
-            }
         }
     }
 }
