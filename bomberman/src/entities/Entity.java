@@ -32,6 +32,14 @@ public abstract class Entity {
         return y;
     }
 
+    public int getLocationX() {
+        return (x + Sprite.SCALED_SIZE / 2) / Sprite.SCALED_SIZE;
+    }
+
+    public int getLocationY() {
+        return (y + Sprite.SCALED_SIZE / 2) / Sprite.SCALED_SIZE;
+    }
+
     public Image getImg() {
         return img;
     }
@@ -47,6 +55,7 @@ public abstract class Entity {
     public void setImg(Image img) {
         this.img = img;
     }
+
     public Entity getEntity(int xPosition, int yPosition) {
         return table[xPosition][yPosition];
     }

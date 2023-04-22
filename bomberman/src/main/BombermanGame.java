@@ -7,6 +7,7 @@ import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import entities.character.bomber.Bomber;
 import entities.Entity;
@@ -27,6 +28,7 @@ public class BombermanGame extends Application {
 
     private GraphicsContext gc;
     private Canvas canvas;
+    public static long FPS = 120;
     public static List<Entity> entities = new ArrayList<>();
     public static List<Entity> stillObjects = new ArrayList<>();
     public static List<Entity> enemies = new ArrayList<>();
@@ -43,20 +45,17 @@ public class BombermanGame extends Application {
 
     @Override
     public void start(Stage stage) {
-        new MapLevel2(); // Test tạo map
-        // Tao Canvas
-        canvas = new Canvas(Sprite.SCALED_SIZE * WIDTH, Sprite.SCALED_SIZE * HEIGHT);
+        new MapLevel1(); // Test tạo map
+        canvas = new Canvas(Sprite.SCALED_SIZE * WIDTH, Sprite.SCALED_SIZE * HEIGHT + 40);
         gc = canvas.getGraphicsContext2D();
 
         // Tao root container
         Group root = new Group();
         root.getChildren().add(canvas);
 
-        // Tao scene
-        Scene scene = new Scene(root);
+        Scene scene = new Scene(root, Color.BLACK);
         keyListener = new KeyListener(scene);
 
-        // Them scene vao stage
         stage.setScene(scene);
         stage.setResizable(false);
         stage.show();
@@ -74,7 +73,6 @@ public class BombermanGame extends Application {
 
     public void update() {
         entities.forEach(Entity::update);
-        stillObjects.forEach(Entity::update);
         enemies.forEach(Entity::update);
     }
 
@@ -83,5 +81,6 @@ public class BombermanGame extends Application {
         stillObjects.forEach(g -> g.render(gc));
         entities.forEach(g -> g.render(gc));
         enemies.forEach(g -> g.render(gc));
+        bomber.render(gc);
     }
 }

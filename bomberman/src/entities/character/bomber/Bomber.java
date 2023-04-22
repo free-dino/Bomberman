@@ -13,15 +13,14 @@ import static main.BombermanGame.*;
 
 public class Bomber extends Animal {
     private int bomber_HP;
-    private boolean moving = false;
     private int quantityOfBoms = 1;
-    private boolean died = false;
 
     public Bomber(int x, int y, Image img, KeyListener _keyListener) {
         super(x, y, img);
         keyListener = _keyListener;
         quantityOfBoms = 1;
         bomber_HP = 5;
+        SPEED = 2;
     }
 
     public int getBomber_HP() {
@@ -38,14 +37,12 @@ public class Bomber extends Animal {
         this.died = true;
     }
 
-    private void chooseSprite() {
-        animationTime++;
+    protected void chooseSprite() {
         if (animationTime > 100000) animationTime = 0;
         if (beHurt) {
             img = Sprite.movingSprite(Sprite.player_dead1, Sprite.player_dead2, Sprite.player_dead3, animationTime, 20).getFxImage();
             return;
         }
-        Sprite sprite;
         switch (direction) {
             case U:
                 sprite = Sprite.player_up;
@@ -76,9 +73,9 @@ public class Bomber extends Animal {
     }
 
 
-    public void bomberMoving() {
-        int px = (x + (75 * Sprite.SCALED_SIZE) / (2 * 100)) / Sprite.SCALED_SIZE;
-        int py = (y + Sprite.SCALED_SIZE / 2) / Sprite.SCALED_SIZE;
+    private void bomberMoving() {
+        int px = getLocationX();
+        int py = getLocationY();
         Entity currentEntity = table[px][py]; // Cập nhật sau di chuyển.
         table[px][py] = null;
         if (keyListener.isPressed(KeyCode.D)) {
@@ -123,6 +120,7 @@ public class Bomber extends Animal {
     @Override
     public void update() {
         try {
+            animationTime++;
             this.moving = false;
             bomberMoving();
             chooseSprite();
