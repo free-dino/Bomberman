@@ -11,7 +11,6 @@ public class Flame extends Entity {
     public Flame(int xUnit, int yUnit, Image img, Direction direction) {
         super(xUnit, yUnit, img);
         this.direction = direction;
-        entities.add(this);
     }
 
     private void chooseSprite() {
