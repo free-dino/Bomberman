@@ -39,10 +39,15 @@ public class Flame extends Entity {
 
     @Override
     public void update() {
-        animationTime++;
-        chooseSprite();
-        if (animationTime == 10) {
-            Platform.runLater(() -> entities.remove(this));
+        try{
+            animationTime++;
+            chooseSprite();
+            if (animationTime == 10) {
+                Platform.runLater(() -> entities.remove(this));
+            }
+        }catch (Exception e){
+            System.out.println("Error in Flame.java");
+            System.out.println(e.getMessage());
         }
     }
 }

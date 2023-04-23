@@ -14,9 +14,6 @@ public abstract class Entity {
 
     protected int animationTime = 0;
 
-    protected boolean died = false;
-    protected boolean beHurt = false;
-
     /**
      * L : Left
      * R : Right

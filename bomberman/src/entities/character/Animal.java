@@ -14,8 +14,10 @@ import static main.BombermanGame.*;
  * Các vật thể di chuyển được, bao gồm cả Player.
  */
 public abstract class Animal extends Entity {
+    protected int HP;
     protected boolean moving = false;
     protected boolean died = false;
+    protected boolean beHurt = false;
     protected Sprite sprite;
 
     protected int SPEED;
@@ -23,6 +25,14 @@ public abstract class Animal extends Entity {
     public Animal(int xUnit, int yUnit, Image img) {
         super(xUnit, yUnit, img);
     }
+
+    public void setHurt() {
+        if (!beHurt) {
+            HP--;
+        }
+        beHurt = true;
+    }
+
 
     protected boolean checkWall(int x, int y) {
         if (x < 0 || y < 0 || x > Sprite.SCALED_SIZE * WIDTH || y > Sprite.SCALED_SIZE * HEIGHT) {

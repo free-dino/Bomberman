@@ -15,30 +15,25 @@ import javafx.scene.input.KeyCode;
 import static main.BombermanGame.*;
 
 public class Bomber extends Animal {
-    private int bomber_HP;
     private int quantityOfBoms;
-    private int sizeOfBomb = 1;
+    private int sizeOfBomb = 4;
+
+    private int protectedTime = 0;
 
     public Bomber(int x, int y, Image img, KeyListener _keyListener) {
         super(x, y, img);
         keyListener = _keyListener;
         quantityOfBoms = 1;
-        bomber_HP = 5;
+        HP = 5;
         SPEED = 2;
-    }
-
-    public int getBomber_HP() {
-        return bomber_HP;
-    }
-
-    public void reduceBomber_HP() {
-        if (!died && bomber_HP > 0) {
-            this.bomber_HP--;
-        }
     }
 
     public void setDied() {
         this.died = true;
+    }
+
+    public boolean isProtected() {
+        return protectedTime > 0;
     }
 
     protected void chooseSprite() {
