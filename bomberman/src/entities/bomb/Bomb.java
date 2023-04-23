@@ -3,6 +3,7 @@ package entities.bomb;
 import entities.Entity;
 import entities.block.Brick;
 import entities.block.Wall;
+import entities.character.bomber.Bomber;
 import entities.character.enemy.Enemy;
 import graphics.Sprite;
 import javafx.application.Platform;
@@ -54,6 +55,12 @@ public class Bomb extends Entity {
             ((Brick) currentEntity).setExploded();
             return false;
         }
+        if (currentEntity instanceof Enemy) {
+            ((Enemy) currentEntity).setHurt();
+        }
+//        if (currentEntity instanceof Bomber) {
+//            bomber.setHurt();
+//        }
         return true;
     }
 
@@ -63,10 +70,11 @@ public class Bomb extends Entity {
         }
         Entity currentEntity = getEntity(locationX, locationY);
         if (currentEntity instanceof Enemy) {
-            ((Enemy) currentEntity).setHurt();
-        }
-        if (currentEntity instanceof Bomb && !((Bomb) currentEntity).isExploded()) {
-            ((Bomb) currentEntity).setExploded();
+            for (Entity enemy : enemies) {
+                if (enemy.getLocationX() == locationX && enemy.getLocationY() == locationY) {
+                    enemy.setHurt();
+                }
+            }
         }
         if (bomber.getLocationX() == locationX && bomber.getLocationY() == locationY && !bomber.isProtected()) {
             bomber.setHurt();

@@ -82,7 +82,7 @@ public class CreateMap {
                     }
                 }
             }
-            MAX_SCORE = enemies.size();
+            MAX_SCORE = enemies.size() * 100;
             scanner.close();
         } catch (Exception e) {
             System.out.println(e.getMessage());

@@ -9,6 +9,7 @@ public class Balloom extends Enemy {
     public Balloom(int xUnit, int yUnit, Image img) {
         super(xUnit, yUnit, img);
         SPEED = 1;
+        HP = 1;
     }
 
     protected void chooseSprite() {
@@ -100,6 +101,10 @@ public class Balloom extends Enemy {
     @Override
     public void update() {
         try {
+            if(beHurt){
+                gotHurt(Sprite.balloom_dead);
+                return;
+            }
             animationTime++;
             moving = false;
             balloomMoving();

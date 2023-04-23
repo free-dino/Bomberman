@@ -4,8 +4,10 @@ import entities.Entity;
 import entities.block.Brick;
 import entities.block.Wall;
 import entities.bomb.Bomb;
+import entities.character.bomber.Bomber;
 import entities.character.enemy.Enemy;
 import graphics.Sprite;
+import javafx.application.Platform;
 import javafx.scene.image.Image;
 
 import static main.BombermanGame.*;
@@ -14,10 +16,8 @@ import static main.BombermanGame.*;
  * Các vật thể di chuyển được, bao gồm cả Player.
  */
 public abstract class Animal extends Entity {
-    protected int HP;
     protected boolean moving = false;
-    protected boolean died = false;
-    protected boolean beHurt = false;
+
     protected Sprite sprite;
 
     protected int SPEED;
@@ -26,11 +26,26 @@ public abstract class Animal extends Entity {
         super(xUnit, yUnit, img);
     }
 
-    public void setHurt() {
-        if (!beHurt) {
-            HP--;
+    protected void gotHurt(Sprite sprite) {
+        hurt_time++;
+//        if (hurt_time == 1) {
+//            Sound.died.play();
+//        }
+        img = sprite.getFxImage();
+        if (hurt_time == 20) {
+            hurt_time = 0;
+            beHurt = false;
+            if (HP == 0) {
+                Platform.runLater(() -> {
+                    if(this instanceof Enemy){
+                        enemies.remove(this);
+                    }else if(this instanceof Bomber){
+                        entities.remove(this);
+                    }
+                    table[getLocationX()][getLocationY()] = null;
+                });
+            }
         }
-        beHurt = true;
     }
 
 

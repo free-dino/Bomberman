@@ -13,6 +13,11 @@ public abstract class Entity {
     protected Sprite sprite;
 
     protected int animationTime = 0;
+    protected int HP = 1;
+    protected boolean died = false;
+    protected boolean beHurt = false;
+    protected int hurt_time;
+    protected int died_time;
 
     /**
      * L : Left
@@ -38,6 +43,13 @@ public abstract class Entity {
 
     public int getY() {
         return y;
+    }
+
+    public void setHurt() {
+        if (!beHurt) {
+            this.HP -= 1;
+        }
+        beHurt = true;
     }
 
     public int getLocationX() {
