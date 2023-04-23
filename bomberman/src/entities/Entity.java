@@ -10,6 +10,7 @@ public abstract class Entity {
     protected int x; // Trục Ox từ trái sang phải;
     protected int y; // Trục Oy từ trên xuống dưới;.
     protected Image img;
+    protected Sprite sprite;
 
     protected int animationTime = 0;
 

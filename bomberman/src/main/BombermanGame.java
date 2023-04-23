@@ -24,11 +24,11 @@ public class BombermanGame extends Application {
     public static int HEIGHT = 15;
     public static int level;
     public static int MAX_SCORE;
+    public static long FPS_GAME = 1000 / 60;
 
 
     private GraphicsContext gc;
     private Canvas canvas;
-    public static long FPS = 120;
     public static List<Entity> entities = new ArrayList<>();
     public static List<Entity> stillObjects = new ArrayList<>();
     public static List<Entity> enemies = new ArrayList<>();
@@ -61,10 +61,20 @@ public class BombermanGame extends Application {
         stage.show();
 
         AnimationTimer timer = new AnimationTimer() {
+            private long lastUpdate = 0;
+
             @Override
-            public void handle(long l) {
+            public void handle(long now) {
                 render();
                 update();
+                long frameTime = (now - lastUpdate) / 1000000;
+                if (frameTime < FPS_GAME) {
+                    try {
+                        Thread.sleep(FPS_GAME - frameTime);
+                    } catch (InterruptedException e) {
+                        throw new RuntimeException(e);
+                    }
+                }
             }
         };
         timer.start();

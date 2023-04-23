@@ -138,7 +138,9 @@ public abstract class Animal extends Entity {
                         && !checkBrick(x - SPEED, y)
                         && !checkBrick(x - SPEED, y + Sprite.SCALED_SIZE - 1)
                         && !checkBomb(x - SPEED, y)
-                        && !checkBomb(x - SPEED, y + Sprite.SCALED_SIZE - 1);
+                        && !checkBomb(x - SPEED, y + Sprite.SCALED_SIZE - 1)
+                        && !checkEnemy(x - SPEED, y)
+                        && !checkEnemy(x - SPEED, y + Sprite.SCALED_SIZE - 1);
             case U:
                 return !checkWall(x, y - SPEED)
                         && !checkWall(x + Sprite.SCALED_SIZE - 1, y - SPEED)

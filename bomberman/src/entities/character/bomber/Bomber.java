@@ -3,9 +3,12 @@ package entities.character.bomber;
 import entities.Entity;
 import control.KeyListener;
 
+import entities.block.Brick;
+import entities.bomb.Bomb;
 import entities.character.Animal;
 import graphics.Sprite;
 
+import javafx.application.Platform;
 import javafx.scene.image.Image;
 import javafx.scene.input.KeyCode;
 
@@ -13,7 +16,8 @@ import static main.BombermanGame.*;
 
 public class Bomber extends Animal {
     private int bomber_HP;
-    private int quantityOfBoms = 1;
+    private int quantityOfBoms;
+    private int sizeOfBomb = 1;
 
     public Bomber(int x, int y, Image img, KeyListener _keyListener) {
         super(x, y, img);
@@ -118,14 +122,33 @@ public class Bomber extends Animal {
         table[px][py] = currentEntity;
     }
 
+    public void placeBomb() {
+        if (Bomb.quantity < quantityOfBoms && !(table[getBomberX()][getBomberY()] instanceof Bomb) && !(table[getBomberX()][getBomberY()] instanceof Brick)) {
+            Platform.runLater(() -> {
+                Entity object = new Bomb(getBomberX(), getBomberY(), Sprite.bomb.getFxImage(), sizeOfBomb);
+                entities.add(object);
+            });
+//            Sound.place_bomb.play();
+        }
+    }
+
     @Override
     public void update() {
         try {
             animationTime++;
             this.moving = false;
             bomberMoving();
+            if (keyListener.isPressed(KeyCode.SPACE)) placeBomb();
         } catch (Exception e) {
-            System.out.println(e.getMessage());
+            System.out.println("Error in Bomber.java");
         }
+    }
+
+    public int getBomberX() {
+        return (x + (75 * Sprite.SCALED_SIZE) / (2 * 100)) / Sprite.SCALED_SIZE;
+    }
+
+    public int getBomberY() {
+        return (y + Sprite.SCALED_SIZE / 2) / Sprite.SCALED_SIZE;
     }
 }

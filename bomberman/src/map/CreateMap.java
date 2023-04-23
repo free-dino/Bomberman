@@ -4,6 +4,7 @@ import entities.Entity;
 import entities.block.Brick;
 import entities.block.Grass;
 import entities.block.Wall;
+import entities.bomb.Bomb;
 import entities.character.bomber.Bomber;
 import entities.character.enemy.Balloom;
 import entities.character.enemy.Oneal;
@@ -54,6 +55,9 @@ public class CreateMap {
                         case 'p':
                             object = new Bomber(j, i, Sprite.player_right.getFxImage(), keyListener);
                             bomber = (Bomber) object;
+                            break;
+                        case 'b':
+                            object = new Bomb(j, i, Sprite.bomb.getFxImage(), 1);
                             break;
                         case '1':
                             enemy = new Balloom(j, i, Sprite.balloom_right1.getFxImage());

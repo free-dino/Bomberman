@@ -48,29 +48,46 @@ public class Balloom extends Enemy {
         int py = (y + Sprite.SCALED_SIZE / 2) / Sprite.SCALED_SIZE;
         table[px][py] = null;
         sprite = Sprite.balloom_right1;
+        int count = 0;
         switch (direction) {
             case D:
                 if (isValidEnemyMove(direction)) {
-                    y += SPEED;
-                    moving = true;
+                    count = 0;
+                    while (isValidEnemyMove(direction) && count < this.SPEED) {
+                        y += SPEED;
+                        moving = true;
+                        count++;
+                    }
                 }
                 break;
             case U:
                 if (isValidEnemyMove(direction)) {
-                    y -= SPEED;
-                    moving = true;
+                    count = 0;
+                    while (isValidEnemyMove(direction) && count < this.SPEED) {
+                        y -= SPEED;
+                        moving = true;
+                        count++;
+                    }
                 }
                 break;
             case L:
                 if (isValidEnemyMove(direction)) {
-                    x -= SPEED;
-                    moving = true;
+                    count = 0;
+                    while (isValidEnemyMove(direction) && count < this.SPEED) {
+                        x -= SPEED;
+                        moving = true;
+                        count++;
+                    }
                 }
                 break;
             case R:
                 if (isValidEnemyMove(direction)) {
-                    x += SPEED;
-                    moving = true;
+                    count = 0;
+                    while (isValidEnemyMove(direction) && count < this.SPEED) {
+                        x += SPEED;
+                        moving = true;
+                        count++;
+                    }
                 }
                 break;
         }
@@ -87,7 +104,7 @@ public class Balloom extends Enemy {
             moving = false;
             balloomMoving();
         } catch (Exception e) {
-            System.out.println(e.getMessage());
+            System.out.println("Error in Balloom.java");
         }
     }
 }
