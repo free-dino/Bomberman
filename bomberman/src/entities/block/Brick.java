@@ -24,12 +24,10 @@ public class Brick extends Entity {
         if (animationTime == 10) {
             Platform.runLater(() -> {
                 entities.remove(this);
-                x /= Sprite.SCALED_SIZE;
-                y /= Sprite.SCALED_SIZE;
-                table[x][y] = null;
-                Entity hiddenItem = hiddenTable[x][y];
+                table[getLocationX()][getLocationY()] = null;
+                Entity hiddenItem = hiddenTable[getLocationX()][getLocationY()];
                 if (hiddenItem != null) {
-                    table[x][y] = hiddenItem;
+                    table[getLocationX()][getLocationY()] = hiddenItem;
                     entities.add(hiddenItem);
                 }
             });

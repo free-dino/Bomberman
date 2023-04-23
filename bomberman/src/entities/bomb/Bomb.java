@@ -43,6 +43,9 @@ public class Bomb extends Entity {
     }
 
     private boolean checkBreak(int locationX, int locationY) {
+        if (locationX < 0 || locationY < 0 || locationX > Sprite.SCALED_SIZE * WIDTH || locationY > Sprite.SCALED_SIZE * HEIGHT) {
+            return false;
+        }
         Entity currentEntity = getEntity(locationX, locationY);
         if (currentEntity instanceof Wall) {
             return false;
@@ -55,6 +58,9 @@ public class Bomb extends Entity {
     }
 
     private void hurtingByExplosion(int locationX, int locationY) {
+        if (locationX < 0 || locationY < 0 || locationX > Sprite.SCALED_SIZE * WIDTH || locationY > Sprite.SCALED_SIZE * HEIGHT) {
+            return;
+        }
         Entity currentEntity = getEntity(locationX, locationY);
         if (currentEntity instanceof Enemy) {
             ((Enemy) currentEntity).setHurt();
@@ -62,7 +68,7 @@ public class Bomb extends Entity {
         if (currentEntity instanceof Bomb && !((Bomb) currentEntity).isExploded()) {
             ((Bomb) currentEntity).setExploded();
         }
-        if (bomber.getLocationX() == locationX && bomber.getLocationY() == locationY  && !bomber.isProtected()) {
+        if (bomber.getLocationX() == locationX && bomber.getLocationY() == locationY && !bomber.isProtected()) {
             bomber.setHurt();
         }
     }
@@ -142,7 +148,7 @@ public class Bomb extends Entity {
 
     @Override
     public void update() {
-        try{
+        try {
             animationTime++;
             chooseSprite();
             if (animationTime > 1000000) {
@@ -159,7 +165,7 @@ public class Bomb extends Entity {
                             entities.remove(this);
                         });
             }
-        }catch (Exception e){
+        } catch (Exception e) {
             System.out.println("Error in Bomb.java");
             System.out.println(e.getMessage());
         }
