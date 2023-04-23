@@ -56,9 +56,6 @@ public class CreateMap {
                             object = new Bomber(j, i, Sprite.player_right.getFxImage(), keyListener);
                             bomber = (Bomber) object;
                             break;
-                        case 'b':
-                            object = new Bomb(j, i, Sprite.bomb.getFxImage(), 1);
-                            break;
                         case '1':
                             enemy = new Balloom(j, i, Sprite.balloom_right1.getFxImage());
                             break;
