@@ -1,6 +1,8 @@
 package entities.bomb;
 
 import entities.Entity;
+import entities.block.Brick;
+import entities.block.Wall;
 import graphics.Sprite;
 import javafx.application.Platform;
 import javafx.scene.image.Image;
@@ -9,6 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static main.BombermanGame.*;
+
 public class Bomb extends Entity {
     private boolean exploded = false;
     private final List<Entity> flamesList = new ArrayList<>();
@@ -18,7 +21,9 @@ public class Bomb extends Entity {
     public Bomb(int xUnit, int yUnit, Image img, int size) {
         super(xUnit, yUnit, img);
         this.size = size;
-//        quantity++;
+        quantity++;
+
+        table[xUnit][yUnit] = this;
     }
 
     private void chooseSprite() {
@@ -30,6 +35,61 @@ public class Bomb extends Entity {
         img = sprite.getFxImage();
     }
 
+    private boolean checkBreak(int locationX, int locationY) {
+        Entity currentEntity = getEntity(locationX, locationY);
+        if (currentEntity instanceof Wall) {
+            return false;
+        }
+        if (currentEntity instanceof Brick) {
+            ((Brick) currentEntity).setExploded();
+            return true;
+        }
+        return true;
+    }
+
+    private void setExploded() {
+        this.exploded = true;
+        Platform.runLater(
+                () -> {
+                    for (int count = 1; count <= size; count++) {
+                        int i = x / Sprite.SCALED_SIZE - count, j = y / Sprite.SCALED_SIZE;
+                        if (!checkBreak(i, j)) break;
+                        if (count < size) {
+                            entities.add(new Flame(i, j, null, Direction.OH));
+                        } else {
+                            entities.add(new Flame(i, j, null, Direction.L));
+                        }
+                    }
+                    for (int count = 1; count <= size; count++) {
+                        int i = x / Sprite.SCALED_SIZE + count, j = y / Sprite.SCALED_SIZE;
+                        if (!checkBreak(i, j)) break;
+                        if (count < size) {
+                            entities.add(new Flame(i, j, Sprite.explosion_horizontal.getFxImage(), Direction.OH));
+                        } else {
+                            entities.add(new Flame(i, j, Sprite.explosion_horizontal_right_last.getFxImage(), Direction.R));
+                        }
+                    }
+                    for (int count = 1; count <= size; count++) {
+                        int i = x / Sprite.SCALED_SIZE, j = y / Sprite.SCALED_SIZE - count;
+                        if (!checkBreak(i, j)) break;
+                        if (count < size) {
+                            entities.add(new Flame(i, j, Sprite.explosion_vertical.getFxImage(), Direction.OV));
+                        } else {
+                            entities.add(new Flame(i, j, Sprite.explosion_vertical_top_last.getFxImage(), Direction.U));
+                        }
+                    }
+                    for (int count = 1; count <= size; count++) {
+                        int i = x / Sprite.SCALED_SIZE, j = y / Sprite.SCALED_SIZE + count;
+                        if (!checkBreak(i, j)) break;
+                        if (count < size) {
+                            entities.add(new Flame(i, j, Sprite.explosion_vertical.getFxImage(), Direction.OV));
+                        } else {
+                            entities.add(new Flame(i, j, Sprite.explosion_vertical_down_last.getFxImage(), Direction.D));
+                        }
+                    }
+                });
+    }
+
     @Override
     public void update() {
         animationTime++;
@@ -38,15 +98,15 @@ public class Bomb extends Entity {
             animationTime = 0;
         }
         if (animationTime == 70) {
-            exploded = true;
+            setExploded();
         }
-//        if (animationTime == 80) {
-//            Platform.runLater(
-//                    () -> {
-//                        table[getLocationX()][getLocationY()] = null;
-//                        quantity--;
-//                        entities.remove(this);
-//                    });
-//        }
+        if (animationTime == 80) {
+            Platform.runLater(
+                    () -> {
+                        table[getLocationX()][getLocationY()] = null;
+                        quantity--;
+                        entities.remove(this);
+                    });
+        }
     }
 }

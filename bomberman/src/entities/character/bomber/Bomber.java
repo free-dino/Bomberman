@@ -127,7 +127,6 @@ public class Bomber extends Animal {
             Platform.runLater(() -> {
                 Entity object = new Bomb(getBomberX(), getBomberY(), Sprite.bomb.getFxImage(), sizeOfBomb);
                 entities.add(object);
-                table[getBomberX()][getBomberY()] = object;
             });
 //            Sound.place_bomb.play();
         }

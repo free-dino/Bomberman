@@ -18,15 +18,6 @@ public abstract class Animal extends Entity {
     protected boolean died = false;
     protected Sprite sprite;
 
-    /**
-     * L : Left
-     * R : Right
-     * U : Up
-     * D : Down
-     */
-    public enum Direction {L, R, U, D}
-
-    protected Direction direction = Direction.R;
     protected int SPEED;
 
     public Animal(int xUnit, int yUnit, Image img) {
