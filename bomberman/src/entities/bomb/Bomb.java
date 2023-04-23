@@ -43,7 +43,7 @@ public class Bomb extends Entity {
     }
 
     private boolean checkBreak(int locationX, int locationY) {
-        if (locationX < 0 || locationY < 0 || locationX > Sprite.SCALED_SIZE * WIDTH || locationY > Sprite.SCALED_SIZE * HEIGHT) {
+        if (locationX <= 0 || locationY <= 0 || locationX >= WIDTH || locationY >= HEIGHT) {
             return false;
         }
         Entity currentEntity = getEntity(locationX, locationY);
@@ -58,7 +58,7 @@ public class Bomb extends Entity {
     }
 
     private void hurtingByExplosion(int locationX, int locationY) {
-        if (locationX < 0 || locationY < 0 || locationX > Sprite.SCALED_SIZE * WIDTH || locationY > Sprite.SCALED_SIZE * HEIGHT) {
+        if (locationX <= 0 || locationY <= 0 || locationX >= WIDTH || locationY >= HEIGHT) {
             return;
         }
         Entity currentEntity = getEntity(locationX, locationY);
@@ -121,23 +121,23 @@ public class Bomb extends Entity {
                     bombTimer.schedule(new TimerTask() {
                         @Override
                         public void run() {
-                            for (int c = 0; c <= size; c++) {
-                                int i = x / Sprite.SCALED_SIZE - c, j = y / Sprite.SCALED_SIZE;
+                            for (int count = 0; count <= size; count++) {
+                                int i = x / Sprite.SCALED_SIZE - count, j = y / Sprite.SCALED_SIZE;
                                 if (checkBreak(i, j)) break;
                                 hurtingByExplosion(i, j);
                             }
-                            for (int c = 1; c <= size; c++) {
-                                int i = x / Sprite.SCALED_SIZE + c, j = y / Sprite.SCALED_SIZE;
+                            for (int count = 1; count <= size; count++) {
+                                int i = x / Sprite.SCALED_SIZE + count, j = y / Sprite.SCALED_SIZE;
                                 if (checkBreak(i, j)) break;
                                 hurtingByExplosion(i, j);
                             }
-                            for (int c = 1; c <= size; c++) {
-                                int i = x / Sprite.SCALED_SIZE, j = y / Sprite.SCALED_SIZE - c;
+                            for (int count = 1; count <= size; count++) {
+                                int i = x / Sprite.SCALED_SIZE, j = y / Sprite.SCALED_SIZE - count;
                                 if (checkBreak(i, j)) break;
                                 hurtingByExplosion(i, j);
                             }
-                            for (int c = 1; c <= size; c++) {
-                                int i = x / Sprite.SCALED_SIZE, j = y / Sprite.SCALED_SIZE + c;
+                            for (int count = 1; count <= size; count++) {
+                                int i = x / Sprite.SCALED_SIZE, j = y / Sprite.SCALED_SIZE + count;
                                 if (checkBreak(i, j)) break;
                                 hurtingByExplosion(i, j);
                             }

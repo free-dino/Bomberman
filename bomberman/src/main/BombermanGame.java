@@ -20,8 +20,8 @@ import java.util.List;
 
 public class BombermanGame extends Application {
     private static final int INIT_LEVEL = 1;
-    public static int WIDTH = 25;
-    public static int HEIGHT = 15;
+    public static int WIDTH;
+    public static int HEIGHT;
     public static int level;
     public static int MAX_SCORE;
     public static long FPS_GAME = 1000 / 60;
