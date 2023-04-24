@@ -16,7 +16,7 @@ import static main.BombermanGame.*;
 
 public class Bomb extends Entity {
     private boolean exploded = false;
-    private int size;
+    private final int size;
     private final List<Entity> entities;
     public static int quantity;
 
@@ -71,7 +71,7 @@ public class Bomb extends Entity {
         }
         Entity currentEntity = getEntity(locationX, locationY);
         if (currentEntity instanceof Enemy) {
-            System.out.println("Hearting enemy ");
+            System.out.println("Hurting enemy ");
             for (Entity enemy : enemies) {
                 if (enemy.getLocationX() == locationX && enemy.getLocationY() == locationY) {
                     enemy.setHurt();
@@ -79,7 +79,7 @@ public class Bomb extends Entity {
             }
         }
         if (bomber.getBomberX() == locationX && bomber.getBomberY() == locationY) {
-            System.out.println("Hearting player");
+            System.out.println("Hurting player");
             bomber.setHurt();
         }
     }
