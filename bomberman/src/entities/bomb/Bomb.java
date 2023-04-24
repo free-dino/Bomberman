@@ -3,13 +3,11 @@ package entities.bomb;
 import entities.Entity;
 import entities.block.Brick;
 import entities.block.Wall;
-import entities.character.bomber.Bomber;
 import entities.character.enemy.Enemy;
 import graphics.Sprite;
 import javafx.application.Platform;
 import javafx.scene.image.Image;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -21,7 +19,7 @@ public class Bomb extends Entity {
     private int size;
     public static int quantity;
 
-    public Bomb(int xUnit, int yUnit, Image img, int size) {
+    public Bomb(int xUnit, int yUnit, Image img, List<Entity> entities, int size) {
         super(xUnit, yUnit, img);
         this.size = size;
         quantity++;
