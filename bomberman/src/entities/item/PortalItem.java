@@ -1,15 +1,18 @@
 package entities.item;
 
+import graphics.Sprite;
 import javafx.scene.image.Image;
 
-public class PortalItem extends Item {
+import static main.BombermanGame.*;
 
-    public PortalItem(int xUnit, int yUnit, Image img) {
-        super(xUnit, yUnit, img);
+public class PortalItem extends Item {
+    public PortalItem(int x, int y, Image img) {
+        super(x, y, img);
     }
 
     @Override
     public void update() {
-
+        table[x / Sprite.SCALED_SIZE][y / Sprite.SCALED_SIZE] = this;
+        img = Sprite.portal.getFxImage;
     }
 }
