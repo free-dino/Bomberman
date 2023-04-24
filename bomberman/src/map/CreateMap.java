@@ -70,12 +70,12 @@ public class CreateMap {
                         entities.add(object);
                         table[j][i] = object;
                     }
-//                    else if (hiddenObject != null) {
-//                        object = new Brick(j, i, Sprite.brick.getFxImage());
-//                        entities.add(object);
-//                        table[j][i] = object;
-//                        hiddenTable[j][i] = hiddenObject;
-//                    }
+                    else if (hiddenObject != null) {
+                        object = new Brick(j, i, Sprite.brick.getFxImage());
+                        entities.add(object);
+                        table[j][i] = object;
+                        hiddenTable[j][i] = hiddenObject;
+                    }
                     else if (enemy != null) {
                         enemies.add(enemy);
                         table[j][i] = enemy;

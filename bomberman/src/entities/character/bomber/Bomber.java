@@ -120,7 +120,7 @@ public class Bomber extends Animal {
     public void placeBomb() {
         if (Bomb.quantity < quantityOfBoms && !(table[getBomberX()][getBomberY()] instanceof Bomb) && !(table[getBomberX()][getBomberY()] instanceof Brick)) {
             Platform.runLater(() -> {
-                Entity object = new Bomb(getBomberX(), getBomberY(), Sprite.bomb.getFxImage(), sizeOfBomb);
+                Entity object = new Bomb(getBomberX(), getBomberY(), Sprite.bomb.getFxImage(), entities, sizeOfBomb);
                 entities.add(object);
             });
 //            Sound.place_bomb.play();

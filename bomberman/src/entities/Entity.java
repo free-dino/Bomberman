@@ -60,7 +60,7 @@ public abstract class Entity {
         return (y + Sprite.SCALED_SIZE / 2) / Sprite.SCALED_SIZE;
     }
 
-    public Image getImg() {
+    /*public Image getImg() {
         return img;
     }
 
@@ -70,7 +70,7 @@ public abstract class Entity {
 
     public void setY(int y) {
         this.y = y;
-    }
+    }*/
 
     public void setImg(Image img) {
         this.img = img;

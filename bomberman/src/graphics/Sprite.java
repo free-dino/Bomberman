@@ -12,6 +12,7 @@ public class Sprite {
     public static final int SCALED_SIZE = DEFAULT_SIZE * STEP;
     private static final int TRANSPARENT_COLOR = 0xffff00ff;
     public final int SIZE;
+    public Image getFxImage;
     private int _x, _y;
     public int[] _pixels;
     protected int _realWidth;

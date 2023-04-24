@@ -93,9 +93,9 @@ public class Bomb extends Entity {
                         int j = y / Sprite.SCALED_SIZE;
                         if (!checkBreak(i, j)) break;
                         if (count < size) {
-                            entities.add(new Flame(i, j, null, Direction.OH));
+                            entities.add(new Flame(i, j, null, Direction.OH,entities));
                         } else {
-                            entities.add(new Flame(i, j, null, Direction.L));
+                            entities.add(new Flame(i, j, null, Direction.L,entities));
                         }
                     }
                     for (int count = 1; count <= size; count++) {
@@ -103,9 +103,9 @@ public class Bomb extends Entity {
                         int j = y / Sprite.SCALED_SIZE;
                         if (!checkBreak(i, j)) break;
                         if (count < size) {
-                            entities.add(new Flame(i, j, Sprite.explosion_horizontal.getFxImage(), Direction.OH));
+                            entities.add(new Flame(i, j, Sprite.explosion_horizontal.getFxImage(), Direction.OH,entities));
                         } else {
-                            entities.add(new Flame(i, j, Sprite.explosion_horizontal_right_last.getFxImage(), Direction.R));
+                            entities.add(new Flame(i, j, Sprite.explosion_horizontal_right_last.getFxImage(), Direction.R,entities));
                         }
                     }
                     for (int count = 1; count <= size; count++) {
@@ -113,9 +113,9 @@ public class Bomb extends Entity {
                         int j = y / Sprite.SCALED_SIZE - count;
                         if (!checkBreak(i, j)) break;
                         if (count < size) {
-                            entities.add(new Flame(i, j, Sprite.explosion_vertical.getFxImage(), Direction.OV));
+                            entities.add(new Flame(i, j, Sprite.explosion_vertical.getFxImage(), Direction.OV,entities));
                         } else {
-                            entities.add(new Flame(i, j, Sprite.explosion_vertical_top_last.getFxImage(), Direction.U));
+                            entities.add(new Flame(i, j, Sprite.explosion_vertical_top_last.getFxImage(), Direction.U,entities));
                         }
                     }
                     for (int count = 1; count <= size; count++) {
@@ -123,9 +123,9 @@ public class Bomb extends Entity {
                         int j = y / Sprite.SCALED_SIZE + count;
                         if (!checkBreak(i, j)) break;
                         if (count < size) {
-                            entities.add(new Flame(i, j, Sprite.explosion_vertical.getFxImage(), Direction.OV));
+                            entities.add(new Flame(i, j, Sprite.explosion_vertical.getFxImage(), Direction.OV,entities));
                         } else {
-                            entities.add(new Flame(i, j, Sprite.explosion_vertical_down_last.getFxImage(), Direction.D));
+                            entities.add(new Flame(i, j, Sprite.explosion_vertical_down_last.getFxImage(), Direction.D,entities));
                         }
                     }
                     Timer bombTimer = new Timer();
