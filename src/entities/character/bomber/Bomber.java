@@ -23,6 +23,7 @@ public class Bomber extends Animal {
     private int sizeOfBomb = 1;
 
     private int protectedTime = 0;
+    private int hurtTick = 0;
 
     public Bomber(int x, int y, Image img, KeyListener _keyListener) {
         super(x, y, img);
@@ -155,6 +156,25 @@ public class Bomber extends Animal {
     @Override
     public void update() {
         try {
+            if (beHurt) {
+                if (hurtTick == 0) {
+//                    Sound.died.play();
+                }
+                if (hurtTick == 30) {
+                    if (HP == 0) {
+                        // end game
+                        System.out.println("END GAME!!!");
+                    }
+                    beHurt = false;
+                    hurtTick = 0;
+                    protectedTime = 60 * 3 / 2;
+                    return;
+                }
+                chooseSprite();
+                hurtTick++;
+                return;
+            }
+            protectedTime = Math.max(0, protectedTime - 1);
             animationTime++;
             this.moving = false;
             bomberMoving();
