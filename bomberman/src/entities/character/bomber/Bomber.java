@@ -16,7 +16,7 @@ import static main.BombermanGame.*;
 
 public class Bomber extends Animal {
     private int quantityOfBoms;
-    private int sizeOfBomb = 4;
+    private int sizeOfBomb = 10;
 
     private int protectedTime = 0;
 

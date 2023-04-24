@@ -26,7 +26,6 @@ public class Bomb extends Entity {
         super(xUnit, yUnit, img);
         this.size = size;
         quantity++;
-
         table[xUnit][yUnit] = this;
     }
 
@@ -43,8 +42,16 @@ public class Bomb extends Entity {
         img = sprite.getFxImage();
     }
 
+    /**
+     * Hàm này check xem khi bom nổ thì tia lửa có đi qua được hay không.
+     *
+     * @param locationX - Vị trí trên Ox dạng từ 1 đến n.
+     * @param locationY - Vị trí trên Oy dạng từ 1 đến m.
+     *
+     * @return true / false;
+     */
     private boolean checkBreak(int locationX, int locationY) {
-        if (locationX <= 0 || locationY <= 0 || locationX >= WIDTH || locationY >= HEIGHT) {
+        if (locationX < 0 || locationY < 0 || locationX >= WIDTH || locationY >= HEIGHT) {
             return false;
         }
         Entity currentEntity = getEntity(locationX, locationY);
@@ -55,28 +62,24 @@ public class Bomb extends Entity {
             ((Brick) currentEntity).setExploded();
             return false;
         }
-        if (currentEntity instanceof Enemy) {
-            ((Enemy) currentEntity).setHurt();
-        }
-//        if (currentEntity instanceof Bomber) {
-//            bomber.setHurt();
-//        }
         return true;
     }
 
     private void hurtingByExplosion(int locationX, int locationY) {
-        if (locationX <= 0 || locationY <= 0 || locationX >= WIDTH || locationY >= HEIGHT) {
+        if (locationX < 0 || locationY < 0 || locationX >= WIDTH || locationY >= HEIGHT) {
             return;
         }
         Entity currentEntity = getEntity(locationX, locationY);
         if (currentEntity instanceof Enemy) {
+            System.out.println("Hearting enemy ");
             for (Entity enemy : enemies) {
                 if (enemy.getLocationX() == locationX && enemy.getLocationY() == locationY) {
                     enemy.setHurt();
                 }
             }
         }
-        if (bomber.getLocationX() == locationX && bomber.getLocationY() == locationY && !bomber.isProtected()) {
+        if (bomber.getLocationX() == locationX && bomber.getLocationY() == locationY) {
+            System.out.println("Hearting player");
             bomber.setHurt();
         }
     }
@@ -131,22 +134,18 @@ public class Bomb extends Entity {
                         public void run() {
                             for (int count = 0; count <= size; count++) {
                                 int i = x / Sprite.SCALED_SIZE - count, j = y / Sprite.SCALED_SIZE;
-                                if (checkBreak(i, j)) break;
                                 hurtingByExplosion(i, j);
                             }
                             for (int count = 1; count <= size; count++) {
                                 int i = x / Sprite.SCALED_SIZE + count, j = y / Sprite.SCALED_SIZE;
-                                if (checkBreak(i, j)) break;
                                 hurtingByExplosion(i, j);
                             }
                             for (int count = 1; count <= size; count++) {
                                 int i = x / Sprite.SCALED_SIZE, j = y / Sprite.SCALED_SIZE - count;
-                                if (checkBreak(i, j)) break;
                                 hurtingByExplosion(i, j);
                             }
                             for (int count = 1; count <= size; count++) {
                                 int i = x / Sprite.SCALED_SIZE, j = y / Sprite.SCALED_SIZE + count;
-                                if (checkBreak(i, j)) break;
                                 hurtingByExplosion(i, j);
                             }
                         }

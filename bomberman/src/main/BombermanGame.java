@@ -19,7 +19,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class BombermanGame extends Application {
-    private static final int INIT_LEVEL = 1;
     public static int WIDTH;
     public static int HEIGHT;
     public static int level;
@@ -34,13 +33,13 @@ public class BombermanGame extends Application {
     public static List<Entity> enemies = new ArrayList<>();
     public static Entity[][] table;     // Mảng 2 chiều các vật thể hiện ra.
     public static Entity[][] hiddenTable; // Mảng 2 chiều các vật thể bị che đi.
-
     public static Bomber bomber;
     public static KeyListener keyListener;
 
 
     public static void main(String[] args) {
         Application.launch(BombermanGame.class);
+        System.out.println("Done!");
     }
 
     @Override
