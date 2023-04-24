@@ -16,14 +16,14 @@ import static main.BombermanGame.*;
 
 public class Bomber extends Animal {
     private int quantityOfBoms;
-    private int sizeOfBomb = 10;
+    private int sizeOfBomb = 5;
 
     private int protectedTime = 0;
 
     public Bomber(int x, int y, Image img, KeyListener _keyListener) {
         super(x, y, img);
         keyListener = _keyListener;
-        quantityOfBoms = 2;
+        quantityOfBoms = 1;
         HP = 5;
         SPEED = 2;
     }

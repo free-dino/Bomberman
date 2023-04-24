@@ -20,6 +20,7 @@ public class Brick extends Entity {
 
     private void destroyBrick() {
         Sprite sprite = Sprite.movingSprite(Sprite.brick_exploded, Sprite.brick_exploded1, Sprite.brick_exploded2, animationTime, 20);
+        img = sprite.getFxImage();
         animationTime++;
         if (animationTime == 10) {
             Platform.runLater(() -> {
@@ -32,7 +33,6 @@ public class Brick extends Entity {
                 }
             });
         }
-        img = sprite.getFxImage();
     }
 
     @Override

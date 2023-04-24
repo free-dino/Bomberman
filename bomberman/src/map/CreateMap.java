@@ -4,10 +4,12 @@ import entities.Entity;
 import entities.block.Brick;
 import entities.block.Grass;
 import entities.block.Wall;
-import entities.bomb.Bomb;
 import entities.character.bomber.Bomber;
 import entities.character.enemy.Balloom;
 import entities.character.enemy.Oneal;
+import entities.item.BombItem;
+import entities.item.FlameItem;
+import entities.item.SpeedItem;
 import graphics.Sprite;
 
 import java.io.File;
@@ -41,9 +43,7 @@ public class CreateMap {
                     Entity object = null;
                     Entity hiddenObject = null;
                     Entity enemy = null;
-                    if (line.charAt(j) != '#') {
-                        stillObjects.add(new Grass(j, i, Sprite.grass.getFxImage()));
-                    }
+                    stillObjects.add(new Grass(j, i, Sprite.grass.getFxImage()));
                     switch (line.charAt(j)) {
                         // Tiles:
                         case '#':
@@ -62,6 +62,19 @@ public class CreateMap {
                         case '2':
                             enemy = new Oneal(j, i, Sprite.oneal_right1.getFxImage());
                             break;
+                        // Items:
+                        case 'f':
+                            hiddenObject = new FlameItem(j, i, Sprite.powerup_flames.getFxImage);
+                            System.out.println("Flame Item in " + j + " " + i);
+                            break;
+                        case 's':
+                            hiddenObject = new SpeedItem(j, i, Sprite.powerup_speed.getFxImage);
+                            System.out.println("Speed Item in " + j + " " + i);
+                            break;
+                        case 'b':
+                            hiddenObject = new BombItem(j, i, Sprite.powerup_bombs.getFxImage);
+                            System.out.println("Bomb Item in " + j + " " + i);
+                            break;
                     }
                     if (stillObject != null) {
                         stillObjects.add(stillObject);
@@ -69,14 +82,12 @@ public class CreateMap {
                     } else if (object != null) {
                         entities.add(object);
                         table[j][i] = object;
-                    }
-                    else if (hiddenObject != null) {
+                    } else if (hiddenObject != null) {
                         object = new Brick(j, i, Sprite.brick.getFxImage());
                         entities.add(object);
                         table[j][i] = object;
                         hiddenTable[j][i] = hiddenObject;
-                    }
-                    else if (enemy != null) {
+                    } else if (enemy != null) {
                         enemies.add(enemy);
                         table[j][i] = enemy;
                     }

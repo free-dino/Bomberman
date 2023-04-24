@@ -11,8 +11,7 @@ public abstract class Item extends Entity {
     }
 
     public void pick() {
-
-
+        this.pickedUp = true;
     }
 
     public boolean isPickUp() {
