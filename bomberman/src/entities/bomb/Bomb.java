@@ -18,7 +18,6 @@ import static main.BombermanGame.*;
 
 public class Bomb extends Entity {
     private boolean exploded = false;
-    private final List<Entity> flamesList = new ArrayList<>();
     private int size;
     public static int quantity;
 
@@ -62,6 +61,7 @@ public class Bomb extends Entity {
             ((Brick) currentEntity).setExploded();
             return false;
         }
+
         return true;
     }
 
@@ -78,7 +78,7 @@ public class Bomb extends Entity {
                 }
             }
         }
-        if (bomber.getLocationX() == locationX && bomber.getLocationY() == locationY) {
+        if (bomber.getBomberX() == locationX && bomber.getBomberY() == locationY) {
             System.out.println("Hearting player");
             bomber.setHurt();
         }
@@ -132,21 +132,19 @@ public class Bomb extends Entity {
                     bombTimer.schedule(new TimerTask() {
                         @Override
                         public void run() {
+                            int px = x / Sprite.SCALED_SIZE;
+                            int py = y / Sprite.SCALED_SIZE;
                             for (int count = 0; count <= size; count++) {
-                                int i = x / Sprite.SCALED_SIZE - count, j = y / Sprite.SCALED_SIZE;
-                                hurtingByExplosion(i, j);
+                                hurtingByExplosion(px - count, py);
                             }
                             for (int count = 1; count <= size; count++) {
-                                int i = x / Sprite.SCALED_SIZE + count, j = y / Sprite.SCALED_SIZE;
-                                hurtingByExplosion(i, j);
+                                hurtingByExplosion(px + count, py);
                             }
                             for (int count = 1; count <= size; count++) {
-                                int i = x / Sprite.SCALED_SIZE, j = y / Sprite.SCALED_SIZE - count;
-                                hurtingByExplosion(i, j);
+                                hurtingByExplosion(px, py - count);
                             }
                             for (int count = 1; count <= size; count++) {
-                                int i = x / Sprite.SCALED_SIZE, j = y / Sprite.SCALED_SIZE + count;
-                                hurtingByExplosion(i, j);
+                                hurtingByExplosion(px, py + count);
                             }
                         }
                     }, 10);
