@@ -4,7 +4,310 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="03a6babe-b30a-4868-bbdf-ba91240d6708" name="Changes" comment="" />
+    <list default="true" id="03a6babe-b30a-4868-bbdf-ba91240d6708" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/demo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/levels/Level1.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/levels/Level2.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/levels/Level3.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/menu.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/sound/SFX 2.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/sound/SFX 4.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/sound/SFX 7.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/sound/bonus_stage.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/sound/collect_item.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/sound/died.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/sound/ending.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/sound/explosion.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/sound/game_over.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/sound/main_bgm.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/sound/miss.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/sound/move.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/sound/place_bomb.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/sound/powerup_get.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/sound/special_powerup_get.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/sound/stage_clear.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/sound/stage_start.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/sound/title_screen.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/sprites/balloom_dead.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/sprites/balloom_left1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/sprites/balloom_left2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/sprites/balloom_left3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/sprites/balloom_right1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/sprites/balloom_right2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/sprites/balloom_right3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/sprites/bomb.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/sprites/bomb_1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/sprites/bomb_2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/sprites/bomb_exploded.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/sprites/bomb_exploded1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/sprites/bomb_exploded2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/sprites/brick.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/sprites/brick_exploded.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/sprites/brick_exploded1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/sprites/brick_exploded2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/sprites/doll_dead.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/sprites/doll_left1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/sprites/doll_left2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/sprites/doll_left3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/sprites/doll_right1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/sprites/doll_right2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/sprites/doll_right3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/sprites/explosion_horizontal.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/sprites/explosion_horizontal1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/sprites/explosion_horizontal2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/sprites/explosion_horizontal_left_last.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/sprites/explosion_horizontal_left_last1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/sprites/explosion_horizontal_left_last2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/sprites/explosion_horizontal_right_last.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/sprites/explosion_horizontal_right_last1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/sprites/explosion_horizontal_right_last2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/sprites/explosion_vertical.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/sprites/explosion_vertical1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/sprites/explosion_vertical2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/sprites/explosion_vertical_down_last.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/sprites/explosion_vertical_down_last1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/sprites/explosion_vertical_down_last2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/sprites/explosion_vertical_top_last.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/sprites/explosion_vertical_top_last1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/sprites/explosion_vertical_top_last2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/sprites/grass.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/sprites/kondoria_dead.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/sprites/kondoria_left1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/sprites/kondoria_left2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/sprites/kondoria_left3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/sprites/kondoria_right1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/sprites/kondoria_right2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/sprites/kondoria_right3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/sprites/minvo_dead.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/sprites/minvo_left1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/sprites/minvo_left2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/sprites/minvo_left3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/sprites/minvo_right1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/sprites/minvo_right2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/sprites/minvo_right3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/sprites/mob_dead1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/sprites/mob_dead2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/sprites/mob_dead3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/sprites/oneal_dead.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/sprites/oneal_left1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/sprites/oneal_left2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/sprites/oneal_left3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/sprites/oneal_right1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/sprites/oneal_right2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/sprites/oneal_right3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/sprites/player_dead1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/sprites/player_dead2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/sprites/player_dead3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/sprites/player_down.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/sprites/player_down_1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/sprites/player_down_2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/sprites/player_left.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/sprites/player_left_1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/sprites/player_left_2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/sprites/player_right.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/sprites/player_right_1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/sprites/player_right_2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/sprites/player_up.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/sprites/player_up_1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/sprites/player_up_2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/sprites/portal.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/sprites/powerup_bombpass.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/sprites/powerup_bombs.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/sprites/powerup_detonator.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/sprites/powerup_flamepass.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/sprites/powerup_flames.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/sprites/powerup_speed.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/sprites/powerup_wallpass.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/sprites/wall.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/textures/classic.pdn" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/textures/classic.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/audio/SoundManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/control/KeyListener.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/entities/Entity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/entities/block/Brick.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/entities/block/Grass.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/entities/block/Wall.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/entities/bomb/Bomb.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/entities/bomb/Flame.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/entities/character/Animal.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/entities/character/bomber/Bomber.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/entities/character/enemy/Balloom.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/entities/character/enemy/Enemy.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/entities/character/enemy/Oneal.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/entities/item/BombItem.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/entities/item/FlameItem.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/entities/item/Item.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/entities/item/PortalItem.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/entities/item/SpeedItem.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/graphics/Sprite.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/graphics/SpriteSheet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/BombermanGame.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/map/CreateMap.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/map/MapLevel1.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/map/MapLevel2.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/map/MapLevel3.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/map/NextLevel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/Bomberman.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Bomberman.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_base_19.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_base_win_19.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_controls_19.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_controls_win_19.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_fxml_19.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_fxml_win_19.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_graphics_19.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_openjfx_javafx_graphics_win_19.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bomberman/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bomberman/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bomberman/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bomberman/res/demo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bomberman/res/levels/Level1.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bomberman/res/levels/Level2.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bomberman/res/levels/Level3.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bomberman/res/menu.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bomberman/res/sound/SFX 2.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bomberman/res/sound/SFX 4.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bomberman/res/sound/SFX 7.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bomberman/res/sound/bonus_stage.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bomberman/res/sound/collect_item.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bomberman/res/sound/died.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bomberman/res/sound/ending.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bomberman/res/sound/explosion.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bomberman/res/sound/game_over.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bomberman/res/sound/main_bgm.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bomberman/res/sound/miss.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bomberman/res/sound/move.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bomberman/res/sound/place_bomb.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bomberman/res/sound/powerup_get.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bomberman/res/sound/special_powerup_get.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bomberman/res/sound/stage_clear.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bomberman/res/sound/stage_start.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bomberman/res/sound/title_screen.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bomberman/res/sprites/balloom_dead.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bomberman/res/sprites/balloom_left1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bomberman/res/sprites/balloom_left2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bomberman/res/sprites/balloom_left3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bomberman/res/sprites/balloom_right1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bomberman/res/sprites/balloom_right2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bomberman/res/sprites/balloom_right3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bomberman/res/sprites/bomb.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bomberman/res/sprites/bomb_1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bomberman/res/sprites/bomb_2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bomberman/res/sprites/bomb_exploded.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bomberman/res/sprites/bomb_exploded1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bomberman/res/sprites/bomb_exploded2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bomberman/res/sprites/brick.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bomberman/res/sprites/brick_exploded.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bomberman/res/sprites/brick_exploded1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bomberman/res/sprites/brick_exploded2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bomberman/res/sprites/doll_dead.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bomberman/res/sprites/doll_left1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bomberman/res/sprites/doll_left2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bomberman/res/sprites/doll_left3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bomberman/res/sprites/doll_right1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bomberman/res/sprites/doll_right2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bomberman/res/sprites/doll_right3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bomberman/res/sprites/explosion_horizontal.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bomberman/res/sprites/explosion_horizontal1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bomberman/res/sprites/explosion_horizontal2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bomberman/res/sprites/explosion_horizontal_left_last.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bomberman/res/sprites/explosion_horizontal_left_last1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bomberman/res/sprites/explosion_horizontal_left_last2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bomberman/res/sprites/explosion_horizontal_right_last.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bomberman/res/sprites/explosion_horizontal_right_last1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bomberman/res/sprites/explosion_horizontal_right_last2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bomberman/res/sprites/explosion_vertical.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bomberman/res/sprites/explosion_vertical1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bomberman/res/sprites/explosion_vertical2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bomberman/res/sprites/explosion_vertical_down_last.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bomberman/res/sprites/explosion_vertical_down_last1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bomberman/res/sprites/explosion_vertical_down_last2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bomberman/res/sprites/explosion_vertical_top_last.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bomberman/res/sprites/explosion_vertical_top_last1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bomberman/res/sprites/explosion_vertical_top_last2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bomberman/res/sprites/grass.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bomberman/res/sprites/kondoria_dead.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bomberman/res/sprites/kondoria_left1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bomberman/res/sprites/kondoria_left2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bomberman/res/sprites/kondoria_left3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bomberman/res/sprites/kondoria_right1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bomberman/res/sprites/kondoria_right2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bomberman/res/sprites/kondoria_right3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bomberman/res/sprites/minvo_dead.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bomberman/res/sprites/minvo_left1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bomberman/res/sprites/minvo_left2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bomberman/res/sprites/minvo_left3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bomberman/res/sprites/minvo_right1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bomberman/res/sprites/minvo_right2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bomberman/res/sprites/minvo_right3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bomberman/res/sprites/mob_dead1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bomberman/res/sprites/mob_dead2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bomberman/res/sprites/mob_dead3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bomberman/res/sprites/oneal_dead.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bomberman/res/sprites/oneal_left1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bomberman/res/sprites/oneal_left2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bomberman/res/sprites/oneal_left3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bomberman/res/sprites/oneal_right1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bomberman/res/sprites/oneal_right2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bomberman/res/sprites/oneal_right3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bomberman/res/sprites/player_dead1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bomberman/res/sprites/player_dead2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bomberman/res/sprites/player_dead3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bomberman/res/sprites/player_down.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bomberman/res/sprites/player_down_1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bomberman/res/sprites/player_down_2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bomberman/res/sprites/player_left.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bomberman/res/sprites/player_left_1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bomberman/res/sprites/player_left_2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bomberman/res/sprites/player_right.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bomberman/res/sprites/player_right_1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bomberman/res/sprites/player_right_2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bomberman/res/sprites/player_up.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bomberman/res/sprites/player_up_1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bomberman/res/sprites/player_up_2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bomberman/res/sprites/portal.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bomberman/res/sprites/powerup_bombpass.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bomberman/res/sprites/powerup_bombs.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bomberman/res/sprites/powerup_detonator.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bomberman/res/sprites/powerup_flamepass.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bomberman/res/sprites/powerup_flames.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bomberman/res/sprites/powerup_speed.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bomberman/res/sprites/powerup_wallpass.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bomberman/res/sprites/wall.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bomberman/res/textures/classic.pdn" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bomberman/res/textures/classic.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bomberman/src/audio/SoundManager.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bomberman/src/control/KeyListener.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bomberman/src/entities/Entity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bomberman/src/entities/block/Brick.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bomberman/src/entities/block/Grass.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bomberman/src/entities/block/Wall.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bomberman/src/entities/bomb/Bomb.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bomberman/src/entities/bomb/Flame.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bomberman/src/entities/character/Animal.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bomberman/src/entities/character/bomber/Bomber.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bomberman/src/entities/character/enemy/Balloom.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bomberman/src/entities/character/enemy/Enemy.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bomberman/src/entities/character/enemy/Oneal.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bomberman/src/entities/item/BombItem.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bomberman/src/entities/item/FlameItem.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bomberman/src/entities/item/Item.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bomberman/src/entities/item/PortalItem.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bomberman/src/entities/item/SpeedItem.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bomberman/src/graphics/Sprite.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bomberman/src/graphics/SpriteSheet.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bomberman/src/main/BombermanGame.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bomberman/src/map/CreateMap.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bomberman/src/map/MapLevel1.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bomberman/src/map/MapLevel2.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bomberman/src/map/MapLevel3.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/bomberman/src/map/NextLevel.java" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -24,15 +327,22 @@
     </option>
   </component>
   <component name="ProjectId" id="2OsFU1GKbPEnfh9ILs2SFwINlRH" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "main",
+    "ignore.virus.scanning.warn.message": "true",
+    "last_opened_file_path": "C:/Users/AD/Documents/GitHub/Bomberman",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -54,8 +364,11 @@
       </method>
     </configuration>
     <configuration name="BombermanGame" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="ALTERNATIVE_JRE_PATH" value="20" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
       <option name="MAIN_CLASS_NAME" value="main.BombermanGame" />
       <module name="bomberman" />
+      <option name="VM_PARAMETERS" value="--module-path ${PATH_TO_FX} --add-modules javafx.controls,javafx.fxml" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="main.*" />
@@ -90,5 +403,8 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
 </project>
