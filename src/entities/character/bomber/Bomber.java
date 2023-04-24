@@ -19,8 +19,8 @@ import javafx.scene.input.KeyCode;
 import static main.BombermanGame.*;
 
 public class Bomber extends Animal {
-    private int quantityOfBoms;
-    private int sizeOfBomb = 2;
+    private int quantityOfBoms = 1;
+    private int sizeOfBomb = 1;
 
     private int protectedTime = 0;
 
