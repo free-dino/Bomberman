@@ -6,6 +6,10 @@ import control.KeyListener;
 import entities.block.Brick;
 import entities.bomb.Bomb;
 import entities.character.Animal;
+import entities.item.BombItem;
+import entities.item.FlameItem;
+import entities.item.PortalItem;
+import entities.item.SpeedItem;
 import graphics.Sprite;
 
 import javafx.application.Platform;
@@ -16,7 +20,7 @@ import static main.BombermanGame.*;
 
 public class Bomber extends Animal {
     private int quantityOfBoms;
-    private int sizeOfBomb = 5;
+    private int sizeOfBomb = 2;
 
     private int protectedTime = 0;
 
@@ -127,12 +131,34 @@ public class Bomber extends Animal {
         }
     }
 
+    public void pickItemUp() {
+        int px = getBomberX();
+        int py = getBomberY();
+        if (table[px][py] instanceof FlameItem) {
+            if (!((FlameItem) table[px][py]).isPickUp()) {
+                this.sizeOfBomb++;
+            }
+            ((FlameItem) table[px][py]).pick();
+        } else if (table[px][py] instanceof SpeedItem) {
+            if (!((SpeedItem) table[px][py]).isPickUp()) {
+                this.SPEED++;
+            }
+            ((SpeedItem) table[px][py]).pick();
+        } else if (table[px][py] instanceof BombItem) {
+            if (!((BombItem) table[px][py]).isPickUp()) {
+                this.quantityOfBoms++;
+            }
+            ((BombItem) table[px][py]).pick();
+        }
+    }
+
     @Override
     public void update() {
         try {
             animationTime++;
             this.moving = false;
             bomberMoving();
+            pickItemUp();
             if (keyListener.isPressed(KeyCode.SPACE)) placeBomb();
         } catch (Exception e) {
             System.out.println("Error in Bomber.java");

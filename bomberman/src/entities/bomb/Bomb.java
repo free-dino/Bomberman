@@ -53,9 +53,11 @@ public class Bomb extends Entity {
         }
         Entity currentEntity = getEntity(locationX, locationY);
         if (currentEntity instanceof Wall) {
+            System.out.println("Flame stopped cause of Wall");
             return false;
         }
         if (currentEntity instanceof Brick) {
+            System.out.println("Flame stopped cause of Brick");
             ((Brick) currentEntity).setExploded();
             return false;
         }
