@@ -9,7 +9,7 @@ public class Balloom extends Enemy {
     public Balloom(int xUnit, int yUnit, Image img) {
         super(xUnit, yUnit, img);
         SPEED = 1;
-        HP = 2;
+        HP = 1;
     }
 
     protected void chooseSprite() {
