@@ -17,10 +17,12 @@ import static main.BombermanGame.*;
 public class Bomb extends Entity {
     private boolean exploded = false;
     private int size;
+    private final List<Entity> entities;
     public static int quantity;
 
     public Bomb(int xUnit, int yUnit, Image img, List<Entity> entities, int size) {
         super(xUnit, yUnit, img);
+        this.entities = entities;
         this.size = size;
         quantity++;
         table[xUnit][yUnit] = this;
