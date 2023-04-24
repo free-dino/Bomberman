@@ -1,5 +1,6 @@
 package entities.character.bomber;
 
+import audio.SoundManager;
 import entities.Entity;
 import control.KeyListener;
 
@@ -128,7 +129,7 @@ public class Bomber extends Animal {
                 Entity object = new Bomb(getBomberX(), getBomberY(), Sprite.bomb.getFxImage(), entities, sizeOfBomb);
                 entities.add(object);
             });
-//            Sound.place_bomb.play();
+           SoundManager.place_bomb.play();
         }
     }
 
