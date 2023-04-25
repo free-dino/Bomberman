@@ -1,5 +1,6 @@
 package entities.character.bomber;
 
+import audio.SoundManager;
 import entities.Entity;
 import control.KeyListener;
 
@@ -15,14 +16,19 @@ import graphics.Sprite;
 import javafx.application.Platform;
 import javafx.scene.image.Image;
 import javafx.scene.input.KeyCode;
+import map.MapLevel1;
+import map.MapLevel2;
+import map.MapLevel3;
 
+import static audio.SoundManager.*;
 import static main.BombermanGame.*;
 
 public class Bomber extends Animal {
-    private int quantityOfBoms;
-    private int sizeOfBomb = 2;
+    private int quantityOfBoms = 1;
+    private int sizeOfBomb = 1;
 
     private int protectedTime = 0;
+    private int hurtTick = 0;
 
     public Bomber(int x, int y, Image img, KeyListener _keyListener) {
         super(x, y, img);
@@ -127,7 +133,7 @@ public class Bomber extends Animal {
                 Entity object = new Bomb(getBomberX(), getBomberY(), Sprite.bomb.getFxImage(), entities, sizeOfBomb);
                 entities.add(object);
             });
-//            Sound.place_bomb.play();
+//           SoundManager.place_bomb.play();
         }
     }
 
@@ -136,25 +142,66 @@ public class Bomber extends Animal {
         int py = getBomberY();
         if (table[px][py] instanceof FlameItem) {
             if (!((FlameItem) table[px][py]).isPickUp()) {
+                ((FlameItem) table[px][py]).pick();
                 this.sizeOfBomb++;
+                System.out.println("Picked up Flame Item");
             }
             ((FlameItem) table[px][py]).pick();
         } else if (table[px][py] instanceof SpeedItem) {
             if (!((SpeedItem) table[px][py]).isPickUp()) {
+                ((SpeedItem) table[px][py]).pick();
                 this.SPEED++;
             }
             ((SpeedItem) table[px][py]).pick();
         } else if (table[px][py] instanceof BombItem) {
             if (!((BombItem) table[px][py]).isPickUp()) {
+                ((BombItem) table[px][py]).pick();
                 this.quantityOfBoms++;
             }
             ((BombItem) table[px][py]).pick();
+        } else if (table[px][py] instanceof PortalItem) {
+            if (!((PortalItem) table[px][py]).isPickUp() && enemies.isEmpty()) {
+                ((PortalItem) table[px][py]).pick();
+                try {
+                    if (level == 1) {
+                        level = 2;
+                        new MapLevel2();
+                    } else if (level == 2) {
+                        level = 3;
+                        new MapLevel3();
+                    } else if (level == 3) {
+                        level = 1;
+                        new MapLevel1();
+                    }
+                } catch (Exception e) {
+                    System.out.println(e.getMessage());
+                }
+            }
         }
     }
 
     @Override
     public void update() {
         try {
+            if (beHurt) {
+                if (hurtTick == 0) {
+//                    Sound.died.play();
+                }
+                if (hurtTick == 30) {
+                    if (HP == 0) {
+                        // end game
+                        System.out.println("END GAME!!!");
+                    }
+                    beHurt = false;
+                    hurtTick = 0;
+                    protectedTime = 60 * 3 / 2;
+                    return;
+                }
+                chooseSprite();
+                hurtTick++;
+                return;
+            }
+            protectedTime = Math.max(0, protectedTime - 1);
             animationTime++;
             this.moving = false;
             bomberMoving();

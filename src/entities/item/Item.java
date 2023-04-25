@@ -1,5 +1,6 @@
 package entities.item;
 
+import audio.SoundManager;
 import entities.Entity;
 import javafx.scene.image.Image;
 
@@ -12,6 +13,7 @@ public abstract class Item extends Entity {
 
     public void pick() {
         this.pickedUp = true;
+//        SoundManager.collect_item.play();
     }
 
     public boolean isPickUp() {
