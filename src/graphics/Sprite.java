@@ -193,6 +193,22 @@ public class Sprite {
         _realWidth = rw;
         _realHeight = rh;
         load();
+        // ảnh có cỡ SIZExSIZE
+        WritableImage wr = new WritableImage(SIZE, SIZE);
+        PixelWriter pw = wr.getPixelWriter();
+        // Traverse từng pixel của ảnh
+        for (int i = 0; i < SIZE; i++) {
+            for (int j = 0; j < SIZE; j++) {
+                // set màu cho từng pixel ra màn
+                if (_pixels[i + j * SIZE] == TRANSPARENT_COLOR) {
+                    pw.setArgb(i, j, 0);
+                } else {
+                    pw.setArgb(i, j, _pixels[i + j * SIZE]);
+                }
+            }
+        }
+        Image input = new ImageView(wr).getImage();
+        getFxImage = resample(input,STEP);
     }
 
     public Sprite(int size, int color) {

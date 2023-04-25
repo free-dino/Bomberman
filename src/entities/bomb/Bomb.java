@@ -36,7 +36,7 @@ public class Bomb extends Entity {
         } else {
             sprite = Sprite.movingSprite(Sprite.bomb, Sprite.bomb_1, Sprite.bomb_2, animationTime, 20);
         }
-        img = sprite.getFxImage();
+        img = sprite.getFxImage;
     }
 
     /**

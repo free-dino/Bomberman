@@ -4,9 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="03a6babe-b30a-4868-bbdf-ba91240d6708" name="Changes" comment="">
+    <list default="true" id="03a6babe-b30a-4868-bbdf-ba91240d6708" name="Changes" comment="updated">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/audio/SoundManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/audio/Sound.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/entities/bomb/Bomb.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/bomb/Bomb.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/entities/item/Item.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/item/Item.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/graphics/Sprite.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/graphics/Sprite.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -98,8 +100,16 @@
       <option name="presentableId" value="Default" />
       <updated>1682341570104</updated>
       <workItem from="1682341570495" duration="1316000" />
-      <workItem from="1682428366184" duration="218000" />
+      <workItem from="1682428366184" duration="1180000" />
     </task>
+    <task id="LOCAL-00001" summary="updated">
+      <created>1682428819053</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1682428819053</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -145,5 +155,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="updated" />
+    <option name="LAST_COMMIT_MESSAGE" value="updated" />
   </component>
 </project>
