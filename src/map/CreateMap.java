@@ -55,24 +55,24 @@ public class CreateMap {
                     Entity object = null;
                     Entity hiddenObject = null;
                     Entity enemy = null;
-                    stillObjects.add(new Grass(j, i, Sprite.grass.getFxImage()));
+                    stillObjects.add(new Grass(j, i, Sprite.grass.getFxImage));
                     switch (line.charAt(j)) {
                         // Tiles:
                         case '#':
-                            stillObject = new Wall(j, i, Sprite.wall.getFxImage());
+                            stillObject = new Wall(j, i, Sprite.wall.getFxImage);
                             break;
                         case '*':
-                            object = new Brick(j, i, Sprite.brick.getFxImage());
+                            object = new Brick(j, i, Sprite.brick.getFxImage);
                             break;
                         case 'p':
                             object = new Bomber(j, i, Sprite.player_right.getFxImage(), keyListener);
                             bomber = (Bomber) object;
                             break;
                         case '1':
-                            enemy = new Balloom(j, i, Sprite.balloom_right1.getFxImage());
+                            enemy = new Balloom(j, i, Sprite.balloom_right1.getFxImage);
                             break;
                         case '2':
-                            enemy = new Oneal(j, i, Sprite.oneal_right1.getFxImage());
+                            enemy = new Oneal(j, i, Sprite.oneal_right1.getFxImage);
                             break;
                         // Items:
                         case 'f':

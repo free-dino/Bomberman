@@ -4,11 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="03a6babe-b30a-4868-bbdf-ba91240d6708" name="Changes" comment="updated">
+    <list default="true" id="03a6babe-b30a-4868-bbdf-ba91240d6708" name="Changes" comment="updated các sprite cho bom">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/entities/bomb/Bomb.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/bomb/Bomb.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/entities/item/Item.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/item/Item.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/graphics/Sprite.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/graphics/Sprite.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -100,7 +97,7 @@
       <option name="presentableId" value="Default" />
       <updated>1682341570104</updated>
       <workItem from="1682341570495" duration="1316000" />
-      <workItem from="1682428366184" duration="1180000" />
+      <workItem from="1682428366184" duration="1862000" />
     </task>
     <task id="LOCAL-00001" summary="updated">
       <created>1682428819053</created>
@@ -109,7 +106,14 @@
       <option name="project" value="LOCAL" />
       <updated>1682428819053</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="updated các sprite cho bom">
+      <created>1682429663126</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1682429663126</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -120,19 +124,7 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State>
-              <option name="FILTERS">
-                <map>
-                  <entry key="user">
-                    <value>
-                      <list>
-                        <option value="*" />
-                      </list>
-                    </value>
-                  </entry>
-                </map>
-              </option>
-            </State>
+            <State />
           </value>
         </entry>
       </map>
@@ -156,6 +148,7 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="updated" />
-    <option name="LAST_COMMIT_MESSAGE" value="updated" />
+    <MESSAGE value="updated các sprite cho bom" />
+    <option name="LAST_COMMIT_MESSAGE" value="updated các sprite cho bom" />
   </component>
 </project>
