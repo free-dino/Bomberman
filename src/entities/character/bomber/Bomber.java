@@ -16,7 +16,9 @@ import graphics.Sprite;
 import javafx.application.Platform;
 import javafx.scene.image.Image;
 import javafx.scene.input.KeyCode;
+import map.MapLevel1;
 import map.MapLevel2;
+import map.MapLevel3;
 
 import static audio.SoundManager.*;
 import static main.BombermanGame.*;
@@ -157,12 +159,21 @@ public class Bomber extends Animal {
                 this.quantityOfBoms++;
             }
             ((BombItem) table[px][py]).pick();
-        } else if(table[px][py] instanceof PortalItem){
-            if (!((PortalItem) table[px][py]).isPickUp() && enemies.isEmpty()){
+        } else if (table[px][py] instanceof PortalItem) {
+            if (!((PortalItem) table[px][py]).isPickUp() && enemies.isEmpty()) {
                 ((PortalItem) table[px][py]).pick();
-                try{
-                    new MapLevel2();
-                }catch (Exception e){
+                try {
+                    if (level == 1) {
+                        level = 2;
+                        new MapLevel2();
+                    } else if (level == 2) {
+                        level = 3;
+                        new MapLevel3();
+                    } else if (level == 3) {
+                        level = 1;
+                        new MapLevel1();
+                    }
+                } catch (Exception e) {
                     System.out.println(e.getMessage());
                 }
             }

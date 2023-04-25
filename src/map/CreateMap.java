@@ -1,5 +1,6 @@
 package map;
 
+import control.KeyListener;
 import entities.Entity;
 import entities.block.Brick;
 import entities.block.Grass;
@@ -12,6 +13,12 @@ import entities.item.FlameItem;
 import entities.item.PortalItem;
 import entities.item.SpeedItem;
 import graphics.Sprite;
+import javafx.scene.Group;
+import javafx.scene.Scene;
+import javafx.scene.canvas.Canvas;
+import javafx.scene.paint.Color;
+import javafx.stage.Stage;
+import main.BombermanGame;
 
 import java.io.File;
 import java.io.FileReader;
@@ -102,6 +109,16 @@ public class CreateMap {
                     }
                 }
             }
+            canvas = new Canvas(Sprite.SCALED_SIZE * WIDTH, Sprite.SCALED_SIZE * HEIGHT + 40);
+            gc = canvas.getGraphicsContext2D();
+
+            // Tao root container
+            Group root = new Group();
+            root.getChildren().add(canvas);
+
+            Scene scene = new Scene(root, Color.BLACK);
+            keyListener = new KeyListener(scene);
+            window.setScene(scene);
             MAX_SCORE = enemies.size() * 100;
             scanner.close();
         } catch (Exception e) {

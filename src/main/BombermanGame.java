@@ -34,6 +34,7 @@ public class BombermanGame extends Application {
     public static KeyListener keyListener;
     public static GraphicsContext gc;
     public static Canvas canvas;
+    public static Stage window;
 
 
     public static void main(String[] args) {
@@ -43,18 +44,9 @@ public class BombermanGame extends Application {
 
     @Override
     public void start(Stage stage) {
+        window = stage;
         new MapLevel1(); // Test tạo map
-        canvas = new Canvas(Sprite.SCALED_SIZE * WIDTH, Sprite.SCALED_SIZE * HEIGHT + 40);
-        gc = canvas.getGraphicsContext2D();
 
-        // Tao root container
-        Group root = new Group();
-        root.getChildren().add(canvas);
-
-        Scene scene = new Scene(root, Color.BLACK);
-        keyListener = new KeyListener(scene);
-
-        stage.setScene(scene);
         stage.setResizable(false);
         stage.show();
 
