@@ -9,6 +9,7 @@ import entities.character.enemy.Balloom;
 import entities.character.enemy.Oneal;
 import entities.item.BombItem;
 import entities.item.FlameItem;
+import entities.item.PortalItem;
 import entities.item.SpeedItem;
 import graphics.Sprite;
 
@@ -22,7 +23,11 @@ import static main.BombermanGame.*;
  * Khởi tạo 1 map với đầu vào là 1 string: string Level.
  */
 public class CreateMap {
+
     public CreateMap(String stringLevel) {
+        stillObjects.clear();
+        entities.clear();
+        enemies.clear();
         System.out.println(System.getProperty("user.dir"));
         final File fileName = new File(stringLevel);
         try (FileReader inputFile = new FileReader(fileName)) {
@@ -75,6 +80,10 @@ public class CreateMap {
                             hiddenObject = new BombItem(j, i, Sprite.powerup_bombs.getFxImage);
                             System.out.println("Bomb Item in " + j + " " + i);
                             break;
+                        case 'x':
+                            hiddenObject = new PortalItem(j, i, Sprite.portal.getFxImage);
+                            System.out.println("Portal Item in " + j + " " + i);
+                            break;
                     }
                     if (stillObject != null) {
                         stillObjects.add(stillObject);
@@ -96,6 +105,7 @@ public class CreateMap {
             MAX_SCORE = enemies.size() * 100;
             scanner.close();
         } catch (Exception e) {
+            System.out.println("Error in CreateMap.java");
             System.out.println(e.getMessage());
         }
     }

@@ -25,9 +25,6 @@ public class BombermanGame extends Application {
     public static int MAX_SCORE;
     public static long FPS_GAME = 1000 / 60;
 
-
-    private GraphicsContext gc;
-    private Canvas canvas;
     public static List<Entity> entities = new ArrayList<>();
     public static List<Entity> stillObjects = new ArrayList<>();
     public static List<Entity> enemies = new ArrayList<>();
@@ -35,6 +32,8 @@ public class BombermanGame extends Application {
     public static Entity[][] hiddenTable; // Mảng 2 chiều các vật thể bị che đi.
     public static Bomber bomber;
     public static KeyListener keyListener;
+    public static GraphicsContext gc;
+    public static Canvas canvas;
 
 
     public static void main(String[] args) {

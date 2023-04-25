@@ -16,7 +16,9 @@ import graphics.Sprite;
 import javafx.application.Platform;
 import javafx.scene.image.Image;
 import javafx.scene.input.KeyCode;
+import map.MapLevel2;
 
+import static audio.SoundManager.*;
 import static main.BombermanGame.*;
 
 public class Bomber extends Animal {
@@ -129,7 +131,7 @@ public class Bomber extends Animal {
                 Entity object = new Bomb(getBomberX(), getBomberY(), Sprite.bomb.getFxImage(), entities, sizeOfBomb);
                 entities.add(object);
             });
-           SoundManager.place_bomb.play();
+//           SoundManager.place_bomb.play();
         }
     }
 
@@ -138,19 +140,32 @@ public class Bomber extends Animal {
         int py = getBomberY();
         if (table[px][py] instanceof FlameItem) {
             if (!((FlameItem) table[px][py]).isPickUp()) {
+                ((FlameItem) table[px][py]).pick();
                 this.sizeOfBomb++;
+                System.out.println("Picked up Flame Item");
             }
             ((FlameItem) table[px][py]).pick();
         } else if (table[px][py] instanceof SpeedItem) {
             if (!((SpeedItem) table[px][py]).isPickUp()) {
+                ((SpeedItem) table[px][py]).pick();
                 this.SPEED++;
             }
             ((SpeedItem) table[px][py]).pick();
         } else if (table[px][py] instanceof BombItem) {
             if (!((BombItem) table[px][py]).isPickUp()) {
+                ((BombItem) table[px][py]).pick();
                 this.quantityOfBoms++;
             }
             ((BombItem) table[px][py]).pick();
+        } else if(table[px][py] instanceof PortalItem){
+            if (!((PortalItem) table[px][py]).isPickUp() && enemies.isEmpty()){
+                ((PortalItem) table[px][py]).pick();
+                try{
+                    new MapLevel2();
+                }catch (Exception e){
+                    System.out.println(e.getMessage());
+                }
+            }
         }
     }
 
