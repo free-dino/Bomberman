@@ -41,21 +41,21 @@ public class Bomb extends Entity {
 
     public void getImg() {
         if (exploded) {
-            sprite =
-                    Sprite.movingSprite(
-                            Sprite.bomb_exploded,
-                            Sprite.bomb_exploded1,
-                            Sprite.bomb_exploded2,
-                            animate,
-                            20);
+            sprite = Sprite.movingSprite(Sprite.bomb_exploded, Sprite.bomb_exploded1, Sprite.bomb_exploded2, animate,20);
         } else {
             sprite = Sprite.movingSprite(Sprite.bomb, Sprite.bomb_1, Sprite.bomb_2, animate, 20);
         }
         img = sprite.getFxImage;
     }
 
-    private boolean checkBreak(int i, int j) {
-        Entity cur = table[i][j];
+    /**
+     * Hàm này check xem Bomb có bị chặn hay ko
+     * @param locationX
+     * @param locationY
+     * @return
+     */
+    private boolean checkBreak(int locationX, int locationY) {
+        Entity cur = table[locationX][locationY];
         if (cur instanceof Wall) {
             return true;
         }
@@ -74,11 +74,11 @@ public class Bomb extends Entity {
         this.animate = 69;
     }
 
-    private void setDied(int i, int j) {
-        Entity cur = table[i][j];
+    private void hurtingByExplosion(int locationX, int locationY) {
+        Entity cur = table[locationX][locationY];
         if (cur instanceof Enemy) {
             for (Entity e : enemies) {
-                if (e.getLocationX() == i && e.getLocationY() == j) {
+                if (e.getLocationX() == locationX && e.getLocationY() == locationY) {
                     e.setHurt();
                 }
             }
@@ -88,7 +88,7 @@ public class Bomb extends Entity {
         if (cur instanceof SpeedItem) cur.setDied();
         if (cur instanceof BombItem) cur.setDied();
         if (cur instanceof Bomb && !((Bomb) cur).isExploded()) ((Bomb) cur).setExplode();
-        if (bomber.getBomberX() == i && bomber.getBomberY() == j && !bomber.isFlamePass() /*&& !bomber.isProtectded()*/) {
+        if (bomber.getBomberX() == locationX && bomber.getBomberY() == locationY && !bomber.isFlamePass() /*&& !bomber.isProtectded()*/) {
             bomber.setHurt();
         }
     }
@@ -109,7 +109,8 @@ public class Bomb extends Entity {
             Platform.runLater(
                     () -> {
                         for (int c = 1; c <= size; c++) {
-                            int i = x / Sprite.SCALED_SIZE - c, j = y / Sprite.SCALED_SIZE;
+                            int i = x / Sprite.SCALED_SIZE - c;
+                            int j = y / Sprite.SCALED_SIZE;
                             if (checkBreak(i, j)) break;
                             if (c < size) {
                                 entities.add(new Flame(i, j, null, Direction.OH, entities));
@@ -118,7 +119,8 @@ public class Bomb extends Entity {
                             }
                         }
                         for (int c = 1; c <= size; c++) {
-                            int i = x / Sprite.SCALED_SIZE + c, j = y / Sprite.SCALED_SIZE;
+                            int i = x / Sprite.SCALED_SIZE + c;
+                            int j = y / Sprite.SCALED_SIZE;
                             if (checkBreak(i, j)) break;
                             if (c < size) {
                                 entities.add(new Flame(i, j, Sprite.explosion_horizontal.getFxImage, Direction.OH, entities));
@@ -127,7 +129,8 @@ public class Bomb extends Entity {
                             }
                         }
                         for (int c = 1; c <= size; c++) {
-                            int i = x / Sprite.SCALED_SIZE, j = y / Sprite.SCALED_SIZE - c;
+                            int i = x / Sprite.SCALED_SIZE;
+                            int j = y / Sprite.SCALED_SIZE - c;
                             if (checkBreak(i, j)) break;
                             if (c < size) {
                                 entities.add(new Flame(i, j, Sprite.explosion_vertical.getFxImage, Direction.OV, entities));
@@ -136,7 +139,8 @@ public class Bomb extends Entity {
                             }
                         }
                         for (int c = 1; c <= size; c++) {
-                            int i = x / Sprite.SCALED_SIZE, j = y / Sprite.SCALED_SIZE + c;
+                            int i = x / Sprite.SCALED_SIZE;
+                            int j = y / Sprite.SCALED_SIZE + c;
                             if (checkBreak(i, j)) break;
                             if (c < size) {
                                 entities.add(new Flame(i, j, Sprite.explosion_vertical.getFxImage, Direction.OV, entities));
@@ -149,24 +153,28 @@ public class Bomb extends Entity {
                             @Override
                             public void run() {
                                 for (int c = 0; c <= size; c++) {
-                                    int i = x / Sprite.SCALED_SIZE - c, j = y / Sprite.SCALED_SIZE;
-                                    if (checkBreak(i, j)) break;
-                                    setDied(i, j);
+                                    int px = x / Sprite.SCALED_SIZE - c;
+                                    int py = y / Sprite.SCALED_SIZE;
+                                    if (checkBreak(px, py)) break;
+                                    hurtingByExplosion(px, py);
                                 }
                                 for (int c = 1; c <= size; c++) {
-                                    int i = x / Sprite.SCALED_SIZE + c, j = y / Sprite.SCALED_SIZE;
-                                    if (checkBreak(i, j)) break;
-                                    setDied(i, j);
+                                    int px = x / Sprite.SCALED_SIZE + c;
+                                    int py = y / Sprite.SCALED_SIZE;
+                                    if (checkBreak(px, py)) break;
+                                    hurtingByExplosion(px,py);
                                 }
                                 for (int c = 1; c <= size; c++) {
-                                    int i = x / Sprite.SCALED_SIZE, j = y / Sprite.SCALED_SIZE - c;
-                                    if (checkBreak(i, j)) break;
-                                    setDied(i, j);
+                                    int px = x / Sprite.SCALED_SIZE;
+                                    int py = y / Sprite.SCALED_SIZE - c;
+                                    if (checkBreak(px, py)) break;
+                                    hurtingByExplosion(px, py);
                                 }
                                 for (int c = 1; c <= size; c++) {
-                                    int i = x / Sprite.SCALED_SIZE, j = y / Sprite.SCALED_SIZE + c;
-                                    if (checkBreak(i, j)) break;
-                                    setDied(i, j);
+                                    int px = x / Sprite.SCALED_SIZE;
+                                    int py = y / Sprite.SCALED_SIZE + c;
+                                    if (checkBreak(px, py)) break;
+                                    hurtingByExplosion(px, py);
                                 }
                             }
                         }, 10);

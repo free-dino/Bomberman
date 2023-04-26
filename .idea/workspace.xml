@@ -4,13 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="03a6babe-b30a-4868-bbdf-ba91240d6708" name="Changes" comment="upadate lại tên - thống nhất dùng sound chứ ko phải sound manager">
+    <list default="true" id="03a6babe-b30a-4868-bbdf-ba91240d6708" name="Changes" comment="sửa lại đoạn nổ xuyên tường, update lại các methods">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/entities/Entity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/Entity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/entities/bomb/Bomb.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/bomb/Bomb.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/entities/bomb/Flame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/bomb/Flame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/entities/character/bomber/Bomber.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/character/bomber/Bomber.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/entities/item/Item.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/item/Item.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -133,7 +129,14 @@
       <option name="project" value="LOCAL" />
       <updated>1682515863899</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="sửa lại đoạn nổ xuyên tường, update lại các methods">
+      <created>1682518589368</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1682518589368</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -171,6 +174,7 @@
     <MESSAGE value="updated các sprite cho bom" />
     <MESSAGE value="updated các sprite cho map" />
     <MESSAGE value="upadate lại tên - thống nhất dùng sound chứ ko phải sound manager" />
-    <option name="LAST_COMMIT_MESSAGE" value="upadate lại tên - thống nhất dùng sound chứ ko phải sound manager" />
+    <MESSAGE value="sửa lại đoạn nổ xuyên tường, update lại các methods" />
+    <option name="LAST_COMMIT_MESSAGE" value="sửa lại đoạn nổ xuyên tường, update lại các methods" />
   </component>
 </project>
