@@ -1,8 +1,6 @@
 package entities.character.enemy;
 
-import algorithm.LowAI;
 import entities.character.Animal;
-import graphics.Sprite;
 import javafx.scene.image.Image;
 
 

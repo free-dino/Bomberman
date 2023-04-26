@@ -16,7 +16,7 @@ public class Balloom extends Enemy {
     @Override
     public void chooseDirection() {
         if (animationTime > 100000) animationTime = 0;
-        if (animationTime % 50 == 0 && x % Sprite.SCALED_SIZE == 0 && y % Sprite.SCALED_SIZE == 0) {
+        if (x % Sprite.SCALED_SIZE == 0 && y % Sprite.SCALED_SIZE == 0) {
             direction = LowAI.getDirection();
         }
     }

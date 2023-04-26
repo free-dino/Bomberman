@@ -1,5 +1,7 @@
 package entities.character.enemy;
 
+import algorithm.LowAI;
+import algorithm.MediumAI;
 import graphics.Sprite;
 import javafx.scene.image.Image;
 
@@ -8,13 +10,16 @@ import static main.BombermanGame.*;
 public class Oneal extends Enemy {
     public Oneal(int xUnit, int yUnit, Image img) {
         super(xUnit, yUnit, img);
-        SPEED = 2;
+        SPEED = 1;
         HP = 2;
     }
 
     @Override
     public void chooseDirection() {
-
+        if (animationTime > 100000) animationTime = 0;
+        if (x % Sprite.SCALED_SIZE == 0 && y % Sprite.SCALED_SIZE == 0) {
+            direction = MediumAI.getDirection(this);
+        }
     }
 
     protected void chooseSprite() {
@@ -53,7 +58,7 @@ public class Oneal extends Enemy {
         int px = (x + Sprite.SCALED_SIZE / 2) / Sprite.SCALED_SIZE;
         int py = (y + Sprite.SCALED_SIZE / 2) / Sprite.SCALED_SIZE;
         table[px][py] = null;
-        sprite = Sprite.balloom_right1;
+        sprite = Sprite.oneal_right1;
         int count = 0;
         switch (direction) {
             case D:
@@ -107,14 +112,14 @@ public class Oneal extends Enemy {
     public void update() {
         try {
             if (beHurt) {
-                gotHurt(Sprite.balloom_dead);
+                gotHurt(Sprite.oneal_dead);
                 return;
             }
             animationTime++;
             moving = false;
             balloomMoving();
         } catch (Exception e) {
-            System.out.println("Error in Balloom.java");
+            System.out.println("Error in Oneal.java");
         }
     }
 }

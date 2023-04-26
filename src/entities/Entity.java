@@ -25,7 +25,7 @@ public abstract class Entity {
      * U : Up
      * D : Down
      */
-    public enum Direction {L, R, U, D}
+    public enum Direction {L, R, U, D, OV, OH}
 
     protected Direction direction = Direction.R;
 
