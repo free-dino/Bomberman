@@ -27,7 +27,7 @@ public class Bomber extends Animal {
     private int quantityOfBoms = 1;
     private int sizeOfBomb = 1;
 
-    private static int protectedTime = 0;
+    private  int protectedTime = 0;
     private int hurtTick = 0;
 
     public Bomber(int x, int y, Image img, KeyListener _keyListener) {
@@ -42,7 +42,7 @@ public class Bomber extends Animal {
         this.died = true;
     }
 
-    public static boolean isProtected() {
+    public  boolean isProtected() {
         return protectedTime > 0;
     }
 
