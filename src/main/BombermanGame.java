@@ -39,6 +39,7 @@ public class BombermanGame extends Application {
     public static List<Entity> entities = new ArrayList<>();
     public static List<Entity> stillObjects = new ArrayList<>();
     public static List<Entity> enemies = new ArrayList<>();
+    public static List<Entity> flames = new ArrayList<>();
     public static Entity[][] table;     // Mảng 2 chiều các vật thể hiện ra.
     public static Entity[][] hiddenTable; // Mảng 2 chiều các vật thể bị che đi.
     public static Bomber bomber;

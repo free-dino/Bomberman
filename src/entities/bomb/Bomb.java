@@ -16,7 +16,8 @@ import static main.BombermanGame.*;
 
 public class Bomb extends Entity {
     private boolean exploded = false;
-    private int size;
+    private final int size;
+    private int animate = 0;
     public static int quantity;
 
     public Bomb(int xUnit, int yUnit, Image img, List<Entity> entities, int size) {
@@ -28,6 +29,9 @@ public class Bomb extends Entity {
 
     public boolean isExploded() {
         return exploded;
+    }
+    public void setExplode() {
+        this.animate = 69;
     }
 
     private void chooseSprite() {
@@ -65,20 +69,20 @@ public class Bomb extends Entity {
     }
 
     private void hurtingByExplosion(int locationX, int locationY) {
-        if (locationX < 0 || locationY < 0 || locationX >= WIDTH || locationY >= HEIGHT) {
-            return;
-        }
-        Entity currentEntity = getEntity(locationX, locationY);
-        if (currentEntity instanceof Enemy) {
-            System.out.println("Hurting enemy ");
-            for (Entity enemy : enemies) {
-                if (enemy.getLocationX() == locationX && enemy.getLocationY() == locationY) {
-                    enemy.setHurt();
+        Entity cur = table[locationX][locationY];
+        if (cur instanceof Enemy) {
+            for (Entity e : enemies) {
+                if (e.getLocationX() == locationX && e.getLocationY() == locationY) {
+                    e.setHurt();
                 }
             }
         }
-        if (bomber.getBomberX() == locationX && bomber.getBomberY() == locationY) {
-            System.out.println("Hurting player");
+        //if (cur instanceof Oneal) cur.setDied();
+        if (cur instanceof entities.item.Item) cur.setHurt();
+        if (cur instanceof entities.item.FlameItem) cur.setHurt();
+        if (cur instanceof entities.item.BombItem) cur.setHurt();
+        if (cur instanceof Bomb && !((Bomb) cur).isExploded()) ((Bomb) cur).setExplode();
+        if (bomber.getBomberX() == locationX && bomber.getBomberY() == locationY && !bomber.isFlamePass() /*&& !bomber.isProtectded()*/) {
             bomber.setHurt();
         }
     }

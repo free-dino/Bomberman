@@ -29,6 +29,7 @@ public class Bomber extends Animal {
 
     private  int protectedTime = 0;
     private int hurtTick = 0;
+    private boolean flamePass = false;
 
     public Bomber(int x, int y, Image img, KeyListener _keyListener) {
         super(x, y, img);
@@ -133,7 +134,7 @@ public class Bomber extends Animal {
                 Entity object = new Bomb(getBomberX(), getBomberY(), Sprite.bomb.getFxImage(), entities, sizeOfBomb);
                 entities.add(object);
             });
-//           SoundManager.place_bomb.play();
+           Sound.place_bomb.play();
         }
     }
 
@@ -219,4 +220,9 @@ public class Bomber extends Animal {
     public int getBomberY() {
         return (y + Sprite.SCALED_SIZE / 2) / Sprite.SCALED_SIZE;
     }
+    public boolean isFlamePass() {
+        return flamePass;
+    }
+
+
 }

@@ -15,7 +15,7 @@ public class Balloom extends Enemy {
     protected void chooseSprite() {
         if (animationTime > 100000) animationTime = 0;
         if (beHurt) {
-            img = Sprite.balloom_dead.getFxImage();
+            img = Sprite.balloom_dead.getFxImage;
             return;
         }
         switch (direction) {
@@ -49,7 +49,7 @@ public class Balloom extends Enemy {
         int py = (y + Sprite.SCALED_SIZE / 2) / Sprite.SCALED_SIZE;
         table[px][py] = null;
         sprite = Sprite.balloom_right1;
-        int count = 0;
+        int count ;
         switch (direction) {
             case D:
                 if (isValidEnemyMove(direction)) {
@@ -107,6 +107,7 @@ public class Balloom extends Enemy {
             }
             animationTime++;
             moving = false;
+            checkCollideWithBomber();
             balloomMoving();
         } catch (Exception e) {
             System.out.println("Error in Balloom.java");

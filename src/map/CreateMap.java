@@ -22,6 +22,7 @@ import main.BombermanGame;
 
 import java.io.File;
 import java.io.FileReader;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 import static main.BombermanGame.*;
@@ -32,9 +33,10 @@ import static main.BombermanGame.*;
 public class CreateMap {
 
     public CreateMap(String stringLevel) {
-        stillObjects.clear();
-        entities.clear();
-        enemies.clear();
+        entities = new ArrayList<>();
+        enemies = new ArrayList<>();
+        flames = new ArrayList<>();
+        stillObjects = new ArrayList<>();
         System.out.println(System.getProperty("user.dir"));
         final File fileName = new File(stringLevel);
         try (FileReader inputFile = new FileReader(fileName)) {

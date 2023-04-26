@@ -278,7 +278,7 @@ public class Sprite {
     private Image resample(Image input, int scaleFactor) {
         final int W = (int) input.getWidth();
         final int H = (int) input.getHeight();
-        final int S = scaleFactor;
+        int S = scaleFactor;
 
         WritableImage output = new WritableImage(
                 W * S,
