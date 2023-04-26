@@ -10,18 +10,19 @@ import java.util.List;
 import static main.BombermanGame.*;
 
 public class Flame extends Entity {
-    private final Direction direction;
+    public enum FlameDirection {L, R, U, D, OH, OV}
+    private final FlameDirection flameDirection;
     private final List<Entity> entities;
     private int animate = 0;
-    public Flame(int xUnit, int yUnit, Image img, Direction direction, List<Entity> entities) {
+    public Flame(int xUnit, int yUnit, Image img, FlameDirection flameDirection, List<Entity> entities) {
         super(xUnit, yUnit, img);
-        this.direction = direction;
+        this.flameDirection = flameDirection;
         this.entities = entities;
     }
 
     public void getImg() {
         Sprite sprite = null;
-        switch (direction) {
+        switch (flameDirection) {
             case U:
                 sprite = Sprite.movingSprite(Sprite.explosion_vertical_top_last, Sprite.explosion_vertical_top_last1, Sprite.explosion_vertical_top_last2, animate, 20);
                 break;

@@ -1,6 +1,6 @@
 package entities.character.bomber;
 
-import audio.Sound;
+import audio.SoundManager;
 import entities.Entity;
 import control.KeyListener;
 
@@ -20,7 +20,7 @@ import map.MapLevel1;
 import map.MapLevel2;
 import map.MapLevel3;
 
-import static audio.Sound.*;
+import static audio.SoundManager.*;
 import static main.BombermanGame.*;
 
 public class Bomber extends Animal {
