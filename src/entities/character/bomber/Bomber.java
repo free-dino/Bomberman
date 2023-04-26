@@ -50,7 +50,7 @@ public class Bomber extends Animal {
     protected void chooseSprite() {
         if (animationTime > 100000) animationTime = 0;
         if (beHurt) {
-            img = Sprite.movingSprite(Sprite.player_dead1, Sprite.player_dead2, Sprite.player_dead3, animationTime, 20).getFxImage();
+            img = Sprite.movingSprite(Sprite.player_dead1, Sprite.player_dead2, Sprite.player_dead3, animationTime, 20).getFxImage;
             return;
         }
         switch (direction) {
@@ -79,7 +79,7 @@ public class Bomber extends Animal {
                 }
                 break;
         }
-        img = sprite.getFxImage();
+        img = sprite.getFxImage;
     }
 
 
@@ -129,9 +129,9 @@ public class Bomber extends Animal {
     }
 
     public void placeBomb() {
-        if (Bomb.quantity < quantityOfBoms && !(table[getBomberX()][getBomberY()] instanceof Bomb) && !(table[getBomberX()][getBomberY()] instanceof Brick)) {
+        if (Bomb.cnt < quantityOfBoms && !(table[getBomberX()][getBomberY()] instanceof Bomb) && !(table[getBomberX()][getBomberY()] instanceof Brick)) {
             Platform.runLater(() -> {
-                Entity object = new Bomb(getBomberX(), getBomberY(), Sprite.bomb.getFxImage(), entities, sizeOfBomb);
+                Entity object = new Bomb(getBomberX(), getBomberY(), Sprite.bomb.getFxImage, entities, sizeOfBomb);
                 entities.add(object);
             });
            //Sound.place_bomb.play();

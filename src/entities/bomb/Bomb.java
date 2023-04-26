@@ -1,9 +1,15 @@
 package entities.bomb;
 
+import audio.Sound;
 import entities.Entity;
+import entities.character.enemy.Enemy;
+import entities.character.enemy.Oneal;
+import entities.item.BombItem;
+import entities.item.Item;
+import entities.item.PortalItem;
+import entities.item.SpeedItem;
 import entities.block.Brick;
 import entities.block.Wall;
-import entities.character.enemy.Enemy;
 import graphics.Sprite;
 import javafx.application.Platform;
 import javafx.scene.image.Image;
@@ -15,171 +21,169 @@ import java.util.TimerTask;
 import static main.BombermanGame.*;
 
 public class Bomb extends Entity {
-    private boolean exploded = false;
+    public static int cnt = 0;
     private final int size;
+    private final List<Entity> entities;
     private int animate = 0;
-    public static int quantity;
+    private boolean exploded = false;
+    private Entity portalPos = null;
 
-    public Bomb(int xUnit, int yUnit, Image img, List<Entity> entities, int size) {
-        super(xUnit, yUnit, img);
+    public Bomb(int x, int y, Image img, List<Entity> entities, int size) {
+        super(x, y, img);
         this.size = size;
-        quantity++;
-        table[xUnit][yUnit] = this;
+        this.entities = entities;
+        cnt++;
+        if (table[x][y] instanceof PortalItem) {
+            portalPos = table[x][y];
+        }
+        table[x][y] = this;
+    }
+
+    public void getImg() {
+        if (exploded) {
+            sprite =
+                    Sprite.movingSprite(
+                            Sprite.bomb_exploded,
+                            Sprite.bomb_exploded1,
+                            Sprite.bomb_exploded2,
+                            animate,
+                            20);
+        } else {
+            sprite = Sprite.movingSprite(Sprite.bomb, Sprite.bomb_1, Sprite.bomb_2, animate, 20);
+        }
+        img = sprite.getFxImage;
+    }
+
+    private boolean checkBreak(int i, int j) {
+        Entity cur = table[i][j];
+        if (cur instanceof Wall) {
+            return true;
+        }
+        if (cur instanceof Brick) {
+            ((Brick) cur).setExploded();
+            return true;
+        }
+        return false;
     }
 
     public boolean isExploded() {
         return exploded;
     }
+
     public void setExplode() {
         this.animate = 69;
     }
 
-    private void chooseSprite() {
-        if (exploded) {
-            sprite = Sprite.movingSprite(Sprite.bomb_exploded, Sprite.bomb_exploded1, Sprite.bomb_exploded2, animationTime, 20);
-        } else {
-            sprite = Sprite.movingSprite(Sprite.bomb, Sprite.bomb_1, Sprite.bomb_2, animationTime, 20);
-        }
-        img = sprite.getFxImage;
-    }
-
-    /**
-     * Hàm này check xem khi bom nổ thì tia lửa có đi qua được hay không.
-     *
-     * @param locationX - Vị trí trên Ox dạng từ 1 đến n.
-     * @param locationY - Vị trí trên Oy dạng từ 1 đến m.
-     *
-     * @return true / false;
-     */
-    private boolean checkBreak(int locationX, int locationY) {
-        if (locationX < 0 || locationY < 0 || locationX >= WIDTH || locationY >= HEIGHT) {
-            return false;
-        }
-        Entity currentEntity = getEntity(locationX, locationY);
-        if (currentEntity instanceof Wall) {
-            System.out.println("Flame stopped cause of Wall");
-            return false;
-        }
-        if (currentEntity instanceof Brick) {
-            System.out.println("Flame stopped cause of Brick");
-            ((Brick) currentEntity).setExploded();
-            return false;
-        }
-        return true;
-    }
-
-    private void hurtingByExplosion(int locationX, int locationY) {
-        Entity cur = table[locationX][locationY];
+    private void setDied(int i, int j) {
+        Entity cur = table[i][j];
         if (cur instanceof Enemy) {
             for (Entity e : enemies) {
-                if (e.getLocationX() == locationX && e.getLocationY() == locationY) {
+                if (e.getLocationX() == i && e.getLocationY() == j) {
                     e.setHurt();
                 }
             }
         }
-        //if (cur instanceof Oneal) cur.setDied();
-        if (cur instanceof entities.item.Item) cur.setHurt();
-        if (cur instanceof entities.item.FlameItem) cur.setHurt();
-        if (cur instanceof entities.item.BombItem) cur.setHurt();
+        if (cur instanceof Oneal) cur.setDied();
+        if (cur instanceof Item) cur.setDied();
+        if (cur instanceof SpeedItem) cur.setDied();
+        if (cur instanceof BombItem) cur.setDied();
         if (cur instanceof Bomb && !((Bomb) cur).isExploded()) ((Bomb) cur).setExplode();
-        if (bomber.getBomberX() == locationX && bomber.getBomberY() == locationY && !bomber.isFlamePass() /*&& !bomber.isProtectded()*/) {
+        if (bomber.getBomberX() == i && bomber.getBomberY() == j && !bomber.isFlamePass() /*&& !bomber.isProtectded()*/) {
             bomber.setHurt();
         }
     }
 
-    private void setExploded() {
-        this.exploded = true;
-        Platform.runLater(
-                () -> {
-                    for (int count = 1; count <= size; count++) {
-                        int i = x / Sprite.SCALED_SIZE - count;
-                        int j = y / Sprite.SCALED_SIZE;
-                        if (!checkBreak(i, j)) break;
-                        if (count < size) {
-                            entities.add(new Flame(i, j, null, Flame.FlameDirection.OH, entities));
-                        } else {
-                            entities.add(new Flame(i, j, null, Flame.FlameDirection.L, entities));
-                        }
-                    }
-                    for (int count = 1; count <= size; count++) {
-                        int i = x / Sprite.SCALED_SIZE + count;
-                        int j = y / Sprite.SCALED_SIZE;
-                        if (!checkBreak(i, j)) break;
-                        if (count < size) {
-                            entities.add(new Flame(i, j, Sprite.explosion_horizontal.getFxImage(), Flame.FlameDirection.OH, entities));
-                        } else {
-                            entities.add(new Flame(i, j, Sprite.explosion_horizontal_right_last.getFxImage(), Flame.FlameDirection.R, entities));
-                        }
-                    }
-                    for (int count = 1; count <= size; count++) {
-                        int i = x / Sprite.SCALED_SIZE;
-                        int j = y / Sprite.SCALED_SIZE - count;
-                        if (!checkBreak(i, j)) break;
-                        if (count < size) {
-                            entities.add(new Flame(i, j, Sprite.explosion_vertical.getFxImage(), Flame.FlameDirection.OV, entities));
-                        } else {
-                            entities.add(new Flame(i, j, Sprite.explosion_vertical_top_last.getFxImage(), Flame.FlameDirection.U, entities));
-                        }
-                    }
-                    for (int count = 1; count <= size; count++) {
-                        int i = x / Sprite.SCALED_SIZE;
-                        int j = y / Sprite.SCALED_SIZE + count;
-                        if (!checkBreak(i, j)) break;
-                        if (count < size) {
-                            entities.add(new Flame(i, j, Sprite.explosion_vertical.getFxImage(), Flame.FlameDirection.OV, entities));
-                        } else {
-                            entities.add(new Flame(i, j, Sprite.explosion_vertical_down_last.getFxImage(), Flame.FlameDirection.D, entities));
-                        }
-                    }
-                    Timer bombTimer = new Timer();
-                    bombTimer.schedule(new TimerTask() {
-                        @Override
-                        public void run() {
-                            int px = getLocationX();
-                            int py = getLocationY();
-                            for (int count = 0; count <= size; count++) {
-//                                if (checkBreak(px - count, py)) break;
-                                hurtingByExplosion(px - count, py);
-                            }
-                            for (int count = 1; count <= size; count++) {
-//                                if (checkBreak(px + count, py)) break;
-                                hurtingByExplosion(px + count, py);
-                            }
-                            for (int count = 1; count <= size; count++) {
-//                                if (checkBreak(px, py - count)) break;
-                                hurtingByExplosion(px, py - count);
-                            }
-                            for (int count = 1; count <= size; count++) {
-//                                if (checkBreak(px, py + count)) break;
-                                hurtingByExplosion(px, py + count);
-                            }
-                        }
-                    }, 10);
-                });
-    }
-
     @Override
     public void update() {
-        try {
-            animationTime++;
-            chooseSprite();
-            if (animationTime > 1000000) {
-                animationTime = 0;
-            }
-            if (animationTime == 70) {
-                setExploded();
-            }
-            if (animationTime == 80) {
-                Platform.runLater(
-                        () -> {
-                            table[getLocationX()][getLocationY()] = null;
-                            quantity--;
-                            entities.remove(this);
-                        });
-            }
-        } catch (Exception e) {
-            System.out.println("Error in Bomb.java");
-            System.out.println(e.getMessage());
+        animate++;
+        int px = x / Sprite.SCALED_SIZE;
+        int py = y / Sprite.SCALED_SIZE;
+        if (table[px][py] instanceof PortalItem) {
+            portalPos = table[px][py];
         }
+        table[px][py] = this;
+
+        if (animate == 70) {
+            exploded = true;
+            Sound.explosion.play();
+            Platform.runLater(
+                    () -> {
+                        for (int c = 1; c <= size; c++) {
+                            int i = x / Sprite.SCALED_SIZE - c, j = y / Sprite.SCALED_SIZE;
+                            if (checkBreak(i, j)) break;
+                            if (c < size) {
+                                entities.add(new Flame(i, j, null, Direction.OH, entities));
+                            } else {
+                                entities.add(new Flame(i, j, null, Direction.L, entities));
+                            }
+                        }
+                        for (int c = 1; c <= size; c++) {
+                            int i = x / Sprite.SCALED_SIZE + c, j = y / Sprite.SCALED_SIZE;
+                            if (checkBreak(i, j)) break;
+                            if (c < size) {
+                                entities.add(new Flame(i, j, Sprite.explosion_horizontal.getFxImage, Direction.OH, entities));
+                            } else {
+                                entities.add(new Flame(i, j, Sprite.explosion_horizontal_right_last.getFxImage, Direction.R, entities));
+                            }
+                        }
+                        for (int c = 1; c <= size; c++) {
+                            int i = x / Sprite.SCALED_SIZE, j = y / Sprite.SCALED_SIZE - c;
+                            if (checkBreak(i, j)) break;
+                            if (c < size) {
+                                entities.add(new Flame(i, j, Sprite.explosion_vertical.getFxImage, Direction.OV, entities));
+                            } else {
+                                entities.add(new Flame(i, j, Sprite.explosion_vertical_top_last.getFxImage, Direction.U, entities));
+                            }
+                        }
+                        for (int c = 1; c <= size; c++) {
+                            int i = x / Sprite.SCALED_SIZE, j = y / Sprite.SCALED_SIZE + c;
+                            if (checkBreak(i, j)) break;
+                            if (c < size) {
+                                entities.add(new Flame(i, j, Sprite.explosion_vertical.getFxImage, Direction.OV, entities));
+                            } else {
+                                entities.add(new Flame(i, j, Sprite.explosion_vertical_down_last.getFxImage, Direction.D, entities));
+                            }
+                        }
+                        Timer bombTimer = new Timer();
+                        bombTimer.schedule(new TimerTask() {
+                            @Override
+                            public void run() {
+                                for (int c = 0; c <= size; c++) {
+                                    int i = x / Sprite.SCALED_SIZE - c, j = y / Sprite.SCALED_SIZE;
+                                    if (checkBreak(i, j)) break;
+                                    setDied(i, j);
+                                }
+                                for (int c = 1; c <= size; c++) {
+                                    int i = x / Sprite.SCALED_SIZE + c, j = y / Sprite.SCALED_SIZE;
+                                    if (checkBreak(i, j)) break;
+                                    setDied(i, j);
+                                }
+                                for (int c = 1; c <= size; c++) {
+                                    int i = x / Sprite.SCALED_SIZE, j = y / Sprite.SCALED_SIZE - c;
+                                    if (checkBreak(i, j)) break;
+                                    setDied(i, j);
+                                }
+                                for (int c = 1; c <= size; c++) {
+                                    int i = x / Sprite.SCALED_SIZE, j = y / Sprite.SCALED_SIZE + c;
+                                    if (checkBreak(i, j)) break;
+                                    setDied(i, j);
+                                }
+                            }
+                        }, 10);
+                    });
+        }
+        if (animate == 80) {
+            Platform.runLater(
+                    () -> {
+                        table[px][py] = portalPos;
+                        cnt--;
+                        entities.remove(this);
+                    });
+        }
+        if (animate > 1000000) {
+            animate = 0;
+        }
+        getImg();
     }
+
 }

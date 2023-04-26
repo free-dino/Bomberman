@@ -45,6 +45,9 @@ public abstract class Entity {
         return y;
     }
 
+    public void setDied() {
+        this.died = true;
+    }
     public void setHurt() {
         if (!beHurt) {
             this.HP -= 1;
