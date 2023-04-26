@@ -1,5 +1,6 @@
 package entities.character.enemy;
 
+import algorithm.LowAI;
 import graphics.Sprite;
 import javafx.scene.image.Image;
 
@@ -10,6 +11,14 @@ public class Balloom extends Enemy {
         super(xUnit, yUnit, img);
         SPEED = 1;
         HP = 1;
+    }
+
+    @Override
+    public void chooseDirection() {
+        if (animationTime > 100000) animationTime = 0;
+        if (x % Sprite.SCALED_SIZE == 0 && y % Sprite.SCALED_SIZE == 0) {
+            direction = LowAI.getDirection();
+        }
     }
 
     protected void chooseSprite() {
@@ -101,7 +110,7 @@ public class Balloom extends Enemy {
     @Override
     public void update() {
         try {
-            if(beHurt){
+            if (beHurt) {
                 gotHurt(Sprite.balloom_dead);
                 return;
             }

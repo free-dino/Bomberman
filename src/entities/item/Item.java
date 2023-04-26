@@ -1,6 +1,6 @@
 package entities.item;
 
-import audio.Sound;
+import audio.SoundManager;
 import entities.Entity;
 import javafx.scene.image.Image;
 
