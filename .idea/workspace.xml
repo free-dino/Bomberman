@@ -5,17 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="03a6babe-b30a-4868-bbdf-ba91240d6708" name="Changes" comment="sửa lại đoạn nổ xuyên tường, update lại các methods">
-      <change afterPath="$PROJECT_DIR$/src/entities/character/enemy/Kondoria.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/levels/Level1.txt" beforeDir="false" afterPath="$PROJECT_DIR$/res/levels/Level1.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/entities/Entity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/Entity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/entities/bomb/Bomb.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/bomb/Bomb.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/entities/bomb/Flame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/bomb/Flame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/entities/character/bomber/Bomber.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/character/bomber/Bomber.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/entities/character/enemy/Balloom.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/character/enemy/Balloom.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/entities/character/enemy/Enemy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/character/enemy/Enemy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/entities/character/enemy/Oneal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/character/enemy/Oneal.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/map/CreateMap.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/map/CreateMap.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,7 +48,7 @@
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Admin/OneDrive/Máy tính/OOP/bomberman-starter-main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/AD/IdeaProjects/DemoGame/Ai/bomberman-starter-main&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
