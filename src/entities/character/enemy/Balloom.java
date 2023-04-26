@@ -116,7 +116,7 @@ public class Balloom extends Enemy {
             }
             animationTime++;
             moving = false;
-            checkCollideWithBomber();
+            //checkCollideWithBomber();
             balloomMoving();
         } catch (Exception e) {
             System.out.println("Error in Balloom.java");
