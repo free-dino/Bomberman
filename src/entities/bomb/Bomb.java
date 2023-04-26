@@ -24,7 +24,6 @@ public class Bomb extends Entity {
     public static int cnt = 0;
     private final int size;
     private final List<Entity> entities;
-    private int animate = 0;
     private boolean exploded = false;
     private Entity portalPos = null;
 
@@ -41,9 +40,9 @@ public class Bomb extends Entity {
 
     public void getImg() {
         if (exploded) {
-            sprite = Sprite.movingSprite(Sprite.bomb_exploded, Sprite.bomb_exploded1, Sprite.bomb_exploded2, animate,20);
+            sprite = Sprite.movingSprite(Sprite.bomb_exploded, Sprite.bomb_exploded1, Sprite.bomb_exploded2, animationTime,20);
         } else {
-            sprite = Sprite.movingSprite(Sprite.bomb, Sprite.bomb_1, Sprite.bomb_2, animate, 20);
+            sprite = Sprite.movingSprite(Sprite.bomb, Sprite.bomb_1, Sprite.bomb_2, animationTime, 20);
         }
         img = sprite.getFxImage;
     }
@@ -71,7 +70,7 @@ public class Bomb extends Entity {
     }
 
     public void setExplode() {
-        this.animate = 69;
+        this.animationTime = 69;
     }
 
     private void hurtingByExplosion(int locationX, int locationY) {
@@ -88,14 +87,14 @@ public class Bomb extends Entity {
         if (cur instanceof SpeedItem) cur.setDied();
         if (cur instanceof BombItem) cur.setDied();
         if (cur instanceof Bomb && !((Bomb) cur).isExploded()) ((Bomb) cur).setExplode();
-        if (bomber.getBomberX() == locationX && bomber.getBomberY() == locationY && !bomber.isFlamePass() /*&& !bomber.isProtectded()*/) {
+        if (bomber.getBomberX() == locationX && bomber.getBomberY() == locationY && !bomber.isProtected()) {
             bomber.setHurt();
         }
     }
 
     @Override
     public void update() {
-        animate++;
+        animationTime++;
         int px = x / Sprite.SCALED_SIZE;
         int py = y / Sprite.SCALED_SIZE;
         if (table[px][py] instanceof PortalItem) {
@@ -103,7 +102,7 @@ public class Bomb extends Entity {
         }
         table[px][py] = this;
 
-        if (animate == 70) {
+        if (animationTime == 70) {
             exploded = true;
             Sound.explosion.play();
             Platform.runLater(
@@ -113,9 +112,9 @@ public class Bomb extends Entity {
                             int j = y / Sprite.SCALED_SIZE;
                             if (checkBreak(i, j)) break;
                             if (c < size) {
-                                entities.add(new Flame(i, j, null, Direction.OH, entities));
+                                entities.add(new Flame(i, j, null, Flame.FlameDirection.OH, entities));
                             } else {
-                                entities.add(new Flame(i, j, null, Direction.L, entities));
+                                entities.add(new Flame(i, j, null, Flame.FlameDirection.L, entities));
                             }
                         }
                         for (int c = 1; c <= size; c++) {
@@ -123,9 +122,9 @@ public class Bomb extends Entity {
                             int j = y / Sprite.SCALED_SIZE;
                             if (checkBreak(i, j)) break;
                             if (c < size) {
-                                entities.add(new Flame(i, j, Sprite.explosion_horizontal.getFxImage, Direction.OH, entities));
+                                entities.add(new Flame(i, j, Sprite.explosion_horizontal.getFxImage, Flame.FlameDirection.OH, entities));
                             } else {
-                                entities.add(new Flame(i, j, Sprite.explosion_horizontal_right_last.getFxImage, Direction.R, entities));
+                                entities.add(new Flame(i, j, Sprite.explosion_horizontal_right_last.getFxImage, Flame.FlameDirection.R, entities));
                             }
                         }
                         for (int c = 1; c <= size; c++) {
@@ -133,9 +132,9 @@ public class Bomb extends Entity {
                             int j = y / Sprite.SCALED_SIZE - c;
                             if (checkBreak(i, j)) break;
                             if (c < size) {
-                                entities.add(new Flame(i, j, Sprite.explosion_vertical.getFxImage, Direction.OV, entities));
+                                entities.add(new Flame(i, j, Sprite.explosion_vertical.getFxImage, Flame.FlameDirection.OV, entities));
                             } else {
-                                entities.add(new Flame(i, j, Sprite.explosion_vertical_top_last.getFxImage, Direction.U, entities));
+                                entities.add(new Flame(i, j, Sprite.explosion_vertical_top_last.getFxImage, Flame.FlameDirection.U, entities));
                             }
                         }
                         for (int c = 1; c <= size; c++) {
@@ -143,9 +142,9 @@ public class Bomb extends Entity {
                             int j = y / Sprite.SCALED_SIZE + c;
                             if (checkBreak(i, j)) break;
                             if (c < size) {
-                                entities.add(new Flame(i, j, Sprite.explosion_vertical.getFxImage, Direction.OV, entities));
+                                entities.add(new Flame(i, j, Sprite.explosion_vertical.getFxImage, Flame.FlameDirection.OV, entities));
                             } else {
-                                entities.add(new Flame(i, j, Sprite.explosion_vertical_down_last.getFxImage, Direction.D, entities));
+                                entities.add(new Flame(i, j, Sprite.explosion_vertical_down_last.getFxImage, Flame.FlameDirection.D, entities));
                             }
                         }
                         Timer bombTimer = new Timer();
@@ -180,7 +179,7 @@ public class Bomb extends Entity {
                         }, 10);
                     });
         }
-        if (animate == 80) {
+        if (animationTime == 80) {
             Platform.runLater(
                     () -> {
                         table[px][py] = portalPos;
@@ -188,8 +187,8 @@ public class Bomb extends Entity {
                         entities.remove(this);
                     });
         }
-        if (animate > 1000000) {
-            animate = 0;
+        if (animationTime > 1000000) {
+            animationTime = 0;
         }
         getImg();
     }

@@ -7,6 +7,7 @@ import entities.block.Grass;
 import entities.block.Wall;
 import entities.character.bomber.Bomber;
 import entities.character.enemy.Balloom;
+import entities.character.enemy.Kondoria;
 import entities.character.enemy.Oneal;
 import entities.item.BombItem;
 import entities.item.FlameItem;
@@ -75,6 +76,9 @@ public class CreateMap {
                             break;
                         case '2':
                             enemy = new Oneal(j, i, Sprite.oneal_right1.getFxImage);
+                            break;
+                        case '4':
+                            enemy = new Kondoria(j, i, Sprite.kondoria_right1.getFxImage);
                             break;
                         // Items:
                         case 'f':

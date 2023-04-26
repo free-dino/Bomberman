@@ -25,9 +25,9 @@ import static main.BombermanGame.*;
 
 public class Bomber extends Animal {
     private int quantityOfBoms = 1;
-    private int sizeOfBomb = 1;
+    private int sizeOfBomb = 5;
 
-    private  int protectedTime = 0;
+    private int protectedTime = 0;
     private int hurtTick = 0;
     private boolean flamePass = false;
 
@@ -43,7 +43,7 @@ public class Bomber extends Animal {
         this.died = true;
     }
 
-    public  boolean isProtected() {
+    public boolean isProtected() {
         return protectedTime > 0;
     }
 
@@ -134,7 +134,7 @@ public class Bomber extends Animal {
                 Entity object = new Bomb(getBomberX(), getBomberY(), Sprite.bomb.getFxImage, entities, sizeOfBomb);
                 entities.add(object);
             });
-           //Sound.place_bomb.play();
+            Sound.place_bomb.play();
         }
     }
 
@@ -186,7 +186,7 @@ public class Bomber extends Animal {
         try {
             if (beHurt) {
                 if (hurtTick == 0) {
-//                    Sound.died.play();
+                    Sound.died.play();
                 }
                 if (hurtTick == 30) {
                     if (HP == 0) {
@@ -220,9 +220,4 @@ public class Bomber extends Animal {
     public int getBomberY() {
         return (y + Sprite.SCALED_SIZE / 2) / Sprite.SCALED_SIZE;
     }
-    public boolean isFlamePass() {
-        return flamePass;
-    }
-
-
 }

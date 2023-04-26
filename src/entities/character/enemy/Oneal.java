@@ -17,7 +17,7 @@ public class Oneal extends Enemy {
     @Override
     public void chooseDirection() {
         if (animationTime > 100000) animationTime = 0;
-        if (x % Sprite.SCALED_SIZE == 0 && y % Sprite.SCALED_SIZE == 0) {
+        if (animationTime % 2 == 0 && x % Sprite.SCALED_SIZE == 0 && y % Sprite.SCALED_SIZE == 0) {
             direction = MediumAI.getDirection(this);
         }
     }
@@ -53,7 +53,8 @@ public class Oneal extends Enemy {
         img = sprite.getFxImage();
     }
 
-    private void balloomMoving() {
+    @Override
+    protected void enemyMoving() {
         chooseDirection();
         int px = (x + Sprite.SCALED_SIZE / 2) / Sprite.SCALED_SIZE;
         int py = (y + Sprite.SCALED_SIZE / 2) / Sprite.SCALED_SIZE;
@@ -117,7 +118,8 @@ public class Oneal extends Enemy {
             }
             animationTime++;
             moving = false;
-            balloomMoving();
+            interactWithBomber();
+            enemyMoving();
         } catch (Exception e) {
             System.out.println("Error in Oneal.java");
         }
