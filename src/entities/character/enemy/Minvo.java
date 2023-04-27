@@ -1,6 +1,6 @@
 package entities.character.enemy;
 
-import algorithm.MediumAI;
+import algorithm.HighAI;
 import graphics.Sprite;
 import javafx.scene.image.Image;
 
@@ -9,65 +9,46 @@ import static main.BombermanGame.*;
 /**
  * Boss.
  */
-public class Kondoria extends Enemy {
-    public Kondoria(int xUnit, int yUnit, Image img) {
+public class Minvo extends Enemy {
+    public Minvo(int xUnit, int yUnit, Image img) {
         super(xUnit, yUnit, img);
         SPEED = 1;
-        HP = 4;
-    }
-
-    @Override
-    public boolean isValidEnemyMove(Direction direction) {
-        switch (direction) {
-            case R:
-                return !checkWall(x + Sprite.SCALED_SIZE + SPEED - 1, y)
-                        && !checkWall(x + Sprite.SCALED_SIZE + SPEED - 1, y + Sprite.SCALED_SIZE - 1);
-            case L:
-                return !checkWall(x - SPEED, y)
-                        && !checkWall(x - SPEED, y + Sprite.SCALED_SIZE - 1);
-            case U:
-                return !checkWall(x, y - SPEED)
-                        && !checkWall(x + Sprite.SCALED_SIZE - 1, y - SPEED);
-            default:
-                // DOWN
-                return !checkWall(x, y + Sprite.SCALED_SIZE + SPEED - 1)
-                        && !checkWall(x + Sprite.SCALED_SIZE - 1, y + Sprite.SCALED_SIZE + SPEED - 1);
-        }
+        HP = 1;
     }
 
     @Override
     public void chooseDirection() {
         if (animationTime > 100000) animationTime = 0;
         if (x % Sprite.SCALED_SIZE == 0 && y % Sprite.SCALED_SIZE == 0) {
-            direction = MediumAI.getDirection(this);
+            direction = HighAI.getDirection(this);
         }
     }
 
     protected void chooseSprite() {
         if (animationTime > 100000) animationTime = 0;
         if (beHurt) {
-            img = Sprite.kondoria_dead.getFxImage;
+            img = Sprite.movingSprite(Sprite.mob_dead1, Sprite.mob_dead2, Sprite.mob_dead3, animationTime, 20).getFxImage;
             return;
         }
         switch (direction) {
             case U:
                 if (moving) {
-                    sprite = Sprite.movingSprite(Sprite.kondoria_right1, Sprite.kondoria_right2, Sprite.kondoria_right3, animationTime, 20);
+                    sprite = Sprite.movingSprite(Sprite.minvo_right1, Sprite.minvo_right2, Sprite.minvo_right3, animationTime, 20);
                 }
                 break;
             case D:
                 if (moving) {
-                    sprite = Sprite.movingSprite(Sprite.kondoria_left1, Sprite.kondoria_left2, Sprite.kondoria_left3, animationTime, 20);
+                    sprite = Sprite.movingSprite(Sprite.minvo_left1, Sprite.minvo_left2, Sprite.minvo_left3, animationTime, 20);
                 }
                 break;
             case L:
                 if (moving) {
-                    sprite = Sprite.movingSprite(Sprite.kondoria_left1, Sprite.kondoria_left2, Sprite.kondoria_left3, animationTime, 20);
+                    sprite = Sprite.movingSprite(Sprite.minvo_left1, Sprite.minvo_left2, Sprite.minvo_left3, animationTime, 20);
                 }
                 break;
             default:
                 if (moving) {
-                    sprite = Sprite.movingSprite(Sprite.kondoria_right1, Sprite.kondoria_right2, Sprite.kondoria_right3, animationTime, 20);
+                    sprite = Sprite.movingSprite(Sprite.minvo_right1, Sprite.minvo_right2, Sprite.minvo_right3, animationTime, 20);
                 }
                 break;
         }
@@ -80,7 +61,7 @@ public class Kondoria extends Enemy {
         int px = (x + Sprite.SCALED_SIZE / 2) / Sprite.SCALED_SIZE;
         int py = (y + Sprite.SCALED_SIZE / 2) / Sprite.SCALED_SIZE;
         table[px][py] = null;
-        sprite = Sprite.kondoria_right1;
+        sprite = Sprite.minvo_right1;
         int count;
         switch (direction) {
             case D:
@@ -134,7 +115,7 @@ public class Kondoria extends Enemy {
     public void update() {
         try {
             if (beHurt) {
-                gotHurt(Sprite.kondoria_dead);
+                gotHurt(Sprite.movingSprite(Sprite.mob_dead1, Sprite.mob_dead2, Sprite.mob_dead3, animationTime, 20));
                 return;
             }
             animationTime++;
@@ -142,7 +123,7 @@ public class Kondoria extends Enemy {
             interactWithBomber();
             enemyMoving();
         } catch (Exception e) {
-            System.out.println("Error in Kondoria.java");
+            System.out.println("Error in Minvo.java");
         }
     }
 }
