@@ -8,6 +8,7 @@ import entities.block.Wall;
 import entities.character.bomber.Bomber;
 import entities.character.enemy.Balloom;
 import entities.character.enemy.Kondoria;
+import entities.character.enemy.Minvo;
 import entities.character.enemy.Oneal;
 import entities.item.BombItem;
 import entities.item.FlameItem;
@@ -18,8 +19,6 @@ import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.paint.Color;
-import javafx.stage.Stage;
-import main.BombermanGame;
 
 import java.io.File;
 import java.io.FileReader;
@@ -76,6 +75,9 @@ public class CreateMap {
                             break;
                         case '2':
                             enemy = new Oneal(j, i, Sprite.oneal_right1.getFxImage);
+                            break;
+                        case '3':
+                            enemy = new Minvo(j, i, Sprite.minvo_right1.getFxImage);
                             break;
                         case '4':
                             enemy = new Kondoria(j, i, Sprite.kondoria_right1.getFxImage);

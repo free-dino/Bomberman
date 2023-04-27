@@ -1,10 +1,7 @@
 package algorithm;
 
 import entities.Entity.Direction;
-import entities.character.Animal;
 import entities.character.enemy.Enemy;
-
-import java.util.Random;
 
 import static main.BombermanGame.bomber;
 
