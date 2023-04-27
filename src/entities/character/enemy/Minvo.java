@@ -27,8 +27,7 @@ public class Minvo extends Enemy {
     protected void chooseSprite() {
         if (animationTime > 100000) animationTime = 0;
         if (beHurt) {
-            sprite = Sprite.movingSprite(Sprite.mob_dead1, Sprite.mob_dead2, Sprite.mob_dead3, animationTime, 20);
-            img = sprite.getFxImage;
+            img = Sprite.movingSprite(Sprite.mob_dead1, Sprite.mob_dead2, Sprite.mob_dead3, animationTime, 20).getFxImage;
             return;
         }
         switch (direction) {
@@ -116,7 +115,7 @@ public class Minvo extends Enemy {
     public void update() {
         try {
             if (beHurt) {
-                gotHurt(Sprite.minvo_dead);
+                gotHurt(Sprite.movingSprite(Sprite.mob_dead1, Sprite.mob_dead2, Sprite.mob_dead3, animationTime, 20));
                 return;
             }
             animationTime++;

@@ -1,5 +1,6 @@
 package entities.character;
 
+import audio.Sound;
 import entities.Entity;
 import entities.block.Brick;
 import entities.block.Wall;
@@ -28,10 +29,10 @@ public abstract class Animal extends Entity {
 
     protected void gotHurt(Sprite sprite) {
         hurt_time++;
-//        if (hurt_time == 1) {
-//            Sound.died.play();
-//        }
-        img = sprite.getFxImage();
+        if (hurt_time == 1) {
+            Sound.died.play();
+        }
+        img = sprite.getFxImage;
         if (hurt_time == 20) {
             hurt_time = 0;
             beHurt = false;

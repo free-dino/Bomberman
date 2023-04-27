@@ -71,7 +71,7 @@ public class Kondoria extends Enemy {
                 }
                 break;
         }
-        img = sprite.getFxImage();
+        img = sprite.getFxImage;
     }
 
     @Override

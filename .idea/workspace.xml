@@ -5,13 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="03a6babe-b30a-4868-bbdf-ba91240d6708" name="Changes" comment="sửa lại đoạn nổ xuyên tường, update lại các methods">
-      <change afterPath="$PROJECT_DIR$/src/entities/character/enemy/Minvo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/levels/Level1.txt" beforeDir="false" afterPath="$PROJECT_DIR$/res/levels/Level1.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/algorithm/HighAI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/algorithm/HighAI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/algorithm/MediumAI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/algorithm/MediumAI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/map/CreateMap.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/map/CreateMap.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/entities/block/Brick.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/block/Brick.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/entities/character/Animal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/character/Animal.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/entities/character/enemy/Kondoria.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/character/enemy/Kondoria.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/entities/character/enemy/Minvo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/character/enemy/Minvo.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
