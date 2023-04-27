@@ -21,17 +21,25 @@ public class Kondoria extends Enemy {
         switch (direction) {
             case R:
                 return !checkWall(x + Sprite.SCALED_SIZE + SPEED - 1, y)
-                        && !checkWall(x + Sprite.SCALED_SIZE + SPEED - 1, y + Sprite.SCALED_SIZE - 1);
+                        && !checkWall(x + Sprite.SCALED_SIZE + SPEED - 1, y + Sprite.SCALED_SIZE - 1)
+                        && !checkBomb(x + Sprite.SCALED_SIZE + SPEED - 1, y)
+                        && !checkBomb(x + Sprite.SCALED_SIZE + SPEED - 1, y + Sprite.SCALED_SIZE - 1);
             case L:
                 return !checkWall(x - SPEED, y)
-                        && !checkWall(x - SPEED, y + Sprite.SCALED_SIZE - 1);
+                        && !checkWall(x - SPEED, y + Sprite.SCALED_SIZE - 1)
+                        && !checkBomb(x - SPEED, y)
+                        && !checkBomb(x - SPEED, y + Sprite.SCALED_SIZE - 1);
             case U:
                 return !checkWall(x, y - SPEED)
-                        && !checkWall(x + Sprite.SCALED_SIZE - 1, y - SPEED);
+                        && !checkWall(x + Sprite.SCALED_SIZE - 1, y - SPEED)
+                        && !checkBomb(x, y - SPEED)
+                        && !checkBomb(x + Sprite.SCALED_SIZE - 1, y - SPEED);
             default:
                 // DOWN
                 return !checkWall(x, y + Sprite.SCALED_SIZE + SPEED - 1)
-                        && !checkWall(x + Sprite.SCALED_SIZE - 1, y + Sprite.SCALED_SIZE + SPEED - 1);
+                        && !checkWall(x + Sprite.SCALED_SIZE - 1, y + Sprite.SCALED_SIZE + SPEED - 1)
+                        && !checkBomb(x, y + Sprite.SCALED_SIZE + SPEED - 1)
+                        && !checkBomb(x + Sprite.SCALED_SIZE - 1, y + Sprite.SCALED_SIZE + SPEED - 1);
         }
     }
 

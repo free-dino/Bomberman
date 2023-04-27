@@ -196,7 +196,7 @@ public class Bomber extends Animal {
                     }
                     beHurt = false;
                     hurtTick = 0;
-                    protectedTime = 60 * 3 / 2;
+                    protectedTime = 500;
                     return;
                 }
                 chooseSprite();
