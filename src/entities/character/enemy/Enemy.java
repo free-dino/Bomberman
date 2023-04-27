@@ -24,9 +24,7 @@ public abstract class Enemy extends Animal {
     }
 
     protected void interactWithBomber() {
-        if (bomber.getBomberX() == this.getLocationX()
-                && bomber.getBomberX() == this.getLocationY()
-                && !bomber.isProtected()) {
+        if (bomber.getBomberX() == getLocationX() && bomber.getBomberY() == getLocationY() /*&& !bomber.isProtectded()*/) {
             bomber.setHurt();
         }
     }
