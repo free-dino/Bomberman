@@ -20,7 +20,7 @@ public class Minvo extends Enemy {
     public void chooseDirection() {
         if (animationTime > 100000) animationTime = 0;
         if (x % Sprite.SCALED_SIZE == 0 && y % Sprite.SCALED_SIZE == 0) {
-            direction = HighAI.getDirection(this);
+            //direction = HighAI.getDirection(this);
         }
     }
 
