@@ -8,6 +8,7 @@ import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.Button;
+import javafx.scene.control.Menu;
 import javafx.scene.effect.DropShadow;
 import javafx.scene.effect.Effect;
 import javafx.scene.image.Image;
@@ -22,6 +23,7 @@ import graphics.Sprite;
 import map.CreateMap;
 import map.MapLevel1;
 import map.MapLevel2;
+import menu.Source.MENU;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -44,7 +46,7 @@ public class BombermanGame extends Application {
     public static Entity[][] hiddenTable; // Mảng 2 chiều các vật thể bị che đi.
     public static Bomber bomber;
     public final Effect shadow = new DropShadow();
-    Group root = null;
+    public static Group root = null;
     public static KeyListener keyListener;
     public static GraphicsContext gc;
     public static Canvas canvas;
@@ -57,6 +59,16 @@ public class BombermanGame extends Application {
     public static void main(String[] args) {
         Application.launch(BombermanGame.class);
         System.out.println("Done!");
+    }
+    // hàm này cho tiện tạo map khi win.
+    public static String convertToString(int level) {
+        if ( level == 1) {
+            return "D:/Quanqq/Bomberman/res/levels/Level1.txt";
+        }
+        if ( level == 2) {
+            return "D:/Quanqq/Bomberman/res/levels/Level2.txt";
+        }
+        return "D:/Quanqq/Bomberman/res/levels/Level3.txt";
     }
 
 
@@ -78,7 +90,10 @@ public class BombermanGame extends Application {
 
             @Override
             public void handle(long now) {
-
+            if ( playGame == true ) {
+                MENU.play(window);
+                playGame= false;
+            }
                 render();
                 update();
 
