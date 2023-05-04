@@ -1,5 +1,6 @@
 package menu.Source;
 
+import javafx.application.Platform;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.effect.Reflection;
@@ -24,11 +25,11 @@ public class StartingMenu extends Button {
 
 
     public static void play(Stage stage) {
-        Button Start = new Button();
-        Start.setStyle("-fx-background-color: transparent"); // để hiện cái nút k bị đè bởi khung
-        Start.setPrefSize(166, 66);
-        Start.setTranslateX(SCALED_SIZE * 30 / 2 - 166 / 2 - 106);
-        Start.setTranslateY(SCALED_SIZE * 15 / 2 + 66 / 2 + 20);
+        Button buttonStart = new Button();
+        buttonStart.setStyle("-fx-background-color: transparent"); // để hiện cái nút k bị đè bởi khung
+        buttonStart.setPrefSize(166, 66);
+        buttonStart.setTranslateX(SCALED_SIZE * 30 / 2 - 166 / 2 - 106);
+        buttonStart.setTranslateY(SCALED_SIZE * 15 / 2 + 66 / 2 + 20);
 
         InputStream input = null;
         try {
@@ -40,20 +41,19 @@ public class StartingMenu extends Button {
         imgView.setFitHeight(70);
         imgView.setFitWidth(180);
         imgView.setImage(new Image(input));
-        Start.setGraphic(imgView);
-        Start.setOnMouseEntered(e-> Start.setEffect(new Reflection()));
-        Start.setOnMouseExited(e-> Start.setEffect(null));
-        Start.setOnAction(e -> {
+        buttonStart.setGraphic(imgView);
+        buttonStart.setOnMouseEntered(e -> buttonStart.setEffect(new Reflection()));
+        buttonStart.setOnMouseExited(e -> buttonStart.setEffect(null));
+        buttonStart.setOnAction(e -> {
             CreateMap createMap = new CreateMap("res/levels/Level1.txt");
-
         });
 
 
-        Button Exit = new Button();
-        Exit.setStyle("-fx-background-color: transparent");
-        Exit.setPrefSize(166, 66);
-        Exit.setTranslateX(SCALED_SIZE * 30 / 2 - 166 / 2 + 96);
-        Exit.setTranslateY(SCALED_SIZE * 15 / 2 + 66 / 2 +20);
+        Button buttonExit = new Button();
+        buttonExit.setStyle("-fx-background-color: transparent");
+        buttonExit.setPrefSize(166, 66);
+        buttonExit.setTranslateX(SCALED_SIZE * 30 / 2 - 166 / 2 + 96);
+        buttonExit.setTranslateY(SCALED_SIZE * 15 / 2 + 66 / 2 + 20);
         InputStream exitInput = null;
         try {
             exitInput = new FileInputStream("res/exitMenu.png");
@@ -64,18 +64,19 @@ public class StartingMenu extends Button {
         ExitImage.setFitHeight(70);
         ExitImage.setFitWidth(180);
         ExitImage.setImage(new Image(exitInput));
-        Exit.setOnMouseEntered(e -> ExitImage.setEffect(new Reflection()));
-        Exit.setOnMouseExited(e -> ExitImage.setEffect(null));
-        Exit.setGraphic(ExitImage);
+        buttonExit.setGraphic(ExitImage);
+        buttonExit.setOnMouseEntered(e -> ExitImage.setEffect(new Reflection()));
+        buttonExit.setOnMouseExited(e -> ExitImage.setEffect(null));
+        buttonExit.setOnAction(e -> {
+            Platform.exit();
+        });
 
         // menu chính
         InputStream menu = null;
         try {
             menu = new FileInputStream("res/menu.jpg");
-
-
         } catch (Exception e) {
-            e.getMessage();
+            System.out.println(e.getMessage());
         }
         ImageView menuView = new ImageView();
         menuView.setX(0);
@@ -84,12 +85,10 @@ public class StartingMenu extends Button {
         menuView.setFitWidth(SCALED_SIZE * 30);
         menuView.setImage(new Image(menu));
         BombermanGame.root = new Group(menuView);
-        BombermanGame.root.getChildren().addAll(Start, Exit);
+        BombermanGame.root.getChildren().addAll(buttonStart, buttonExit);
         Scene scene = new Scene(BombermanGame.root, SCALED_SIZE * 30, SCALED_SIZE * 15, Color.GREEN);
         stage.setTitle("BOMBERMAN");
         stage.setScene(scene);
         stage.show();
-
-
     }
 }

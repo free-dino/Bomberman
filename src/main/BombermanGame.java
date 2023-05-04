@@ -19,6 +19,7 @@ public class BombermanGame extends Application {
     public static int WIDTH;
     public static int HEIGHT;
     public static int level;
+    public static final int MAX_LEVEL = 3;
     public static int MAX_SCORE;
     public static long FPS_GAME = 1000 / 60;
 
@@ -37,24 +38,21 @@ public class BombermanGame extends Application {
 
     public static Stage window;
 
-    public static boolean playGame = true;
+    public enum STATE {START, SINGLE, PAUSE, END, NEXT_LV, EXIT}
+
+    public static STATE gameState = STATE.START;
+    public static boolean isPlaying = true;
 
 
     public static void main(String[] args) {
         Application.launch(BombermanGame.class);
         System.out.println("Done!");
     }
+
     // hàm này cho tiện tạo map khi win.
     public static String convertToString(int level) {
-        if ( level == 1) {
-            return "res/levels/Level1.txt";
-        }
-        if ( level == 2) {
-            return "res/levels/Level2.txt";
-        }
-        return "res/levels/Level3.txt";
+        return System.getProperty("user.dir") + "res/levels/Level" + level + ".txt";
     }
-
 
 
     @Override
@@ -74,13 +72,12 @@ public class BombermanGame extends Application {
 
             @Override
             public void handle(long now) {
-            if ( playGame == true ) {
-                StartingMenu.play(window);
-                playGame= false;
-            }
+                if (isPlaying == true) {
+                    StartingMenu.play(window);
+                    isPlaying = false;
+                }
                 render();
                 update();
-
 
                 long frameTime = (now - lastUpdate) / 1000000;
                 if (frameTime < FPS_GAME) {
