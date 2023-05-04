@@ -12,13 +12,12 @@ import javafx.stage.Stage;
 import main.BombermanGame;
 import map.CreateMap;
 
-import java.awt.*;
 import java.io.FileInputStream;
 import java.io.InputStream;
 
 import static graphics.Sprite.SCALED_SIZE;
 
-public class EndGame  {
+public class EndingMenu {
     public static void lose(Stage stage) {
         Button rePlay = new Button();
 

@@ -3,7 +3,6 @@ package menu.Source;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.effect.Reflection;
-import javafx.scene.effect.Shadow;
 import javafx.scene.paint.Color;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -14,16 +13,14 @@ import javafx.stage.Stage;
 
 import main.BombermanGame;
 import map.CreateMap;
-import main.BombermanGame.*;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.InputStream;
 
 import static graphics.Sprite.SCALED_SIZE;
-import static graphics.Sprite.grass;
 
-public class MENU extends Button {
+public class StartingMenu extends Button {
 
 
     public static void play(Stage stage) {
