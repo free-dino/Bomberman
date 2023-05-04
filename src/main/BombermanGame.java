@@ -45,7 +45,7 @@ public class BombermanGame extends Application {
     public static Entity[][] table;     // Mảng 2 chiều các vật thể hiện ra.
     public static Entity[][] hiddenTable; // Mảng 2 chiều các vật thể bị che đi.
     public static Bomber bomber;
-    public final Effect shadow = new DropShadow();
+
     public static Group root = null;
     public static KeyListener keyListener;
     public static GraphicsContext gc;
@@ -63,12 +63,12 @@ public class BombermanGame extends Application {
     // hàm này cho tiện tạo map khi win.
     public static String convertToString(int level) {
         if ( level == 1) {
-            return "D:/Quanqq/Bomberman/res/levels/Level1.txt";
+            return "res/levels/Level1.txt";
         }
         if ( level == 2) {
-            return "D:/Quanqq/Bomberman/res/levels/Level2.txt";
+            return "res/levels/Level2.txt";
         }
-        return "D:/Quanqq/Bomberman/res/levels/Level3.txt";
+        return "res/levels/Level3.txt";
     }
 
 
