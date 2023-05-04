@@ -2,6 +2,8 @@ package menu.Source;
 
 import javafx.scene.Group;
 import javafx.scene.Scene;
+import javafx.scene.effect.Reflection;
+import javafx.scene.effect.Shadow;
 import javafx.scene.paint.Color;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -19,6 +21,7 @@ import java.io.FileNotFoundException;
 import java.io.InputStream;
 
 import static graphics.Sprite.SCALED_SIZE;
+import static graphics.Sprite.grass;
 
 public class MENU extends Button {
 
@@ -27,8 +30,8 @@ public class MENU extends Button {
         Button Start = new Button();
         Start.setStyle("-fx-background-color: transparent"); // để hiện cái nút k bị đè bởi khung
         Start.setPrefSize(166, 66);
-        Start.setTranslateX(SCALED_SIZE * 30 / 2 - 166 / 2 - 30);
-        Start.setTranslateY(SCALED_SIZE * 15 / 2 + 66 / 2 - 20);
+        Start.setTranslateX(SCALED_SIZE * 30 / 2 - 166 / 2 - 106);
+        Start.setTranslateY(SCALED_SIZE * 15 / 2 + 66 / 2 + 20);
 
         InputStream input = null;
         try {
@@ -38,9 +41,11 @@ public class MENU extends Button {
         }
         ImageView imgView = new ImageView();
         imgView.setFitHeight(70);
-        imgView.setFitWidth(200);
+        imgView.setFitWidth(180);
         imgView.setImage(new Image(input));
         Start.setGraphic(imgView);
+        Start.setOnMouseEntered(e-> Start.setEffect(new Reflection()));
+        Start.setOnMouseExited(e-> Start.setEffect(null));
         Start.setOnAction(e -> {
             CreateMap createMap = new CreateMap("res/levels/Level1.txt");
 
@@ -50,24 +55,26 @@ public class MENU extends Button {
         Button Exit = new Button();
         Exit.setStyle("-fx-background-color: transparent");
         Exit.setPrefSize(166, 66);
-        Exit.setTranslateX(SCALED_SIZE * 30 / 2 - 166 / 2 - 30);
-        Exit.setTranslateY(SCALED_SIZE * 15 / 2 + 66 / 2 + 60);
+        Exit.setTranslateX(SCALED_SIZE * 30 / 2 - 166 / 2 + 96);
+        Exit.setTranslateY(SCALED_SIZE * 15 / 2 + 66 / 2 +20);
         InputStream exitInput = null;
         try {
-            exitInput = new FileInputStream("res/exit.png");
+            exitInput = new FileInputStream("res/exitMenu.png");
         } catch (FileNotFoundException e) {
             e.getMessage();
         }
         ImageView ExitImage = new ImageView();
         ExitImage.setFitHeight(70);
-        ExitImage.setFitWidth(200);
+        ExitImage.setFitWidth(180);
         ExitImage.setImage(new Image(exitInput));
+        Exit.setOnMouseEntered(e -> ExitImage.setEffect(new Reflection()));
+        Exit.setOnMouseExited(e -> ExitImage.setEffect(null));
         Exit.setGraphic(ExitImage);
 
         // menu chính
-        InputStream menu =  null;
+        InputStream menu = null;
         try {
-            menu = new FileInputStream("res/menu.jpeg");
+            menu = new FileInputStream("res/menu.jpg");
 
 
         } catch (Exception e) {
