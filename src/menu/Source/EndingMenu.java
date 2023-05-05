@@ -37,7 +37,7 @@ public class EndingMenu {
         imgR.setImage(new Image(inRe));
         rePlay.setGraphic(imgR);
         rePlay.setOnAction(e -> {
-            CreateMap createMap = new CreateMap(BombermanGame.convertToString(BombermanGame.level));
+            CreateMap createMap = new CreateMap(stage, BombermanGame.level);
         });
         Button exit = new Button();
         exit.setStyle("-fx-background-color: transparent");

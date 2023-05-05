@@ -19,6 +19,7 @@ import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.paint.Color;
+import javafx.stage.Stage;
 
 import java.io.File;
 import java.io.FileReader;
@@ -32,13 +33,13 @@ import static main.BombermanGame.*;
  */
 public class CreateMap {
 
-    public CreateMap(String stringLevel) {
+    public CreateMap(Stage stage, int level) {
         entities = new ArrayList<>();
         enemies = new ArrayList<>();
         flames = new ArrayList<>();
         stillObjects = new ArrayList<>();
         System.out.println(System.getProperty("user.dir"));
-        final File fileName = new File(stringLevel);
+        final File fileName = new File("res/levels/Level" + level + ".txt");
         try (FileReader inputFile = new FileReader(fileName)) {
             Scanner scanner = new Scanner(inputFile);
 

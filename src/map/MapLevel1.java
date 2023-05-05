@@ -1,7 +1,9 @@
 package map;
 
+import javafx.stage.Stage;
+
 public class MapLevel1 {
-    public MapLevel1() {
-        new CreateMap("res/levels/Level1.txt");
+    public MapLevel1(Stage stage) {
+        new CreateMap(stage,1);
     }
 }

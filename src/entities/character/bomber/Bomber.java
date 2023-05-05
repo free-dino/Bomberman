@@ -27,7 +27,7 @@ public class Bomber extends Animal {
     private int quantityOfBoms = 1;
     private int sizeOfBomb = 1;
 
-    private int protectedTime = 0;
+    private  int protectedTime = 0;
     private int hurtTick = 0;
     private boolean flamePass = false;
 
@@ -44,7 +44,7 @@ public class Bomber extends Animal {
         Sound.died.play();
     }
 
-    public boolean isProtected() {
+    public  boolean isProtected() {
         return protectedTime > 0;
     }
 
@@ -135,7 +135,7 @@ public class Bomber extends Animal {
                 Entity object = new Bomb(getBomberX(), getBomberY(), Sprite.bomb.getFxImage, entities, sizeOfBomb);
                 entities.add(object);
             });
-            Sound.place_bomb.play();
+           Sound.place_bomb.play();
         }
     }
 
@@ -165,10 +165,15 @@ public class Bomber extends Animal {
             if (!((PortalItem) table[px][py]).isPickUp() && enemies.isEmpty()) {
                 ((PortalItem) table[px][py]).pick();
                 try {
-                    if (level < MAX_LEVEL) {
-                        level++;
-                    } else {
-                        // Menu End
+                    if (level == 1) {
+                        level = 2;
+                        new MapLevel2(window);
+                    } else if (level == 2) {
+                        level = 3;
+                        new MapLevel3(window);
+                    } else if (level == 3) {
+                        level = 1;
+                        new MapLevel1(window);
                     }
                 } catch (Exception e) {
                     System.out.println(e.getMessage());
@@ -216,7 +221,6 @@ public class Bomber extends Animal {
     public int getBomberY() {
         return (y + Sprite.SCALED_SIZE / 2) / Sprite.SCALED_SIZE;
     }
-
     public boolean isFlamePass() {
         return flamePass;
     }

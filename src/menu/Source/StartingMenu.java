@@ -45,7 +45,7 @@ public class StartingMenu extends Button {
         buttonStart.setOnMouseEntered(e -> buttonStart.setEffect(new Reflection()));
         buttonStart.setOnMouseExited(e -> buttonStart.setEffect(null));
         buttonStart.setOnAction(e -> {
-            CreateMap createMap = new CreateMap("res/levels/Level1.txt");
+            CreateMap createMap = new CreateMap(stage,BombermanGame.level);
         });
 
 
