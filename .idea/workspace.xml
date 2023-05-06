@@ -4,10 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="03a6babe-b30a-4868-bbdf-ba91240d6708" name="Changes" comment="Chỉnh lại cách tạo màn hợp lý hơn">
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+    <list default="true" id="03a6babe-b30a-4868-bbdf-ba91240d6708" name="Changes" comment="update hiệu ứng">
+      <change afterPath="$PROJECT_DIR$/res/winGame.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/menu.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/res/menu.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/entities/character/bomber/Bomber.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/character/bomber/Bomber.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/BombermanGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/BombermanGame.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/menu/Source/EndingMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/menu/Source/EndingMenu.java" afterDir="false" />
     </list>
@@ -45,7 +45,7 @@
     "WebServerToolWindowFactoryState": "false",
     "git-widget-placeholder": "main",
     "ignore.virus.scanning.warn.message": "true",
-    "last_opened_file_path": "D:/bomberman-starter-main",
+    "last_opened_file_path": "D:/Github/Bomberman",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -155,7 +155,14 @@
       <option name="project" value="LOCAL" />
       <updated>1682565766881</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="update hiệu ứng">
+      <created>1683389022179</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1683389022179</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -196,6 +203,7 @@
     <MESSAGE value="sửa lại đoạn nổ xuyên tường, update lại các methods" />
     <MESSAGE value="sửa lại interact with bomber . pls đừng xóa" />
     <MESSAGE value="Chỉnh lại cách tạo màn hợp lý hơn" />
-    <option name="LAST_COMMIT_MESSAGE" value="Chỉnh lại cách tạo màn hợp lý hơn" />
+    <MESSAGE value="update hiệu ứng" />
+    <option name="LAST_COMMIT_MESSAGE" value="update hiệu ứng" />
   </component>
 </project>

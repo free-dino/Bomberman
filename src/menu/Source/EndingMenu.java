@@ -23,8 +23,8 @@ public class EndingMenu {
 
         rePlay.setStyle("-fx-background-color: transparent");
         rePlay.setPrefSize(166, 66);
-        rePlay.setTranslateX(Sprite.SCALED_SIZE * 15 - 170 / 2 - 20 );
-        rePlay.setTranslateY(Sprite.SCALED_SIZE * 10 - 10 );
+        rePlay.setTranslateX(Sprite.SCALED_SIZE * 15 - 170 / 2 - 20);
+        rePlay.setTranslateY(Sprite.SCALED_SIZE * 10 - 10);
         InputStream inRe = null;
         try {
             inRe = new FileInputStream("res/replay.png");
@@ -41,13 +41,13 @@ public class EndingMenu {
         });
         Button exit = new Button();
         exit.setStyle("-fx-background-color: transparent");
-        exit.setPrefSize(166,66);
-        exit.setTranslateX(Sprite.SCALED_SIZE * 15 - 170 / 2 +20);
+        exit.setPrefSize(166, 66);
+        exit.setTranslateX(Sprite.SCALED_SIZE * 15 - 170 / 2 + 20);
         exit.setTranslateY(Sprite.SCALED_SIZE * 10 - 10);
         InputStream exitEnd = null;
         try {
             exitEnd = new FileInputStream("res/exit.png");
-        } catch (Exception e ) {
+        } catch (Exception e) {
             e.getMessage();
         }
         ImageView imgE = new ImageView();
@@ -66,13 +66,54 @@ public class EndingMenu {
         endGame.setX(0);
         endGame.setY(0);
         endGame.setFitHeight(SCALED_SIZE * 15);
-        endGame.setFitWidth(SCALED_SIZE *  30);
+        endGame.setFitWidth(SCALED_SIZE * 30);
         endGame.setImage(new Image(menuEnd));
         BombermanGame.root = new Group(endGame);
-        BombermanGame.root.getChildren().addAll(rePlay , exit);
-        Scene sc = new Scene(BombermanGame.root , SCALED_SIZE *  30 , SCALED_SIZE * 15 , Color.GREEN);
+        BombermanGame.root.getChildren().addAll(rePlay, exit);
+        Scene sc = new Scene(BombermanGame.root, SCALED_SIZE * 30, SCALED_SIZE * 15, Color.GREEN);
         stage.setScene(sc);
         stage.show();
+
+    }
+
+    public static void win(Stage stage) {
+
+        Button exit = new Button();
+        exit.setStyle("-fx-background-color: transparent");
+        exit.setPrefSize(166, 66);
+        exit.setTranslateX(Sprite.SCALED_SIZE * 15 - 170 / 2 );
+        exit.setTranslateY(Sprite.SCALED_SIZE * 10 - 10);
+        InputStream exitEnd = null;
+        try {
+            exitEnd = new FileInputStream("res/exit.png");
+        } catch (Exception e) {
+            e.getMessage();
+        }
+        ImageView imgE = new ImageView();
+        imgE.setFitWidth(120);
+        imgE.setFitHeight(60);
+        imgE.setImage(new Image(exitEnd));
+        // Menu khi thua
+        InputStream menuEnd = null;
+        try {
+            menuEnd = new FileInputStream("res/win.jpeg");
+
+        } catch (Exception e) {
+            e.getMessage();
+        }
+        ImageView endGame = new ImageView();
+        endGame.setX(0);
+        endGame.setY(0);
+        endGame.setFitHeight(SCALED_SIZE * 15);
+        endGame.setFitWidth(SCALED_SIZE * 30);
+        endGame.setImage(new Image(menuEnd));
+        BombermanGame.root = new Group(endGame);
+        BombermanGame.root.getChildren().addAll( exit);
+        Scene sc = new Scene(BombermanGame.root, SCALED_SIZE * 30, SCALED_SIZE * 15, Color.GREEN);
+        stage.setScene(sc);
+        stage.show();
+
+
 
     }
 
