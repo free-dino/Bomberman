@@ -3,6 +3,9 @@ package menu.Source;
 import javafx.application.Platform;
 import javafx.scene.Group;
 import javafx.scene.Scene;
+import javafx.scene.effect.Blend;
+import javafx.scene.effect.Bloom;
+import javafx.scene.effect.DropShadow;
 import javafx.scene.effect.Reflection;
 import javafx.scene.paint.Color;
 import javafx.scene.image.Image;
@@ -42,7 +45,7 @@ public class StartingMenu extends Button {
         imgView.setFitWidth(180);
         imgView.setImage(new Image(input));
         buttonStart.setGraphic(imgView);
-        buttonStart.setOnMouseEntered(e -> buttonStart.setEffect(new Reflection()));
+        buttonStart.setOnMouseEntered(e -> buttonStart.setEffect(new Bloom()));
         buttonStart.setOnMouseExited(e -> buttonStart.setEffect(null));
         buttonStart.setOnAction(e -> {
             CreateMap createMap = new CreateMap(stage,BombermanGame.level);
@@ -65,7 +68,7 @@ public class StartingMenu extends Button {
         ExitImage.setFitWidth(180);
         ExitImage.setImage(new Image(exitInput));
         buttonExit.setGraphic(ExitImage);
-        buttonExit.setOnMouseEntered(e -> ExitImage.setEffect(new Reflection()));
+        buttonExit.setOnMouseEntered(e -> ExitImage.setEffect(new Bloom()));
         buttonExit.setOnMouseExited(e -> ExitImage.setEffect(null));
         buttonExit.setOnAction(e -> {
             Platform.exit();
