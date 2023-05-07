@@ -13,7 +13,7 @@ public abstract class Entity {
     protected Sprite sprite;
 
     protected int animationTime = 0;
-    protected int HP = 1;
+    public static int HP = 1;
     protected boolean died = false;
     protected boolean beHurt = false;
     protected int hurt_time;

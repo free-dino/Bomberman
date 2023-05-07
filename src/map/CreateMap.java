@@ -18,8 +18,12 @@ import graphics.Sprite;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
+import javafx.scene.control.Label;
 import javafx.scene.paint.Color;
+import javafx.scene.text.Font;
+import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
+import main.BombermanGame;
 
 import java.io.File;
 import java.io.FileReader;
@@ -124,6 +128,18 @@ public class CreateMap {
             // Tao root container
             Group root = new Group();
             root.getChildren().add(canvas);
+            Label healthLabel = new Label("Health: " + Bomber.HP);
+            healthLabel.setFont(Font.font("Arial", FontWeight.BOLD, 20));
+            healthLabel.setTextFill(Color.RED);
+            healthLabel.setLayoutX(10);
+            healthLabel.setLayoutY(Sprite.SCALED_SIZE * HEIGHT + 22);
+            root.getChildren().add(healthLabel);
+            Label levelup = new Label("Level: " + BombermanGame.level);
+            levelup.setFont(Font.font("Arial", FontWeight.BOLD,20));
+            levelup.setTextFill(Color.GREEN);
+            levelup.setLayoutX(Sprite.SCALED_SIZE * WIDTH / 2 - 40);
+            levelup.setLayoutY(Sprite.SCALED_SIZE * HEIGHT + 22);
+            root.getChildren().add(levelup);
 
             Scene scene = new Scene(root, Color.BLACK);
             keyListener = new KeyListener(scene);

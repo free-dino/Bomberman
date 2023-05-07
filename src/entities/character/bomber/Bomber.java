@@ -19,6 +19,7 @@ import javafx.scene.input.KeyCode;
 import map.MapLevel1;
 import map.MapLevel2;
 import map.MapLevel3;
+import menu.Source.EndingMenu;
 
 import static audio.Sound.*;
 import static main.BombermanGame.*;
@@ -172,8 +173,7 @@ public class Bomber extends Animal {
                         level = 3;
                         new MapLevel3(window);
                     } else if (level == 3) {
-                        level = 1;
-                        new MapLevel1(window);
+                        EndingMenu.win(window);
                     }
                 } catch (Exception e) {
                     System.out.println(e.getMessage());
@@ -191,6 +191,7 @@ public class Bomber extends Animal {
                 }
                 if (hurtTick == 30) {
                     if (HP == 0) {
+                        EndingMenu.lose(window);
                         // end game
                         System.out.println("END GAME!!!");
                     }
