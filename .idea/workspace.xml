@@ -5,13 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="03a6babe-b30a-4868-bbdf-ba91240d6708" name="Changes" comment="Chỉnh lại phần hp">
-      <change afterPath="$PROJECT_DIR$/res/replay.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/textures/replay.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-<<<<<<< Updated upstream
-=======
-      <change beforePath="$PROJECT_DIR$/src/entities/character/bomber/Bomber.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/character/bomber/Bomber.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/res/rePlay.png" beforeDir="false" afterPath="$PROJECT_DIR$/res/rePlay.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/menu/Source/EndingMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/menu/Source/EndingMenu.java" afterDir="false" />
->>>>>>> Stashed changes
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,9 +42,9 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "main",
+    "git-widget-placeholder": "Reverting in main",
     "ignore.virus.scanning.warn.message": "true",
-    "last_opened_file_path": "D:/Github/Bomberman",
+    "last_opened_file_path": "C:/Users/AD/Documents/GitHub/Bomberman/res/textures",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -60,6 +57,9 @@
   }
 }]]></component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\AD\Documents\GitHub\Bomberman\res\textures" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\AD\Documents\GitHub\Bomberman\res" />
     </key>

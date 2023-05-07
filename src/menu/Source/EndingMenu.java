@@ -15,14 +15,12 @@ import java.io.FileInputStream;
 import java.io.InputStream;
 
 import static graphics.Sprite.SCALED_SIZE;
-import static main.BombermanGame.root;
-import static main.BombermanGame.typeMenu;
-import static main.BombermanGame.MENU;
+import static main.BombermanGame.*;
 import static map.CreateMap.createMap;
 
 public class EndingMenu {
     public static void lose(Stage stage) {
-        // Button for Replay
+        bgMusic.stop();
         Button rePlay = new Button();
 
         rePlay.setStyle("-fx-background-color: transparent");
@@ -33,7 +31,7 @@ public class EndingMenu {
         try {
             inRe = new FileInputStream("res/replay.png");
         } catch (Exception e) {
-            System.out.println(e.getMessage());
+            e.getMessage();
         }
         ImageView imgR = new ImageView();
         imgR.setFitWidth(120);
@@ -50,11 +48,17 @@ public class EndingMenu {
         buttonExit.setPrefSize(166, 66);
         buttonExit.setTranslateX(SCALED_SIZE * 30 / 2 - 166 / 2 + 96);
         buttonExit.setTranslateY(SCALED_SIZE * 15 / 2 + 66 / 2 + 20);
+
+        Button exit = new Button();
+        exit.setStyle("-fx-background-color: transparent");
+        exit.setPrefSize(166, 66);
+        exit.setTranslateX(Sprite.SCALED_SIZE * 15 - 170 / 2 + 20);
+        exit.setTranslateY(Sprite.SCALED_SIZE * 10 - 10);
         InputStream exitEnd = null;
         try {
             exitEnd = new FileInputStream("res/exitMenu.png");
         } catch (Exception e) {
-            System.out.println(e.getMessage());
+            e.getMessage();
         }
         ImageView imgE = new ImageView();
         imgE.setFitWidth(120);
@@ -71,9 +75,10 @@ public class EndingMenu {
             menuEnd = new FileInputStream("res/endgame.jpeg");
 
         } catch (Exception e) {
-            System.out.println(e.getMessage());
+            e.getMessage();
         }
         ImageView endGame = new ImageView();
+
         endGame.setX(0);
         endGame.setY(0);
         endGame.setFitHeight(SCALED_SIZE * 15);
@@ -88,17 +93,25 @@ public class EndingMenu {
     }
 
     public static void win(Stage stage) {
+        bgMusic.stop();
 
         Button exitButton = new Button();
         exitButton.setStyle("-fx-background-color: transparent");
         exitButton.setPrefSize(166, 66);
         exitButton.setTranslateX(Sprite.SCALED_SIZE * 15 - 170 / 2);
         exitButton.setTranslateY(Sprite.SCALED_SIZE * 10 - 10);
+
+        Button exit = new Button();
+        exit.setStyle("-fx-background-color: transparent");
+        exit.setPrefSize(166, 66);
+        exit.setTranslateX(Sprite.SCALED_SIZE * 15 - 170 / 2);
+        exit.setTranslateY(Sprite.SCALED_SIZE * 10 - 10);
+
         InputStream exitEnd = null;
         try {
             exitEnd = new FileInputStream("res/exit.png");
         } catch (Exception e) {
-            e.getMessage();
+            System.out.println(e.getMessage());
         }
         ImageView imgE = new ImageView();
         imgE.setFitWidth(120);
@@ -110,7 +123,7 @@ public class EndingMenu {
             menuEnd = new FileInputStream("res/win.jpeg");
 
         } catch (Exception e) {
-            e.getMessage();
+            System.out.println(e.getMessage());
         }
         ImageView endGame = new ImageView();
         endGame.setX(0);
@@ -118,11 +131,14 @@ public class EndingMenu {
         endGame.setFitHeight(SCALED_SIZE * 15);
         endGame.setFitWidth(SCALED_SIZE * 30);
         endGame.setImage(new Image(menuEnd));
+
         root = new Group(endGame);
         root.getChildren().addAll(exitButton);
         Scene sc = new Scene(root, SCALED_SIZE * 30, SCALED_SIZE * 15, Color.GREEN);
+
         stage.setScene(sc);
         stage.show();
+
     }
 
 }
