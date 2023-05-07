@@ -15,7 +15,6 @@ import entities.item.FlameItem;
 import entities.item.PortalItem;
 import entities.item.SpeedItem;
 import graphics.Sprite;
-import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.control.Label;
@@ -31,6 +30,8 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 import static main.BombermanGame.*;
+import static menu.Source.PlayingMenu.levelLabel;
+import static menu.Source.PlayingMenu.healthLabel;
 
 /**
  * Khởi tạo 1 map với đầu vào là 1 string: string Level.
@@ -48,7 +49,7 @@ public class CreateMap {
         try (FileReader inputFile = new FileReader(fileName)) {
             Scanner scanner = new Scanner(inputFile);
 
-            level = scanner.nextInt();
+            BombermanGame.level = scanner.nextInt();
             HEIGHT = scanner.nextInt();
             WIDTH = scanner.nextInt();
 
@@ -127,25 +128,11 @@ public class CreateMap {
             gc = canvas.getGraphicsContext2D();
 
             // Tao root container
-            Group root = new Group();
             root.getChildren().add(canvas);
-            Label healthLabel = new Label("Health: " + Bomber.bomber_HP);
-            healthLabel.setFont(Font.font("Arial", FontWeight.BOLD, 20));
-            healthLabel.setTextFill(Color.RED);
-            healthLabel.setLayoutX(10);
-            healthLabel.setLayoutY(Sprite.SCALED_SIZE * HEIGHT + 10);
-            root.getChildren().add(healthLabel);
-            Label levelup = new Label("Level: " + BombermanGame.level);
-            levelup.setFont(Font.font("Arial", FontWeight.BOLD, 20));
-            levelup.setTextFill(Color.GREEN);
-            levelup.setLayoutX(Sprite.SCALED_SIZE * WIDTH / 2 - 40);
-            levelup.setLayoutY(Sprite.SCALED_SIZE * HEIGHT + 10);
-            root.getChildren().add(levelup);
 
-            Scene scene = new Scene(root, Color.BLACK);
+            scene = new Scene(root, Color.BLACK);
             keyListener = new KeyListener(scene);
-            window.setScene(scene);
-            MAX_SCORE = enemies.size() * 100;
+            stage.setScene(scene);
             scanner.close();
         } catch (Exception e) {
             System.out.println("Error in CreateMap.java");

@@ -43,6 +43,7 @@ public class Bomber extends Entity {
         Sound.died.play();
     }
 
+
     public boolean isProtected() {
         return protectedTime > 0;
     }

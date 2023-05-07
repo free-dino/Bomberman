@@ -4,10 +4,7 @@ import audio.Sound;
 import javafx.application.Platform;
 import javafx.scene.Group;
 import javafx.scene.Scene;
-import javafx.scene.effect.Blend;
 import javafx.scene.effect.Bloom;
-import javafx.scene.effect.DropShadow;
-import javafx.scene.effect.Reflection;
 import javafx.scene.paint.Color;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -15,19 +12,18 @@ import javafx.scene.control.Button;
 
 
 import javafx.stage.Stage;
-
 import main.BombermanGame;
-import map.CreateMap;
+
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.InputStream;
 
 import static graphics.Sprite.SCALED_SIZE;
-import static main.BombermanGame.bgMusic;
+import static main.BombermanGame.*;
 
 public class StartingMenu extends Button {
-    public static void play(Stage stage) {
+    public static void start(Stage stage) {
         bgMusic = Sound.title_screen;
         bgMusic.loop();
         Button buttonStart = new Button();
@@ -50,10 +46,8 @@ public class StartingMenu extends Button {
         buttonStart.setOnMouseEntered(e -> buttonStart.setEffect(new Bloom()));
         buttonStart.setOnMouseExited(e -> buttonStart.setEffect(null));
         buttonStart.setOnAction(e -> {
-            bgMusic.stop();
-            CreateMap createMap = new CreateMap(stage,BombermanGame.level);
-            bgMusic = Sound.main_bgm;
-            bgMusic.loop();
+            typeMenu = MENU.PLAYING;
+            PlayingMenu.setup(stage);
         });
 
 
@@ -76,7 +70,7 @@ public class StartingMenu extends Button {
         buttonExit.setOnMouseEntered(e -> ExitImage.setEffect(new Bloom()));
         buttonExit.setOnMouseExited(e -> ExitImage.setEffect(null));
         buttonExit.setOnAction(e -> {
-            Platform.exit();
+            typeMenu = MENU.EXIT;
         });
 
         // menu chính
