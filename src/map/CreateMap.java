@@ -31,7 +31,6 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 import static main.BombermanGame.*;
-import entities.character.bomber.Bomber.*;
 
 /**
  * Khởi tạo 1 map với đầu vào là 1 string: string Level.
@@ -39,6 +38,7 @@ import entities.character.bomber.Bomber.*;
 public class CreateMap {
 
     public CreateMap(Stage stage, int level) {
+        if (bgMusic != null) bgMusic.stop();
         entities = new ArrayList<>();
         enemies = new ArrayList<>();
         flames = new ArrayList<>();
@@ -133,13 +133,13 @@ public class CreateMap {
             healthLabel.setFont(Font.font("Arial", FontWeight.BOLD, 20));
             healthLabel.setTextFill(Color.RED);
             healthLabel.setLayoutX(10);
-            healthLabel.setLayoutY(Sprite.SCALED_SIZE * HEIGHT + 22);
+            healthLabel.setLayoutY(Sprite.SCALED_SIZE * HEIGHT + 10);
             root.getChildren().add(healthLabel);
             Label levelup = new Label("Level: " + BombermanGame.level);
-            levelup.setFont(Font.font("Arial", FontWeight.BOLD,20));
+            levelup.setFont(Font.font("Arial", FontWeight.BOLD, 20));
             levelup.setTextFill(Color.GREEN);
             levelup.setLayoutX(Sprite.SCALED_SIZE * WIDTH / 2 - 40);
-            levelup.setLayoutY(Sprite.SCALED_SIZE * HEIGHT + 22);
+            levelup.setLayoutY(Sprite.SCALED_SIZE * HEIGHT + 10);
             root.getChildren().add(levelup);
 
             Scene scene = new Scene(root, Color.BLACK);

@@ -4,31 +4,18 @@ import audio.Sound;
 import control.KeyListener;
 import javafx.animation.AnimationTimer;
 import javafx.application.Application;
+import javafx.application.Platform;
 import javafx.scene.Group;
-import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
-import javafx.scene.control.Button;
-import javafx.scene.control.Menu;
 import javafx.scene.effect.DropShadow;
 import javafx.scene.effect.Effect;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
-import javafx.scene.paint.Color;
-import javafx.scene.text.Font;
-import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import entities.character.bomber.Bomber;
 import entities.Entity;
-import graphics.Sprite;
 import map.CreateMap;
-import map.MapLevel1;
-import map.MapLevel2;
 import menu.Source.*;
 
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -37,6 +24,7 @@ public class BombermanGame extends Application {
     public static int HEIGHT;
     public static int level;
     public static int MAX_SCORE;
+    public static int MAX_LEVEL = 3;
     public static long FPS_GAME = 1000 / 60;
 
     public static List<Entity> entities = new ArrayList<>();
@@ -56,19 +44,43 @@ public class BombermanGame extends Application {
 
     public static boolean playGame = true;
     public static Sound bgMusic;
+    public static MENU typeMenu = MENU.START;
+
+    public enum MENU {START, PLAYING, PAUSE, END, NEXT_LV, EXIT}
 
 
     public static void main(String[] args) {
         Application.launch(BombermanGame.class);
         System.out.println("Done!");
     }
+
+    public void gameLoop(Stage stage) {
+        switch (typeMenu) {
+            case START:
+                StartingMenu.play(stage);
+                break;
+
+            case PLAYING:
+                break;
+
+            case PAUSE:
+                break;
+
+            case EXIT:
+                Platform.exit();
+                break;
+            default:
+                throw new IllegalArgumentException("Invalid game state");
+        }
+    }
+
     @Override
     public void start(Stage stage) {
         if (bgMusic != null) bgMusic.stop();
         window = stage;
 
-        new MapLevel1(stage); // Test tạo map
         level = 1;
+        new CreateMap(stage, level);
         stage.setResizable(false);
         stage.show();
 
@@ -77,10 +89,10 @@ public class BombermanGame extends Application {
 
             @Override
             public void handle(long now) {
-            if ( playGame == true ) {
-                StartingMenu.play(window);
-                playGame= false;
-            }
+                if (playGame == true) {
+                    StartingMenu.play(window);
+                    playGame = false;
+                }
                 render();
                 update();
 
@@ -111,7 +123,6 @@ public class BombermanGame extends Application {
         entities.forEach(g -> g.render(gc));
         enemies.forEach(g -> g.render(gc));
         bomber.render(gc);
-
     }
 
 }

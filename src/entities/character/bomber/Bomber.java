@@ -6,7 +6,6 @@ import control.KeyListener;
 
 import entities.block.Brick;
 import entities.bomb.Bomb;
-import entities.character.Animal;
 import entities.item.BombItem;
 import entities.item.FlameItem;
 import entities.item.PortalItem;
@@ -16,12 +15,8 @@ import graphics.Sprite;
 import javafx.application.Platform;
 import javafx.scene.image.Image;
 import javafx.scene.input.KeyCode;
-import map.MapLevel1;
-import map.MapLevel2;
-import map.MapLevel3;
 import menu.Source.EndingMenu;
 
-import static audio.Sound.*;
 import static main.BombermanGame.*;
 
 public class Bomber extends Entity {
@@ -30,7 +25,7 @@ public class Bomber extends Entity {
 
     public static int bomber_HP;
     public int SPEED;
-    private  int protectedTime = 0;
+    private int protectedTime = 0;
     private int hurtTick = 0;
     private boolean moving = false;
     private boolean flamePass = false;
@@ -48,7 +43,7 @@ public class Bomber extends Entity {
         Sound.died.play();
     }
 
-    public  boolean isProtected() {
+    public boolean isProtected() {
         return protectedTime > 0;
     }
 
@@ -139,7 +134,7 @@ public class Bomber extends Entity {
                 Entity object = new Bomb(getBomberX(), getBomberY(), Sprite.bomb.getFxImage, entities, sizeOfBomb);
                 entities.add(object);
             });
-           Sound.place_bomb.play();
+            Sound.place_bomb.play();
         }
     }
 
@@ -169,14 +164,10 @@ public class Bomber extends Entity {
             if (!((PortalItem) table[px][py]).isPickUp() && enemies.isEmpty()) {
                 ((PortalItem) table[px][py]).pick();
                 try {
-                    if (level == 1) {
-                        level = 2;
-                        new MapLevel2(window);
-                    } else if (level == 2) {
-                        level = 3;
-                        new MapLevel3(window);
-                    } else if (level == 3) {
-                        EndingMenu.win(window);
+                    if (level < MAX_LEVEL) {
+                        level++;
+                    } else {
+                        // Menu Win.
                     }
                 } catch (Exception e) {
                     System.out.println(e.getMessage());
@@ -201,7 +192,7 @@ public class Bomber extends Entity {
                     }
                     beHurt = false;
                     hurtTick = 0;
-                    protectedTime = 60*3/2;
+                    protectedTime = 60 * 3 / 2;
                     return;
                 }
                 chooseSprite();
@@ -226,6 +217,7 @@ public class Bomber extends Entity {
     public int getBomberY() {
         return (y + Sprite.SCALED_SIZE / 2) / Sprite.SCALED_SIZE;
     }
+
     public boolean isFlamePass() {
         return flamePass;
     }
