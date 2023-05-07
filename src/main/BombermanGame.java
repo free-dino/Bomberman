@@ -32,7 +32,7 @@ public class BombermanGame extends Application {
     public static int WIDTH;
     public static int HEIGHT;
     public static int level = 1;
-    public static int MAX_LEVEL = 3;
+    public static int MAX_LEVEL = 1;
     public static long FPS_GAME = 1000 / 60;
 
     public static List<Entity> entities = new ArrayList<>();
@@ -127,13 +127,13 @@ public class BombermanGame extends Application {
                     level++;
                     createMap(stage, level);
                 } else if (!isEnd) {
-                    EndingMenu.lose(stage);
+                    EndingMenu.win(stage);
                     isEnd = true;
                 }
                 break;
             case END:
                 if (!isEnd) {
-                    EndingMenu.win(stage);
+                    EndingMenu.lose(stage);
                     isEnd = true;
                 }
                 break;
