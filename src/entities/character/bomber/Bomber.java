@@ -164,15 +164,7 @@ public class Bomber extends Entity {
         } else if (table[px][py] instanceof PortalItem) {
             if (!((PortalItem) table[px][py]).isPickUp() && enemies.isEmpty()) {
                 ((PortalItem) table[px][py]).pick();
-                try {
-                    if (level < MAX_LEVEL) {
-                        level++;
-                    } else {
-                        // Menu Win.
-                    }
-                } catch (Exception e) {
-                    System.out.println(e.getMessage());
-                }
+                typeMenu = MENU.NEXT_LEVEL;
             }
         }
     }

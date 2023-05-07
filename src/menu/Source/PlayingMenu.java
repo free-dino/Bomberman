@@ -3,22 +3,22 @@ package menu.Source;
 import javafx.animation.AnimationTimer;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
-import map.CreateMap;
 
 import static main.BombermanGame.*;
+import static map.CreateMap.createMap;
 
 public class PlayingMenu {
     public static Label healthLabel;
     public static Label levelLabel;
 
     public static void setup(Stage stage) {
-        new CreateMap(stage, level);
+        createMap(stage, level);
         AnimationTimer timer = new AnimationTimer() {
             private long lastUpdate = 0;
 
             @Override
             public void handle(long now) {
-                if (typeMenu == MENU.PLAYING) {
+                if (typeMenu == MENU.START) {
                     newGame = true;
                     stop();
                     return;

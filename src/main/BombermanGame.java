@@ -25,6 +25,7 @@ import menu.Source.*;
 import java.util.ArrayList;
 import java.util.List;
 
+import static map.CreateMap.createMap;
 import static menu.Source.PlayingMenu.*;
 
 public class BombermanGame extends Application {
@@ -123,7 +124,8 @@ public class BombermanGame extends Application {
             case NEXT_LEVEL:
                 if (level < MAX_LEVEL) {
                     typeMenu = MENU.PLAYING;
-                    new CreateMap(stage, level++);
+                    level++;
+                    createMap(stage, level);
                 } else if (!isEnd) {
                     EndingMenu.lose(stage);
                     isEnd = true;

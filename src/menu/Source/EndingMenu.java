@@ -10,12 +10,12 @@ import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
 import main.BombermanGame;
-import map.CreateMap;
 
 import java.io.FileInputStream;
 import java.io.InputStream;
 
 import static graphics.Sprite.SCALED_SIZE;
+import static map.CreateMap.createMap;
 
 public class EndingMenu {
     public static void lose(Stage stage) {
@@ -37,7 +37,7 @@ public class EndingMenu {
         imgR.setImage(new Image(inRe));
         rePlay.setGraphic(imgR);
         rePlay.setOnAction(e -> {
-            CreateMap createMap = new CreateMap(stage, BombermanGame.level);
+            createMap(stage, BombermanGame.level);
         });
         Button exit = new Button();
         exit.setStyle("-fx-background-color: transparent");

@@ -36,7 +36,7 @@ import static main.BombermanGame.*;
  */
 public class CreateMap {
 
-    public CreateMap(Stage stage, int level) {
+    public static void createMap(Stage stage, int level) {
         if (bgMusic != null) bgMusic.stop();
         Bomb.cnt = 0;
         entities = new ArrayList<>();
