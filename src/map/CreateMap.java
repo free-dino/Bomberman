@@ -1,10 +1,12 @@
 package map;
 
+import audio.Sound;
 import control.KeyListener;
 import entities.Entity;
 import entities.block.Brick;
 import entities.block.Grass;
 import entities.block.Wall;
+import entities.bomb.Bomb;
 import entities.character.bomber.Bomber;
 import entities.character.enemy.Balloom;
 import entities.character.enemy.Kondoria;
@@ -15,12 +17,10 @@ import entities.item.FlameItem;
 import entities.item.PortalItem;
 import entities.item.SpeedItem;
 import graphics.Sprite;
+import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
-import javafx.scene.control.Label;
 import javafx.scene.paint.Color;
-import javafx.scene.text.Font;
-import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
 import main.BombermanGame;
 
@@ -30,8 +30,6 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 import static main.BombermanGame.*;
-import static menu.Source.PlayingMenu.levelLabel;
-import static menu.Source.PlayingMenu.healthLabel;
 
 /**
  * Khởi tạo 1 map với đầu vào là 1 string: string Level.
@@ -40,16 +38,19 @@ public class CreateMap {
 
     public CreateMap(Stage stage, int level) {
         if (bgMusic != null) bgMusic.stop();
+        Bomb.cnt = 0;
         entities = new ArrayList<>();
         enemies = new ArrayList<>();
         flames = new ArrayList<>();
         stillObjects = new ArrayList<>();
+        bgMusic = Sound.main_bgm;
+        bgMusic.loop();
         System.out.println(System.getProperty("user.dir"));
         final File fileName = new File("res/levels/Level" + level + ".txt");
         try (FileReader inputFile = new FileReader(fileName)) {
             Scanner scanner = new Scanner(inputFile);
 
-            BombermanGame.level = scanner.nextInt();
+            scanner.nextInt();
             HEIGHT = scanner.nextInt();
             WIDTH = scanner.nextInt();
 
@@ -128,6 +129,7 @@ public class CreateMap {
             gc = canvas.getGraphicsContext2D();
 
             // Tao root container
+            root = new Group();
             root.getChildren().add(canvas);
 
             scene = new Scene(root, Color.BLACK);
