@@ -34,7 +34,7 @@ public class Bomber extends Entity {
         super(x, y, img);
         keyListener = _keyListener;
         quantityOfBoms = 1;
-        HP = 5;
+        HP = 1;
         SPEED = 2;
     }
 

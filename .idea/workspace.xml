@@ -5,7 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="03a6babe-b30a-4868-bbdf-ba91240d6708" name="Changes" comment="Chỉnh lại phần hp">
+      <change afterPath="$PROJECT_DIR$/res/replay.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+<<<<<<< Updated upstream
+=======
+      <change beforePath="$PROJECT_DIR$/src/entities/character/bomber/Bomber.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/character/bomber/Bomber.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/menu/Source/EndingMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/menu/Source/EndingMenu.java" afterDir="false" />
+>>>>>>> Stashed changes
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,6 +59,11 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\AD\Documents\GitHub\Bomberman\res" />
+    </key>
+  </component>
   <component name="RunManager" selected="Application.Bomberman">
     <configuration name="Bomberman" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="main.BombermanGame" />
