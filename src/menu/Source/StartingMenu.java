@@ -1,5 +1,6 @@
 package menu.Source;
 
+import audio.Sound;
 import javafx.application.Platform;
 import javafx.scene.Group;
 import javafx.scene.Scene;
@@ -23,11 +24,12 @@ import java.io.FileNotFoundException;
 import java.io.InputStream;
 
 import static graphics.Sprite.SCALED_SIZE;
+import static main.BombermanGame.bgMusic;
 
 public class StartingMenu extends Button {
-
-
     public static void play(Stage stage) {
+        bgMusic = Sound.title_screen;
+        bgMusic.loop();
         Button buttonStart = new Button();
         buttonStart.setStyle("-fx-background-color: transparent"); // để hiện cái nút k bị đè bởi khung
         buttonStart.setPrefSize(166, 66);
@@ -48,7 +50,10 @@ public class StartingMenu extends Button {
         buttonStart.setOnMouseEntered(e -> buttonStart.setEffect(new Bloom()));
         buttonStart.setOnMouseExited(e -> buttonStart.setEffect(null));
         buttonStart.setOnAction(e -> {
+            bgMusic.stop();
             CreateMap createMap = new CreateMap(stage,BombermanGame.level);
+            bgMusic = Sound.main_bgm;
+            bgMusic.loop();
         });
 
 

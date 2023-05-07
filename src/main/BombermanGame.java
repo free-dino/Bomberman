@@ -69,8 +69,6 @@ public class BombermanGame extends Application {
 
         new MapLevel1(stage); // Test tạo map
         level = 1;
-        bgMusic = Sound.main_bgm;
-        bgMusic.loop();
         stage.setResizable(false);
         stage.show();
 

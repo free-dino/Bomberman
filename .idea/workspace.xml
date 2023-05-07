@@ -4,15 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="03a6babe-b30a-4868-bbdf-ba91240d6708" name="Changes" comment="Chỉnh lại cách tạo màn hợp lý hơn">
+    <list default="true" id="03a6babe-b30a-4868-bbdf-ba91240d6708" name="Changes" comment="Chỉnh lại phần hp">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/levels/Level1.txt" beforeDir="false" afterPath="$PROJECT_DIR$/res/levels/Level1.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/sound/main_bgm.wav" beforeDir="false" afterPath="$PROJECT_DIR$/res/sound/main_bgm.wav" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/entities/Entity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/Entity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/entities/character/Animal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/character/Animal.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/entities/character/bomber/Bomber.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entities/character/bomber/Bomber.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/BombermanGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/BombermanGame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/map/CreateMap.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/map/CreateMap.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/menu/Source/StartingMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/menu/Source/StartingMenu.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -158,7 +153,14 @@
       <option name="project" value="LOCAL" />
       <updated>1682565766881</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Chỉnh lại phần hp">
+      <created>1683436160794</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1683436160795</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -199,6 +201,7 @@
     <MESSAGE value="sửa lại đoạn nổ xuyên tường, update lại các methods" />
     <MESSAGE value="sửa lại interact with bomber . pls đừng xóa" />
     <MESSAGE value="Chỉnh lại cách tạo màn hợp lý hơn" />
-    <option name="LAST_COMMIT_MESSAGE" value="Chỉnh lại cách tạo màn hợp lý hơn" />
+    <MESSAGE value="Chỉnh lại phần hp" />
+    <option name="LAST_COMMIT_MESSAGE" value="Chỉnh lại phần hp" />
   </component>
 </project>
