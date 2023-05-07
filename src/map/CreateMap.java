@@ -31,6 +31,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 import static main.BombermanGame.*;
+import entities.character.bomber.Bomber.*;
 
 /**
  * Khởi tạo 1 map với đầu vào là 1 string: string Level.
@@ -128,7 +129,7 @@ public class CreateMap {
             // Tao root container
             Group root = new Group();
             root.getChildren().add(canvas);
-            Label healthLabel = new Label("Health: " + Bomber.HP);
+            Label healthLabel = new Label("Health: " + Bomber.bomber_HP);
             healthLabel.setFont(Font.font("Arial", FontWeight.BOLD, 20));
             healthLabel.setTextFill(Color.RED);
             healthLabel.setLayoutX(10);

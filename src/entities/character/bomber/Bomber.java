@@ -24,12 +24,15 @@ import menu.Source.EndingMenu;
 import static audio.Sound.*;
 import static main.BombermanGame.*;
 
-public class Bomber extends Animal {
+public class Bomber extends Entity {
     private int quantityOfBoms = 1;
     private int sizeOfBomb = 1;
 
+    public static int bomber_HP;
+    public int SPEED;
     private  int protectedTime = 0;
     private int hurtTick = 0;
+    private boolean moving = false;
     private boolean flamePass = false;
 
     public Bomber(int x, int y, Image img, KeyListener _keyListener) {
@@ -184,6 +187,7 @@ public class Bomber extends Animal {
 
     @Override
     public void update() {
+        bomber_HP = HP;
         try {
             if (beHurt) {
                 if (hurtTick == 0) {
@@ -197,7 +201,7 @@ public class Bomber extends Animal {
                     }
                     beHurt = false;
                     hurtTick = 0;
-                    protectedTime = 500;
+                    protectedTime = 60*3/2;
                     return;
                 }
                 chooseSprite();

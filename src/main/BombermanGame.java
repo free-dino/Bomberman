@@ -1,5 +1,6 @@
 package main;
 
+import audio.Sound;
 import control.KeyListener;
 import javafx.animation.AnimationTimer;
 import javafx.application.Application;
@@ -54,6 +55,7 @@ public class BombermanGame extends Application {
     public static Stage window;
 
     public static boolean playGame = true;
+    public static Sound bgMusic;
 
 
     public static void main(String[] args) {
@@ -62,13 +64,13 @@ public class BombermanGame extends Application {
     }
     @Override
     public void start(Stage stage) {
-
+        if (bgMusic != null) bgMusic.stop();
         window = stage;
 
         new MapLevel1(stage); // Test tạo map
         level = 1;
-
-
+        bgMusic = Sound.main_bgm;
+        bgMusic.loop();
         stage.setResizable(false);
         stage.show();
 

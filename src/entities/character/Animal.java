@@ -10,6 +10,7 @@ import entities.character.enemy.Enemy;
 import graphics.Sprite;
 import javafx.application.Platform;
 import javafx.scene.image.Image;
+import main.BombermanGame;
 
 import static main.BombermanGame.*;
 
@@ -38,14 +39,16 @@ public abstract class Animal extends Entity {
             beHurt = false;
             if (HP == 0) {
                 Platform.runLater(() -> {
-                    if(this instanceof Enemy){
-                        enemies.remove(this);
-                    }else if(this instanceof Bomber){
-                        entities.remove(this);
-                    }
-                    table[getLocationX()][getLocationY()] = null;
+                    enemies.remove(this);
+                    BombermanGame.table[(x + Sprite.SCALED_SIZE / 2) / Sprite.SCALED_SIZE][(y + Sprite.SCALED_SIZE / 2) / Sprite.SCALED_SIZE] = null;
                 });
             }
+        }
+    }
+
+    protected void checkCollideWithBomber() {
+        if (bomber.getBomberX() == getLocationX() && bomber.getBomberY() == getLocationY() && !bomber.isProtected()) {
+            bomber.setHurt();
         }
     }
 
@@ -105,31 +108,7 @@ public abstract class Animal extends Entity {
      *
      * @return true / false.
      */
-    public boolean isValidPlayerMove(Direction direction) {
-        switch (direction) {
-            case R:
-                return !checkWall(x + Sprite.SCALED_SIZE - 10, y + 3)
-                        && !checkWall(x + Sprite.SCALED_SIZE - 10, y + Sprite.SCALED_SIZE - 3)
-                        && !checkBrick(x + Sprite.SCALED_SIZE - 10, y + 3)
-                        && !checkBrick(x + Sprite.SCALED_SIZE - 10, y + Sprite.SCALED_SIZE - 3);
-            case L:
-                return !checkWall(x - 2, y + 3)
-                        && !checkWall(x - 2, y + Sprite.SCALED_SIZE - 3)
-                        && !checkBrick(x - 2, y + 3)
-                        && !checkBrick(x - 2, y + Sprite.SCALED_SIZE - 3);
-            case U:
-                return !checkWall(x, y - 2)
-                        && !checkWall(x + Sprite.SCALED_SIZE - 12, y - 2)
-                        && !checkBrick(x, y - 2)
-                        && !checkBrick(x + Sprite.SCALED_SIZE - 12, y - 2);
-            default:
-                // DOWN
-                return !checkWall(x, y + Sprite.SCALED_SIZE)
-                        && !checkWall(x + Sprite.SCALED_SIZE - 12, y + Sprite.SCALED_SIZE)
-                        && !checkBrick(x, y + Sprite.SCALED_SIZE)
-                        && !checkBrick(x + Sprite.SCALED_SIZE - 12, y + Sprite.SCALED_SIZE);
-        }
-    }
+
 
     /**
      * Enemy không đi qua được vật thể Bomb.
