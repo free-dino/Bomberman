@@ -1,5 +1,6 @@
 package menu.Source;
 
+import audio.Sound;
 import graphics.Sprite;
 import javafx.scene.Group;
 import javafx.scene.Scene;
@@ -15,92 +16,87 @@ import java.io.FileInputStream;
 import java.io.InputStream;
 
 import static graphics.Sprite.SCALED_SIZE;
-import static main.BombermanGame.*;
-import static map.CreateMap.createMap;
+import static main.BombermanGame.bgMusic;
+import static main.BombermanGame.root;
+import map.CreateMap;
 
 public class EndingMenu {
     public static void lose(Stage stage) {
-        System.out.println("You lose");
         bgMusic.stop();
-        Button buttonRePlay = new Button();
+        bgMusic = Sound.ending;
+        bgMusic.play();
+        // Button for Replay
+        Button rePlay = new Button();
 
-        buttonRePlay.setStyle("-fx-background-color: transparent");
-        buttonRePlay.setPrefSize(166, 66);
-        buttonRePlay.setTranslateX(SCALED_SIZE * 30 / 2 - 166 / 2 - 106);
-        buttonRePlay.setTranslateY(SCALED_SIZE * 15 / 2 + 66 / 2 + 20);
+        rePlay.setStyle("-fx-background-color: transparent");
+        rePlay.setPrefSize(166, 66);
+        rePlay.setTranslateX(Sprite.SCALED_SIZE * 15 - 170 / 2 - 20);
+        rePlay.setTranslateY(Sprite.SCALED_SIZE * 10 - 10);
         InputStream inRe = null;
         try {
             inRe = new FileInputStream("res/replay.png");
         } catch (Exception e) {
-            e.getMessage();
+            System.out.println(e.getMessage());
         }
         ImageView imgR = new ImageView();
         imgR.setFitWidth(120);
         imgR.setFitHeight(60);
         imgR.setImage(new Image(inRe));
-        buttonRePlay.setGraphic(imgR);
-        buttonRePlay.setOnAction(e -> {
-            createMap(stage, level);
+        rePlay.setGraphic(imgR);
+        rePlay.setOnAction(e -> {
+            new CreateMap(stage, BombermanGame.level);
         });
 
         // Button for Exit
-        Button buttonExit = new Button();
-        buttonExit.setStyle("-fx-background-color: transparent");
-        buttonExit.setPrefSize(166, 66);
-        buttonExit.setTranslateX(SCALED_SIZE * 30 / 2 - 166 / 2 + 96);
-        buttonExit.setTranslateY(SCALED_SIZE * 15 / 2 + 66 / 2 + 20);
-
+        Button exitButton = new Button();
+        exitButton.setStyle("-fx-background-color: transparent");
+        exitButton.setPrefSize(166, 66);
+        exitButton.setTranslateX(Sprite.SCALED_SIZE * 15 - 170 / 2 + 20);
+        exitButton.setTranslateY(Sprite.SCALED_SIZE * 10 - 10);
         InputStream exitEnd = null;
         try {
-            exitEnd = new FileInputStream("res/exitMenu.png");
+            exitEnd = new FileInputStream("res/exit.png");
         } catch (Exception e) {
-            e.getMessage();
+            System.out.println(e.getMessage());
         }
         ImageView imgE = new ImageView();
         imgE.setFitWidth(120);
         imgE.setFitHeight(60);
         imgE.setImage(new Image(exitEnd));
-        buttonExit.setGraphic(imgE);
-        buttonExit.setOnAction(e -> {
-            typeMenu = MENU.EXIT;
-        });
-
-        // Background
         InputStream menuEnd = null;
         try {
             menuEnd = new FileInputStream("res/endgame.jpeg");
 
         } catch (Exception e) {
-            e.getMessage();
+            System.out.println(e.getMessage());
         }
         ImageView endGame = new ImageView();
-
         endGame.setX(0);
         endGame.setY(0);
         endGame.setFitHeight(SCALED_SIZE * 15);
         endGame.setFitWidth(SCALED_SIZE * 30);
         endGame.setImage(new Image(menuEnd));
         root = new Group(endGame);
-        root.getChildren().addAll(buttonRePlay, buttonExit);
+        root.getChildren().addAll(rePlay, exitButton);
         Scene sc = new Scene(root, SCALED_SIZE * 30, SCALED_SIZE * 15, Color.GREEN);
         stage.setScene(sc);
         stage.show();
+
     }
 
     public static void win(Stage stage) {
-        System.out.println("You win!");
         bgMusic.stop();
+        bgMusic = Sound.win;
+        bgMusic.play();
 
-        // Button for Exit
-        Button buttonExit = new Button();
-        buttonExit.setStyle("-fx-background-color: transparent");
-        buttonExit.setPrefSize(166, 66);
-        buttonExit.setTranslateX(SCALED_SIZE * 30 / 2 - 166 / 2 + 96);
-        buttonExit.setTranslateY(SCALED_SIZE * 15 / 2 + 66 / 2 + 20);
-
+        Button exitButton = new Button();
+        exitButton.setStyle("-fx-background-color: transparent");
+        exitButton.setPrefSize(166, 66);
+        exitButton.setTranslateX(Sprite.SCALED_SIZE * 15 - 170 / 2 );
+        exitButton.setTranslateY(Sprite.SCALED_SIZE * 10 - 10);
         InputStream exitEnd = null;
         try {
-            exitEnd = new FileInputStream("res/exitMenu.png");
+            exitEnd = new FileInputStream("res/exit.png");
         } catch (Exception e) {
             e.getMessage();
         }
@@ -108,28 +104,22 @@ public class EndingMenu {
         imgE.setFitWidth(120);
         imgE.setFitHeight(60);
         imgE.setImage(new Image(exitEnd));
-        buttonExit.setGraphic(imgE);
-        buttonExit.setOnAction(e -> {
-            typeMenu = MENU.EXIT;
-        });
-
-        // Background
-        InputStream menuWin = null;
+        // Menu khi thua
+        InputStream menuEnd = null;
         try {
-            menuWin = new FileInputStream("res/endgame.jpeg");
+            menuEnd = new FileInputStream("res/win.jpeg");
 
         } catch (Exception e) {
             e.getMessage();
         }
         ImageView endGame = new ImageView();
-
         endGame.setX(0);
         endGame.setY(0);
         endGame.setFitHeight(SCALED_SIZE * 15);
         endGame.setFitWidth(SCALED_SIZE * 30);
-        endGame.setImage(new Image(menuWin));
+        endGame.setImage(new Image(menuEnd));
         root = new Group(endGame);
-        root.getChildren().add(buttonExit);
+        root.getChildren().addAll( exitButton);
         Scene sc = new Scene(root, SCALED_SIZE * 30, SCALED_SIZE * 15, Color.GREEN);
         stage.setScene(sc);
         stage.show();

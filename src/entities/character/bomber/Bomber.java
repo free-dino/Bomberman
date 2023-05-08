@@ -34,7 +34,7 @@ public class Bomber extends Entity {
         super(x, y, img);
         keyListener = _keyListener;
         quantityOfBoms = 1;
-        HP = 1;
+        HP = 3;
         SPEED = 2;
     }
 
@@ -164,7 +164,15 @@ public class Bomber extends Entity {
         } else if (table[px][py] instanceof PortalItem) {
             if (!((PortalItem) table[px][py]).isPickUp() && enemies.isEmpty()) {
                 ((PortalItem) table[px][py]).pick();
-                typeMenu = MENU.NEXT_LEVEL;
+                try {
+                    if (level < MAX_LEVEL) {
+                        typeMenu = MENU.NEXT_LEVEL;
+                    } else {
+                        typeMenu = MENU.END;
+                    }
+                } catch (Exception e) {
+                    System.out.println(e.getMessage());
+                }
             }
         }
     }

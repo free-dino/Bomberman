@@ -5,14 +5,14 @@ import javafx.scene.control.Label;
 import javafx.stage.Stage;
 
 import static main.BombermanGame.*;
-import static map.CreateMap.createMap;
+import map.CreateMap;
 
 public class PlayingMenu {
     public static Label healthLabel;
     public static Label levelLabel;
 
     public static void setup(Stage stage) {
-        createMap(stage, level);
+        new CreateMap(stage, level);
         AnimationTimer timer = new AnimationTimer() {
             private long lastUpdate = 0;
 

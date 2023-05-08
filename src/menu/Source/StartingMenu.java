@@ -24,7 +24,7 @@ import static main.BombermanGame.*;
 
 public class StartingMenu extends Button {
     public static void start(Stage stage) {
-        bgMusic = Sound.title_screen;
+        bgMusic = Sound.main_bgm;
         bgMusic.loop();
         Button buttonStart = new Button();
         buttonStart.setStyle("-fx-background-color: transparent"); // để hiện cái nút k bị đè bởi khung

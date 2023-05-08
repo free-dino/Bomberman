@@ -36,14 +36,14 @@ import static main.BombermanGame.*;
  */
 public class CreateMap {
 
-    public static void createMap(Stage stage, int level) {
+    public CreateMap(Stage stage, int level) {
         if (bgMusic != null) bgMusic.stop();
         Bomb.cnt = 0;
         entities = new ArrayList<>();
         enemies = new ArrayList<>();
         flames = new ArrayList<>();
         stillObjects = new ArrayList<>();
-        bgMusic = Sound.main_bgm;
+        bgMusic = Sound.title_screen;
         bgMusic.loop();
         System.out.println(System.getProperty("user.dir"));
         final File fileName = new File("res/levels/Level" + level + ".txt");

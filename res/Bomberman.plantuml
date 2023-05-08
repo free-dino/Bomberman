@@ -1,0 +1,244 @@
+@startuml
+
+!theme plain
+top to bottom direction
+skinparam linetype ortho
+
+class Animal {
+  + Animal(int, int, Image): 
+  # checkWall(int, int): boolean
+  # checkEnemy(int, int): boolean
+  # checkCollideWithBomber(): void
+  # checkBomb(int, int): boolean
+  + isValidEnemyMove(Direction): boolean
+  # gotHurt(Sprite): void
+  # checkBrick(int, int): boolean
+   speed: int
+}
+class Balloom {
+  + Balloom(int, int, Image): 
+  + chooseDirection(): void
+  + update(): void
+  # chooseSprite(): void
+  # enemyMoving(): void
+}
+class Bomb {
+  + Bomb(int, int, Image, List<Entity>, int): 
+  - exploded: boolean
+  + getImg(): void
+  - hurtingByExplosion(int, int): void
+  - checkBreak(int, int): boolean
+  + update(): void
+  + setExplode(): void
+   exploded: boolean
+}
+class BombItem {
+  + BombItem(int, int, Image): 
+  + update(): void
+}
+class Bomber {
+  + Bomber(int, int, Image, KeyListener): 
+  - flamePass: boolean
+  - bomberMoving(): void
+  # chooseSprite(): void
+  + update(): void
+  + setDied(): void
+  + pickItemUp(): void
+  + placeBomb(): void
+   flamePass: boolean
+   protected: boolean
+   bomberY: int
+   bomberX: int
+}
+class BombermanGame {
+  + BombermanGame(): 
+  + update(): void
+  + main(String[]): void
+  + render(): void
+  + start(Stage): void
+}
+class Brick {
+  + Brick(int, int, Image): 
+  + setExploded(): void
+  - destroyBrick(): void
+  + update(): void
+}
+class CreateMap {
+  + CreateMap(Stage, int): 
+}
+enum Direction << enumeration >> {
+  - Direction(): 
+  + values(): Direction[]
+  + valueOf(String): Direction
+}
+class EndingMenu {
+  + EndingMenu(): 
+  + win(Stage): void
+  + lose(Stage): void
+}
+class Enemy {
+  + Enemy(int, int, Image): 
+  # interactWithBomber(): void
+  # enemyMoving(): void
+  # chooseDirection(): void
+}
+class Entity {
+  + Entity(int, int, Image): 
+  # y: int
+  # img: Image
+  # x: int
+  + setHurt(): void
+  # checkEnemy(int, int): boolean
+  # checkWall(int, int): boolean
+  # checkBrick(int, int): boolean
+  # checkBomb(int, int): boolean
+  + render(GraphicsContext): void
+  + isValidPlayerMove(Direction): boolean
+  + update(): void
+  + setDied(): void
+  + getEntity(int, int): Entity
+   img: Image
+   y: int
+   x: int
+   locationX: int
+   locationY: int
+}
+class Flame {
+  + Flame(int, int, Image, FlameDirection, List<Entity>): 
+  + update(): void
+  + getImg(): void
+}
+enum FlameDirection << enumeration >> {
+  - FlameDirection(): 
+  + values(): FlameDirection[]
+  + valueOf(String): FlameDirection
+}
+class FlameItem {
+  + FlameItem(int, int, Image): 
+  + update(): void
+}
+class Grass {
+  + Grass(int, int, Image): 
+  + update(): void
+}
+class HighAI {
+  + HighAI(): 
+  + getDirection(Enemy): Direction
+}
+class Item {
+  + Item(int, int, Image): 
+  + pick(): void
+   pickUp: boolean
+}
+class KeyListener {
+  + KeyListener(): 
+  + KeyListener(Scene): 
+  + handle(KeyEvent): void
+  + isPressed(KeyCode): boolean
+}
+class Kondoria {
+  + Kondoria(int, int, Image): 
+  # enemyMoving(): void
+  # chooseSprite(): void
+  + isValidEnemyMove(Direction): boolean
+  + chooseDirection(): void
+  + update(): void
+}
+class LowAI {
+  + LowAI(): 
+   direction: Direction
+}
+class MapLevel1 {
+  + MapLevel1(Stage): 
+}
+class MapLevel2 {
+  + MapLevel2(Stage): 
+}
+class MapLevel3 {
+  + MapLevel3(Stage): 
+}
+class MediumAI {
+  + MediumAI(): 
+  + getDirection(Enemy): Direction
+}
+class Minvo {
+  + Minvo(int, int, Image): 
+  + chooseDirection(): void
+  + update(): void
+  # chooseSprite(): void
+  # enemyMoving(): void
+}
+class NextLevel {
+  + NextLevel(): 
+}
+class Node {
+  ~ Node(int, int, int): 
+  + compareTo(Node): int
+}
+class Oneal {
+  + Oneal(int, int, Image): 
+  + update(): void
+  + chooseDirection(): void
+  # enemyMoving(): void
+  # chooseSprite(): void
+}
+class PortalItem {
+  + PortalItem(int, int, Image): 
+  + update(): void
+}
+class Sound {
+  + Sound(String): 
+  + loop(): void
+  + play(): void
+  + stop(): void
+}
+class SpeedItem {
+  + SpeedItem(int, int, Image): 
+  + update(): void
+}
+class Sprite {
+  + Sprite(int, int, int, SpriteSheet, int, int): 
+  + Sprite(int, int): 
+  + movingSprite(Sprite, Sprite, Sprite, int, int): Sprite
+  + getPixel(int): int
+  - resample(Image, int): Image
+  - load(): void
+  + movingSprite(Sprite, Sprite, int, int): Sprite
+   fxImage: Image
+   size: int
+   color: int
+}
+class SpriteSheet {
+  + SpriteSheet(String, int): 
+  - load(): void
+}
+class StartingMenu {
+  + StartingMenu(): 
+  + play(Stage): void
+}
+class Wall {
+  + Wall(int, int, Image): 
+  + update(): void
+}
+
+Animal          -[#589df6,plain]-^  Entity         
+Balloom         -[#589df6,plain]-^  Enemy          
+Bomb            -[#589df6,plain]-^  Entity         
+BombItem        -[#589df6,plain]-^  Item           
+Bomber          -[#589df6,plain]-^  Entity         
+Brick           -[#589df6,plain]-^  Entity         
+Direction       +-[#ff6464,plain]-  Entity         
+Enemy           -[#589df6,plain]-^  Animal         
+Flame           -[#589df6,plain]-^  Entity         
+FlameDirection  +-[#ff6464,plain]-  Flame          
+FlameItem       -[#589df6,plain]-^  Item           
+Grass           -[#589df6,plain]-^  Entity         
+Item            -[#589df6,plain]-^  Entity         
+Kondoria        -[#589df6,plain]-^  Enemy          
+Minvo           -[#589df6,plain]-^  Enemy          
+Node            +-[#ff6464,plain]-  HighAI         
+Oneal           -[#589df6,plain]-^  Enemy          
+PortalItem      -[#589df6,plain]-^  Item           
+SpeedItem       -[#589df6,plain]-^  Item           
+Wall            -[#589df6,plain]-^  Entity         
+@enduml

@@ -25,14 +25,13 @@ import menu.Source.*;
 import java.util.ArrayList;
 import java.util.List;
 
-import static map.CreateMap.createMap;
 import static menu.Source.PlayingMenu.*;
 
 public class BombermanGame extends Application {
     public static int WIDTH;
     public static int HEIGHT;
     public static int level = 1;
-    public static int MAX_LEVEL = 1;
+    public static int MAX_LEVEL = 3;
     public static long FPS_GAME = 1000 / 60;
 
     public static List<Entity> entities = new ArrayList<>();
@@ -124,8 +123,7 @@ public class BombermanGame extends Application {
             case NEXT_LEVEL:
                 if (level < MAX_LEVEL) {
                     typeMenu = MENU.PLAYING;
-                    level++;
-                    createMap(stage, level);
+                    new CreateMap(stage, ++level);
                 } else if (!isEnd) {
                     EndingMenu.win(stage);
                     isEnd = true;
