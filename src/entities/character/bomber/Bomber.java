@@ -168,7 +168,7 @@ public class Bomber extends Entity {
                     if (level < MAX_LEVEL) {
                         typeMenu = MENU.NEXT_LEVEL;
                     } else {
-                        typeMenu = MENU.END;
+                        EndingMenu.win(window);
                     }
                 } catch (Exception e) {
                     System.out.println(e.getMessage());
