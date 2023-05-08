@@ -20,7 +20,7 @@ import static main.BombermanGame.bgMusic;
 import static main.BombermanGame.root;
 import map.CreateMap;
 
-public class EndingMenu {
+public class EndingMenu  {
     public static void lose(Stage stage) {
         bgMusic.stop();
         bgMusic = Sound.ending;
@@ -30,11 +30,11 @@ public class EndingMenu {
 
         rePlay.setStyle("-fx-background-color: transparent");
         rePlay.setPrefSize(166, 66);
-        rePlay.setTranslateX(Sprite.SCALED_SIZE * 15 - 170 / 2 - 20);
+        rePlay.setTranslateX(Sprite.SCALED_SIZE * 15 - 170 / 2 - 100);
         rePlay.setTranslateY(Sprite.SCALED_SIZE * 10 - 10);
         InputStream inRe = null;
         try {
-            inRe = new FileInputStream("res/replay.png");
+            inRe = new FileInputStream("res/restart.png");
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
@@ -51,7 +51,7 @@ public class EndingMenu {
         Button exitButton = new Button();
         exitButton.setStyle("-fx-background-color: transparent");
         exitButton.setPrefSize(166, 66);
-        exitButton.setTranslateX(Sprite.SCALED_SIZE * 15 - 170 / 2 + 20);
+        exitButton.setTranslateX(Sprite.SCALED_SIZE * 15 - 170 / 2 + 100 );
         exitButton.setTranslateY(Sprite.SCALED_SIZE * 10 - 10);
         InputStream exitEnd = null;
         try {
@@ -63,6 +63,7 @@ public class EndingMenu {
         imgE.setFitWidth(120);
         imgE.setFitHeight(60);
         imgE.setImage(new Image(exitEnd));
+        exitButton.setGraphic(imgE);
         InputStream menuEnd = null;
         try {
             menuEnd = new FileInputStream("res/endgame.jpeg");
@@ -104,10 +105,11 @@ public class EndingMenu {
         imgE.setFitWidth(120);
         imgE.setFitHeight(60);
         imgE.setImage(new Image(exitEnd));
+        exitButton.setGraphic(imgE);
         // Menu khi thua
         InputStream menuEnd = null;
         try {
-            menuEnd = new FileInputStream("res/win.jpeg");
+            menuEnd = new FileInputStream("res/winGame.jpeg");
 
         } catch (Exception e) {
             e.getMessage();
