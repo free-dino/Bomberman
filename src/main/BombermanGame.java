@@ -134,6 +134,9 @@ public class BombermanGame extends Application {
                     EndingMenu.lose(stage);
                     isEnd = true;
                 }
+                else {
+                    EndingMenu.win(window);
+                }
                 break;
             default:
                 System.out.println("Lỗi ở render trong main");

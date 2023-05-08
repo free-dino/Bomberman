@@ -64,6 +64,9 @@ public class EndingMenu  {
         imgE.setFitHeight(60);
         imgE.setImage(new Image(exitEnd));
         exitButton.setGraphic(imgE);
+        exitButton.setOnAction(e -> {
+            BombermanGame.typeMenu = BombermanGame.MENU.EXIT;
+        });
         InputStream menuEnd = null;
         try {
             menuEnd = new FileInputStream("res/endgame.jpeg");
@@ -106,10 +109,13 @@ public class EndingMenu  {
         imgE.setFitHeight(60);
         imgE.setImage(new Image(exitEnd));
         exitButton.setGraphic(imgE);
+        exitButton.setOnAction(e -> {
+            BombermanGame.typeMenu = BombermanGame.MENU.EXIT;
+        });
         // Menu khi thua
         InputStream menuEnd = null;
         try {
-            menuEnd = new FileInputStream("res/winGame.jpeg");
+            menuEnd = new FileInputStream("res/endgame.jpeg");
 
         } catch (Exception e) {
             e.getMessage();
